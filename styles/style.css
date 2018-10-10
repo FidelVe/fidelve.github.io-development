@@ -20,9 +20,10 @@
 /* ANDROID MASCOT ANIMATED */
 /*Android logo section*/
 .logo {
-    height: 400px;
-    width: 365px;
-    /* border-style: dotted; */
+    /* Minimum height and width for the browser not to draw a scrolling bar around the logo */
+    height: 410px; 
+    width: 370px;
+    /* ================= */
     overflow: auto;
     padding: 10px;
     margin: 10px auto;
