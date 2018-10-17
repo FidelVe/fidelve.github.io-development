@@ -6,6 +6,7 @@
     margin: 10px auto;
     /* padding: 10px; */
 }
+
 .introduction {
     font-family: monospace;
     font-size: 18px;
@@ -13,23 +14,27 @@
     margin: 0 auto;
     text-indent: 50px;
 }
+
 .introduction h1 {
     text-align: center;
 }
+
 .introduction p {
     text-align: justify;
 }
+
 /* ANDROID MASCOT ANIMATED */
 /*Android logo section*/
 .logo {
     /* Minimum height and width for the browser not to draw a scrolling bar around the logo */
-    height: 410px; 
+    height: 410px;
     width: 370px;
     /* ================= */
     overflow: auto;
     padding: 10px;
     margin: 10px auto;
 }
+
 .section {
     /* margin: 0 50px 0 50px; */
     /* float: bottom;  */
@@ -38,12 +43,14 @@
     /* background-color: blue; */
     margin: 5px 0 0 10px;
 }
+
 .section div {
     background-color: #A4CA39;
     /* border-style: solid; */
-    float:left;
+    float: left;
     /* margin: auto; */
 }
+
 /*<----------------section-------------------->*/
 /*Box for the head*/
 .logo-head {
@@ -53,6 +60,7 @@
     margin-left: -41px;
     margin-top: 20px;
 }
+
 /*Common attrib of the antenas*/
 .l-ant,
 .r-ant {
@@ -60,37 +68,43 @@
     height: 50px;
     border-radius: 10px;
 }
+
 /*Box for the left antenna*/
 .l-ant {
     /* color: red; */
     margin-left: 95px;
     transform: rotate(-30deg)
 }
+
 /*Box for the right antenna*/
 .r-ant {
     margin-left: -40px;
     transform: rotate(30deg);
     /* color: blue; */
-    
+
 }
+
 /* common attributes of the eyes */
 .l-eye,
 .r-eye {
     width: 20px;
     height: 20px;
-    background-color: white !important; 
+    background-color: white !important;
     /* border-style: solid; */
     border-radius: 50%;
     margin-top: 60px;
 }
+
 /* box for the left eye */
 .l-eye {
     margin-left: -170px;
 }
+
 /* box for the right eye */
-.r-eye{
+.r-eye {
     margin-left: -70px;
 }
+
 /*<----------------section-------------------->*/
 /*Box for the body*/
 .logo-body {
@@ -99,6 +113,7 @@
     /* border-style: dotted; */
     border-radius: 0 0 25px 25px;
 }
+
 /* Common attributes of arms */
 .l-arm,
 .r-arm {
@@ -107,14 +122,13 @@
     border-radius: 25px;
     margin: 5px;
 }
-/*Box for the left arm*/
-.l-arm {
-    
-}
-/*Box for the right arm*/
-.r-arm {
 
-}
+/*Box for the left arm*/
+.l-arm {}
+
+/*Box for the right arm*/
+.r-arm {}
+
 /*<----------------section-------------------->*/
 /* Common attributes of legs */
 .l-leg,
@@ -123,54 +137,67 @@
     height: 80px;
     border-radius: 0 0 25px 25px;
 }
+
 /*Box for the left leg*/
 .l-leg {
     margin-left: 100px;
     margin-right: 20px;
 }
+
 /*Box for the right leg*/
 .r-leg {
-    margin-left: 20px;    
+    margin-left: 20px;
 }
+
 /*<----------------section-------------------->*/
 /* head animation */
 #animation-1 {
     width: 300px;
     height: 120px;
-    -webkit-transition: all 0,1s ease-in;
+    -webkit-transition: all 0, 1s ease-in;
     /* background-color: red; */
 }
+
 #animation-1:hover {
     transform: rotate(-5deg) translate(-4px, -8px)
 }
+
 /* arms animation */
 #animation-2 {
-    -webkit-transition: all 0,1s ease-in;
+    -webkit-transition: all 0, 1s ease-in;
 }
+
 #animation-2:hover {
     transform: rotate(5deg)
 }
+
 #animation-3 {
-    -webkit-transition: all 0,1s ease-in;
+    -webkit-transition: all 0, 1s ease-in;
 }
+
 #animation-3:hover {
     transform: rotate(-5deg)
 }
+
 /* legs animation */
 #animation-4 {
     /* height: 90px; */
-    -webkit-transition: all 0,1s ease-in;
+    -webkit-transition: all 0, 1s ease-in;
 }
+
 #animation-4:hover {
     transform: rotate(5deg)
 }
+
 #animation-5 {
     /* height: 90px; */
-    -webkit-transition: all 0,1s ease-in;
+    -webkit-transition: all 0, 1s ease-in;
 }
+
 #animation-5:hover {
     transform: rotate(-5deg)
 }
+
 /* easy solve to bad coding structure */
 #leg-h {
     height: 85px;
