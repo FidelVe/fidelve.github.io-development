@@ -72,13 +72,15 @@ body {
 }
 
 #main-header h1 {
-    text-align: center;
-    font-size: 36px;
-    /* margin: 0 auto; */
-    /* font-size: 3vw; */
+  min-width: 400px;
+  text-align: center;
+  font-size: 36px;
+  /* margin: 0 auto; */
+  /* font-size: 3vw; */
 }
 
 #content {
+  min-width: 400px;
   margin: 0 auto;
   /* overflow: scroll; */
   display: flex;
