@@ -1,43 +1,36 @@
-/* #header { */
-/*     background-image: url("../images/banner2.jpeg"); */
-/*     background-repeat: no-repeat; */
-/*     width: 1020px; */
-/*     height: 400px; */
-/*     margin: 10px auto; */
-/*     /1* padding: 10px; *1/ */
-/* } */
 body {
-  /* height: 100vh; */
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   margin: 0px;
   font-family: monospace;
-  /* height: 100vh; */
+  height: 100%;
+  min-height: 100%;
+  min-width: 500px;
 }
 
 #sidebar {
-  background-image: url("../images/nav.jpeg");
+  position: fixed;
+  top: 0px;
+  height: 15vw;
+  width: 100%;
+  background-image: url("../images/banner2.jpeg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 218px 816px;
-  width: 218px;
-  /* height: 100vh; */
-  border-radius: 0px 4px 4px 0px;
+  background-size: cover;
+  border-radius: 0px 0px 4px 4px;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   text-align: center;
 }
 
 #sidebar a {
   display: block;
   background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 5vw;
+  padding-top: 5vw;
 }
 
 #sidebar a:hover {
@@ -45,54 +38,41 @@ body {
   color: #fff;
 }
 
-#sidebar a:nth-child(1) {
-  margin-top: 2px;
-  border-radius: 0px 2px 0px 0px;
-}
-
-#sidebar a:nth-child(2) {
-  /* border-top: solid 1px rgba(0, 0, 0, 0.3); */
-  /* border-bottom: solid 1px rgba(0, 0, 0, 0.3); */
-}
-
 #sidebar a:nth-child(3) {
 }
 
 #main {
-  flex-grow: 2;
-  overflow: auto;
+  margin-top: 15vw;
+  overflow-y: auto;
   font-family: monospace;
   font-size: 18px;
-  width: 800px;
-  height: 100vh;
-  /* margin: 0 auto; */
-  /* text-indent: 50px; */
+  width: 100%;
   text-indent: 0px;
-  padding: 0 10vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-width: 420px;
+}
+
+#main-header, #content {
+  margin: 0px 5vw;
 }
 
 #main-header h1 {
-  min-width: 400px;
+  /* min-width: 400px; */
   text-align: center;
-  font-size: 36px;
-  /* margin: 0 auto; */
-  /* font-size: 3vw; */
+  font-size: 5vw;
 }
 
 #content {
-  min-width: 400px;
-  margin: 0 auto;
-  /* overflow: scroll; */
   display: flex;
   flex-flow: column nowrap;
-  /* justify-content: center; */
   align-items: center;
+  font-size: 2vw;
 }
 
-#content p, #content ul, #content li {
-    text-align: justify;
-    /* font-size: 1.2vw; */
-}
+/* #content p, #content ul, #content li { */
+/* } */
 
 /* style for about.html */
 #about-img-1 {
@@ -102,184 +82,56 @@ body {
 
 #about-img-2 {
   width: 500px;
-  /* height: 400px; */
-}
-/* ANDROID MASCOT ANIMATED */
-/*Android logo section*/
-.logo {
-    /* Minimum height and width for the browser not to draw a scrolling bar around the logo */
-    height: 410px;
-    width: 370px;
-    /* ================= */
-    overflow: auto;
-    padding: 10px;
-    margin: 10px auto;
 }
 
-.section {
-    /* margin: 0 50px 0 50px; */
-    /* float: bottom;  */
-    overflow: auto;
-    /* border-style: solid; */
-    /* background-color: blue; */
-    margin: 5px 0 0 10px;
+@media screen and (max-width: 500px) {
+  /* if width less than 500px lock these values */
+  #main {
+    margin-top: 75px;
+  }
+  #sidebar {
+    height: 75px;
+    width: 500px;
+  }
+  #sidebar a, #main-header h1 {
+    font-size: 25px;
+  }
+  #sidebar a {
+    padding-top: 25px;
+  }
+  #content {
+    font-size: 10px;
+  }
+  #main-header, #content {
+    margin: 0px 25px;
+  }
 }
-
-.section div {
-    background-color: #A4CA39;
-    /* border-style: solid; */
-    float: left;
-    /* margin: auto; */
-}
-
-/*<----------------section-------------------->*/
-/*Box for the head*/
-.logo-head {
-    width: 220px;
-    height: 100px;
-    border-radius: 110px 110px 0 0;
-    margin-left: -41px;
-    margin-top: 20px;
-}
-
-/*Common attrib of the antenas*/
-.l-ant,
-.r-ant {
-    width: 6px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-/*Box for the left antenna*/
-.l-ant {
-    /* color: red; */
-    margin-left: 95px;
-    transform: rotate(-30deg)
-}
-
-/*Box for the right antenna*/
-.r-ant {
-    margin-left: -40px;
-    transform: rotate(30deg);
-    /* color: blue; */
-
-}
-
-/* common attributes of the eyes */
-.l-eye,
-.r-eye {
-    width: 20px;
-    height: 20px;
-    background-color: white !important;
-    /* border-style: solid; */
-    border-radius: 50%;
-    margin-top: 60px;
-}
-
-/* box for the left eye */
-.l-eye {
-    margin-left: -170px;
-}
-
-/* box for the right eye */
-.r-eye {
-    margin-left: -70px;
-}
-
-/*<----------------section-------------------->*/
-/*Box for the body*/
-.logo-body {
-    width: 220px;
-    height: 184px;
-    /* border-style: dotted; */
-    border-radius: 0 0 25px 25px;
-}
-
-/* Common attributes of arms */
-.l-arm,
-.r-arm {
-    width: 50px;
-    height: 150px;
-    border-radius: 25px;
-    margin: 5px;
-}
-
-/*Box for the left arm*/
-.l-arm {}
-
-/*Box for the right arm*/
-.r-arm {}
-
-/*<----------------section-------------------->*/
-/* Common attributes of legs */
-.l-leg,
-.r-leg {
-    width: 50px;
-    height: 80px;
-    border-radius: 0 0 25px 25px;
-}
-
-/*Box for the left leg*/
-.l-leg {
-    margin-left: 100px;
-    margin-right: 20px;
-}
-
-/*Box for the right leg*/
-.r-leg {
-    margin-left: 20px;
-}
-
-/*<----------------section-------------------->*/
-/* head animation */
-#animation-1 {
-    width: 300px;
-    height: 120px;
-    -webkit-transition: all 0, 1s ease-in;
-    /* background-color: red; */
-}
-
-#animation-1:hover {
-    transform: rotate(-5deg) translate(-4px, -8px)
-}
-
-/* arms animation */
-#animation-2 {
-    -webkit-transition: all 0, 1s ease-in;
-}
-
-#animation-2:hover {
-    transform: rotate(5deg)
-}
-
-#animation-3 {
-    -webkit-transition: all 0, 1s ease-in;
-}
-
-#animation-3:hover {
-    transform: rotate(-5deg)
-}
-
-/* legs animation */
-#animation-4 {
-    /* height: 90px; */
-    -webkit-transition: all 0, 1s ease-in;
-}
-
-#animation-4:hover {
-    transform: rotate(5deg)
-}
-
-#animation-5 {
-    /* height: 90px; */
-    -webkit-transition: all 0, 1s ease-in;
-}
-
-#animation-5:hover {
-    transform: rotate(-5deg)
-}
-
-/* easy solve to bad coding structure */
-#leg-h {
-    height: 85px;
+@media screen and (min-width: 800px) {
+  /* if width more than 800px lock these values */
+  body {
+    flex-flow: row nowrap;
+    height: 100vh;
+  }
+  #main {
+    margin-top: 0px;
+  }
+  #sidebar {
+  background-image: url("../images/nav.jpeg");
+    position: static;
+    height: 100vh;
+    width: 200px;
+    flex-flow: column nowrap;
+  }
+  #sidebar a, #main-header h1 {
+    font-size: 40px;
+  }
+  #sidebar a {
+    padding: 10px 4px;
+  }
+  #content {
+    font-size: 16px;
+  }
+  #main-header, #content {
+    margin: 0px 40px;
+  }
 }
