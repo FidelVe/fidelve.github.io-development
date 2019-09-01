@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GUITAR ZONE STORE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo-container">
+        <img id="header-img" src="./images/white-guitar-ver.png" alt="guitar logo">
+        <h2 id="logo-heading">Guitar Zone</h2>
+      </div>
+      <nav id="nav-bar">
+        <a class="nav-link" href="#section1"><b>Our Product</b></a>
+        <a class="nav-link" href="#section2"><b>How it Works</b></a>
+        <a class="nav-link"  href="#section3"><b>Contact Us</b></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="section" id="section1">
+        <h2>OUR PRODUCTS</h2>
+        <p>Our concert guitars are sought after for their elegant sound, musical flexibility, clarity, projection, balance, easy playability, old master grade materials, and immaculate workmanship: concert instruments which mature with responsible care and loving use. To this end the classical guitars we commission result from ongoing discussions with internationally renowned concert artists, the world’s most gifted luthiers, and prominent teachers.</p>
+        <p>We ship our guitars nationally on seventy-two hours approval and display them by appointment in our shop in Cleveland, Ohio. Our goal is to match each client – student, teacher, concert artist, aficionado, or collector – with the guitar which will inspire the greatest artistry and joy.</p>
+      </section>
+      <section class="section" id="section2">
+        <h2>HOW IT WORKS</h2>
+        <iframe width="560" height="315" id="video"
+          src="https://www.youtube.com/embed/RFPnZayG0VI"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </section>
+      <section class="section" id="section3">
+        <h2>CONTACT US</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+          <div class="input-section">
+          <!-- INPUT FIRST NAME -->
+            <label id="name-label" for="name">Name: </label>
+            <input autofocus type="text" name="name" id="name-input" placeholder="Enter Your Name" required>
+          </div>
+          <div class="input-section">
+            <!-- INPUT EMAIL-->
+            <label id="email-label" for="email">Email: </label>
+            <input autofocus type="email" name="email" id="email" placeholder="Enter valid email" required>
+          </div>
+          <div class="input-section" id="comment-section">
+            <!-- COMMENTS -->
+            <textarea id="comment-input" name="comments" placeholder="Any question about our products? write it here."></textarea>
+          </div>
+          <input id="submit" type="submit"></input>
+        </form>
+      </section>
+      <footer id="footer">
+        <h3>Copyright 2016, Guitar Zone</h3>
+      </footer>
+    </main>
+    <!-- <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+  </body>
+</html>
