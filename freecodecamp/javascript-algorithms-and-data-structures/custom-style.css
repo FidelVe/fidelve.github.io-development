@@ -1,0 +1,25 @@
+/* Custom styles for ./index.html */
+#cs-projects {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  border: 1px solid black;
+}
+.cs-project {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  border: 1px solid black;
+}
+.cs-project img {
+  width: 50px;
+  height: 50px;
+}
+#cs-palindrome {}
+#cs-roman {}
+#cs-caesars {}
+#cs-telephone {}
+#cs-register {}
