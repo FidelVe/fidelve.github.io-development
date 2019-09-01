@@ -5,13 +5,12 @@ body {
   font-family: monospace;
   height: 100%;
   min-height: 100%;
-  min-width: 500px;
+  min-width: 320px;
 }
-
 #sidebar {
   position: fixed;
   top: 0px;
-  height: 15vw;
+  height: 75px;
   width: 100%;
   background-image: url("../images/banner2.jpeg");
   background-repeat: no-repeat;
@@ -24,13 +23,13 @@ body {
 }
 
 #sidebar a {
+  font-size: 25px;
+  padding-top: 25px;
   display: block;
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  font-size: 5vw;
-  padding-top: 5vw;
   padding: 4vw 4px 0px 2px;
 }
 
@@ -43,7 +42,7 @@ body {
 }
 
 #main {
-  margin-top: 15vw;
+  margin-top: 75px;
   overflow-y: auto;
   font-family: monospace;
   font-size: 18px;
@@ -52,7 +51,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  min-width: 420px;
 }
 
 #main-header, #content {
@@ -60,54 +58,32 @@ body {
 }
 
 #main-header h1 {
-  /* min-width: 400px; */
+  font-size: 28px;
   text-align: center;
-  font-size: 5vw;
 }
 
 #content {
+  font-size: 20px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  font-size: 2vw;
 }
 
-/* #content p, #content ul, #content li { */
-/* } */
+#content * {
+  margin: 4px 10px;
+}
 
 /* style for about.html */
 #about-img-1 {
-  width: 400px;
-  height: 400px;
+  width: 80vw;
+  max-width: 600px;
 }
 
 #about-img-2 {
-  width: 500px;
+  width: 80vw;
+  max-width: 500px;
 }
-
-@media screen and (max-width: 500px) {
-  /* if width less than 500px lock these values */
-  #main {
-    margin-top: 75px;
-  }
-  #sidebar {
-    height: 75px;
-    width: 500px;
-  }
-  #sidebar a, #main-header h1 {
-    font-size: 25px;
-  }
-  #sidebar a {
-    padding-top: 25px;
-  }
-  #content {
-    font-size: 10px;
-  }
-  #main-header, #content {
-    margin: 0px 25px;
-  }
-}
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 580px) {
   /* if width more than 800px lock these values */
   body {
     flex-flow: row nowrap;
@@ -121,19 +97,22 @@ body {
     border-radius: 0px 4px 4px 0px;
     position: static;
     height: 100vh;
-    width: 200px;
+    width: 120px;
     flex-flow: column nowrap;
   }
   #sidebar a, #main-header h1 {
-    font-size: 40px;
+    /* font-size: 40px; */
   }
   #sidebar a {
-    padding: 10px 4px;
+    padding: 4px;
   }
   #content {
-    font-size: 16px;
+    /* font-size: 16px; */
+  }
+  #about-img-1, #about-img-2 {
+    width: 60vw;
   }
   #main-header, #content {
-    margin: 0px 40px;
+    /* margin: 0px 40px; */
   }
 }
