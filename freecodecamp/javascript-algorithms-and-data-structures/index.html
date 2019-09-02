@@ -25,28 +25,107 @@
         <h4>FreeCodeCamp JavaScript's final project</h4>
         <section id="cs-projects">
           <div class="cs-project" id="cs-palindrome">
-            <h5>Palindrome Checker</h5>
-            <img src="./images/ic_add_black_48dp.png" alt="plus icon">
+            <div class="cs-project-header" id="cs-header-palindrome">
+              <h5>Palindrome Checker</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content">
+              <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+              </p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
+              <p>Because we need to compare character by character, not including punctuation, case and spacing, we need to use regular expressions to match all the correct characters, and add all of this into an array for easy comparison later.</p>
+              <p>After having your array with all the correct characters, the rest is just an iteration where you compare each character in their respective position at the beginning and end of the array, stoping at the middle.</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Project:
+// Palindrome Checker.
+
+function isPalindrome(string) {
+  // This functions takes a string as an argument
+  // and returns true if the string is a palindrome
+  // false if not.
+
+  let regex = /[^\W\_]/g;
+  let charArr = string.match(regex).map( (each) => {
+    return each.toLowerCase();
+  });
+
+  for (let i=0; i < Math.floor(charArr.length/2); i++) {
+    if (charArr[i] != charArr[charArr.length-1-i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>Heres a list of words and phrases you can use to test the algorithm.</p>
+              <ul>
+                <li><b>"eye"</b> should return positive.</li>
+                <li><b>"_eye"</b> should return positive.
+                <li><b>"race car"</b> should return positive.</li>
+                <li><b>"not a palindrome"</b> should return negative.</li>
+                <li><b>"A man, a plan, a canal. Panama"</b> should return positive.</li>
+                <li><b>"never odd or even"</b> should return positive.</li>
+                <li><b>"nope"</b> should return negative.</li>
+                <li><b>"almostomla"</b> should return negative.</li>
+                <li><b>"My age is 0, 0 si ega ym."</b> should return positive.</li>
+                <li><b>"1 eye for of 1 eye."</b> should return negative.</li>
+                <li><b>"0_0 (: /-\ :) 0-0"</b> should return positive.</li>
+                <li><b>"five|\_/|four"</b> should return negative.</li>
+              </ul>
+              <form id="palindrome-form">
+                <div id="cs-test-palindrome">
+                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input" 
+                    placeholder="Roma amor">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                </div>
+              </form>
+            </div>
           </div>
           <div class="cs-project" id="cs-roman">
-            <h5>Roman Numeral Converter</h5>
-            <img src="./images/ic_add_black_48dp.png" alt="plus icon">
+            <div class="cs-project-header" id="cs-header-roman">
+              <h5>Roman Numeral Converter</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content">
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
           </div>
           <div class="cs-project" id="cs-caesars">
-            <h5>Caesars Cipher</h5>
-            <img src="./images/ic_add_black_48dp.png" alt="plus icon">
+            <div class="cs-project-header" id="cs-header-caesars">
+              <h5>Caesars Cipher</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content">
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
           </div>
           <div class="cs-project" id="cs-telephone">
-            <h5>Telephone Number Validator</h5>
-            <img src="./images/ic_add_black_48dp.png" alt="plus icon">
+            <div class="cs-project-header" id="cs-header-telephone">
+              <h5>Telephone Number Validator</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content">
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
           </div>
           <div class="cs-project" id="cs-register">
-            <h5>Cash Register</h5>
-            <img src="./images/ic_add_black_48dp.png" alt="plus icon">
+            <div class="cs-project-header" id="cs-header-register">
+              <h5>Cash Register</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content">
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
           </div>
         </section>
       </div>
     </main>
-    <!-- <script src='scripts/main.js'></script> -->
+    <script src='scripts/main.js'></script>
   </body>
 </html>

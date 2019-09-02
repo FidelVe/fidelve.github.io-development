@@ -45,7 +45,7 @@ body {
   margin-top: 75px;
   overflow-y: auto;
   font-family: monospace;
-  font-size: 18px;
+  /* font-size: 18px; */
   width: 100%;
   text-indent: 0px;
   display: flex;
@@ -63,13 +63,13 @@ body {
 }
 
 #content {
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
-#content * {
+#content p, #content ul, #content img {
   margin: 4px 10px;
 }
 
