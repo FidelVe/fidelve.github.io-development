@@ -94,6 +94,86 @@ function isPalindrome(string) {
             </div>
             <div class="cs-project-content">
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <pre>
+                <code class="cs-code">
+ // FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Projects:
+// Roman Numeral Converter
+
+function convertToRoman(input) {
+  // Converts decimal integers to roman numeral
+  // {
+  //   "1": "I", "5": "V", "10": "X", "50": "L",
+  //   "100": "C", "500": "D", "1000": "M"
+  // };
+
+  let num = input;
+  let result = [];
+
+  while(num != 0) {
+    if (num >= 1000) {
+      result.push("M");
+      num -= 1000;
+    } else if(num >= 900) {
+      result.push("CM");
+      num -= 900;
+    } else if(num >= 500) {
+      result.push("D");
+      num -= 500;
+    } else if(num >= 400) {
+      result.push("CD");
+      num -= 400;
+    } else if(num >= 100) {
+      result.push("C");
+      num -= 100;
+    } else if(num >= 90) {
+      result.push("XC");
+      num -= 90;
+    } else if(num >= 50) {
+      result.push("L");
+      num -= 50;
+    } else if(num >= 40) {
+      result.push("XL");
+      num -= 40;
+    } else if(num >= 10) {
+      result.push("X");
+      num -= 10;
+    } else if(num >= 9) {
+      result.push("IX");
+      num -= 9;
+    } else if(num >= 5) {
+      result.push("V");
+      num -= 5;
+    } else if(num >= 4) {
+      result.push("IV");
+      num -= 4;
+    } else if(num >= 1) {
+      result.push("I");
+      num -= 1;
+    } else {
+      console.log(`error: input = ${input}. num = ${num}\nresult = ${result}`);
+      break;
+    }
+  }
+
+  return result.reduce( (total, value) => { return total + value });
+
+}
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <form id="palindrome-form">
+                <div id="cs-test-palindrome">
+                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input" 
+                    placeholder="Roma amor">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                </div>
+              </form>
+            </div>
+            <div class="cs-project-content">
             </div>
           </div>
           <div class="cs-project" id="cs-caesars">
@@ -103,6 +183,44 @@ function isPalindrome(string) {
             </div>
             <div class="cs-project-content">
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// javaScript Algorithms and Data Structures Projects:
+// Caesars Cipher
+function rot13(str) { // LBH QVQ VG!
+  let abc = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+  let result = [];
+  let regex = /[a-zA-Z]/;
+
+  for (let each of str) {
+    let newLetter = each;
+    if (regex.test(each)) {
+      console.log(abc.indexOf(each), each);
+      let pos = abc.indexOf(each);
+      let newpos = (pos+13 >= 26) ? pos - 13 : pos + 13;
+      newLetter = abc.charAt(newpos);
+    } 
+      result.push(newLetter);
+  }
+  
+  return result.reduce((total, value) => {
+    return total + value;
+  })
+}
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <form id="palindrome-form">
+                <div id="cs-test-palindrome">
+                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input" 
+                    placeholder="Roma amor">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                </div>
+              </form>
             </div>
           </div>
           <div class="cs-project" id="cs-telephone">
@@ -112,6 +230,29 @@ function isPalindrome(string) {
             </div>
             <div class="cs-project-content">
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Projects:
+// Telephone Number Validator
+function telephoneCheck(str) {
+  let regex = /^1{0,1}\s{0,1}(?:[0-9]{3}[\s\-]{0,1}){2}[0-9]{4}$|^1{0,1}\s{0,1}\([0-9]{3}\)[\s\-]{0,1}[[0-9]{3}[\s\-]{0,1}[0-9]{4}$/;
+  return regex.test(str);
+}
+
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <form id="palindrome-form">
+                <div id="cs-test-palindrome">
+                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input" 
+                    placeholder="Roma amor">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                </div>
+              </form>
             </div>
           </div>
           <div class="cs-project" id="cs-register">
@@ -121,6 +262,165 @@ function isPalindrome(string) {
             </div>
             <div class="cs-project-content">
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Projects:
+// Cash Register
+
+let testResults = [
+  [
+    [19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {}],
+  [
+    [19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {status: "OPEN", change: [["QUARTER", 0.5]]}],
+  [
+    [3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}],
+  [
+    [19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "INSUFFICIENT_FUNDS", change: []}]],
+  [
+    [19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "INSUFFICIENT_FUNDS", change: []}]],
+  [
+    [19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}]]
+];
+
+function dictFrom2dArr(arr) {
+  let dict = {};
+
+  for (let each of arr) {
+    dict[each[0]] = each[1];
+  }
+  return dict;
+}
+
+
+function checkCashRegister(price, cash, cid) {
+  function makeTransaction(num, amount) {
+    change = Math.round((change-num)*100)/100;
+    cidDict[amount] = Math.round((cidDict[amount]-num)*100)/100;
+    changeDict[amount] = Math.round((changeDict[amount]+num)*100)/100;
+  }
+
+  let changeDict = {
+    "PENNY": 0, "NICKEL": 0, "DIME": 0,
+    "QUARTER": 0, "ONE": 0, "FIVE": 0,
+    "TEN": 0, "TWENTY": 0, "ONE HUNDRED": 0
+  };
+  let cidDict = dictFrom2dArr(cid);
+  let changeArr = [];
+  let registerStatus;
+  var change = cash - price;
+  let totalInRegister = 0;
+  let foo = cid.forEach( (money, index) => {
+    totalInRegister += money[1];
+  })
+  totalInRegister = Math.round(totalInRegister*100)/100;
+  
+  let exitFlag = 0;
+  if (change > totalInRegister) {
+    return {"status": "INSUFFICIENT_FUNDS",
+      "change": changeArr}
+  } else {
+    while(change > 0) {
+      change = Math.round(change*100)/100;
+      exitFlag += 1;
+      if (exitFlag > 100) {
+        break
+      };
+      if (change >= 100 && cidDict["ONE HUNDRED"] >= 100) {
+        makeTransaction(100, "ONE HUNDRED");
+      } else if (change >= 20 && cidDict["TWENTY"] >= 20) {
+        makeTransaction(20, "TWENTY");
+      } else if (change >= 10 && cidDict["TEN"] >= 10) {
+        makeTransaction(10, "TEN");
+      } else if (change >= 5 && cidDict["FIVE"] >= 5) {
+        makeTransaction(5, "FIVE");
+      } else if (change >= 1 && cidDict["ONE"] >= 1) {
+        makeTransaction(1, "ONE");
+      } else if (change >= 0.25 && cidDict["QUARTER"] >= 0.25) {
+        makeTransaction(0.25, "QUARTER");
+      } else if (change >= 0.1 && cidDict["DIME"] >= 0.1) {
+        makeTransaction(0.1, "DIME");
+      } else if (change >= 0.05 && cidDict["NICKEL"] >= 0.05) {
+        makeTransaction(0.05, "NICKEL");
+      } else if (change >= 0.01 && cidDict["PENNY"] >= 0.01) {
+        makeTransaction(0.01, "PENNY");
+      } else {
+        return {"status": "INSUFFICIENT_FUNDS",
+          "change": changeArr
+        }
+      }
+    }
+
+    // Formatting change array to be returned
+    let order = ["PENNY", "NICKEL", "DIME", "QUARTER", "ONE", "FIVE", "TEN", "TWENTY", "ONE HUNDRED"].reverse();
+    for (let value of order) {
+      if (changeDict[value] != 0) {
+        let roundedCash = Math.round(changeDict[value]*100)/100;
+        changeArr.push([value, roundedCash]);
+      }
+    }
+    for (let cashInRegister in cidDict) {
+      if (cidDict[cashInRegister] > 0) {
+        // Return with open status
+        return {
+          "status": "OPEN",
+          "change": changeArr
+        }
+      } 
+    }
+    // Return with closed status
+    // TODO: this return is hardcoded to return
+    // the change array values even if they are 0
+    // if not the last test of the exercise will not
+    // pass.
+    let tempReturnArr = [];
+    for (let value of order) {
+      if (changeDict[value] != 0) {
+        let roundedCash = Math.round(changeDict[value]*100)/100;
+        tempReturnArr.push([value, roundedCash]);
+      } else {
+        tempReturnArr.push([value, 0]);
+      }
+    }
+    return {
+      "status": "CLOSED",
+      "change": tempReturnArr.reverse()
+    }
+  }
+  // Here is your change, ma'am.
+}
+
+// Example cash-in-drawer array:
+// [["PENNY", 1.01],
+// ["NICKEL", 2.05],
+// ["DIME", 3.1],
+// ["QUARTER", 4.25],
+// ["ONE", 90],
+// ["FIVE", 55],
+// ["TEN", 20],
+// ["TWENTY", 60],
+// ["ONE HUNDRED", 100]]
+
+for (let test of testResults) {
+  let foo = checkCashRegister(test[0][0], test[0][1], test[0][2]);
+  console.log(foo);
+  console.log(test[1]);
+  console.log("*****");
+}
+
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <form id="palindrome-form">
+                <div id="cs-test-palindrome">
+                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input" 
+                    placeholder="Roma amor">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                </div>
+              </form>
             </div>
           </div>
         </section>

@@ -24,21 +24,22 @@ body {
 
 #sidebar a {
   font-size: 25px;
-  padding-top: 25px;
+  /* padding-top: 25px; */
   display: block;
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  padding: 4vw 4px 0px 2px;
+  padding: 20px 4px 0px 2px;
+}
+
+#sidebar a:nth-child(1) {
+  border-radius: 0px 0px 0px 4px;
 }
 
 #sidebar a:hover {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
-}
-
-#sidebar a:nth-child(3) {
 }
 
 #main {
@@ -67,6 +68,10 @@ body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  /* max-width: 100%; */
+  align-self: stretch;
+  /* flex: 1 1 50%; */
+  /* overflow-x: hidden; */
 }
 
 #content p, #content ul, #content img {
@@ -91,6 +96,7 @@ body {
   }
   #main {
     margin-top: 0px;
+    flex: 1 1 auto;
   }
   #sidebar {
     background-image: url("../images/nav.jpeg");
@@ -98,15 +104,23 @@ body {
     position: static;
     height: 100vh;
     width: 120px;
+    /* max-width: 15%; */
+    /* flex: 0 0; */
     flex-flow: column nowrap;
   }
   #sidebar a, #main-header h1 {
+    height: 50px;
     /* font-size: 40px; */
   }
+  #sidebar a:nth-child(1) {
+    border-radius: 0px 4px 0px 0px;
+  }
   #sidebar a {
-    padding: 4px;
+    /* padding: 4px; */
+    padding: 20px 4px 0px 4px;
   }
   #content {
+    align-self: stretch;
     /* font-size: 16px; */
   }
   #about-img-1, #about-img-2 {

@@ -5,10 +5,12 @@
   align-items: center;
   width: 100%;
   margin: 10px 0px;
+  overflow-x: hidden;
   /* border: 1px solid black; */
 }
 .cs-project {
   width: 80%;
+  max-width: 80%;
   border: 1px solid black;
   background: #E5E5E5;
   border-radius: 6px;
@@ -44,7 +46,10 @@
   margin: 15px 10px;
   display: flex;
   width: 80%;
-  min-width: 300px;
+  max-width: 80%;
+  /* min-width: 300px; */
+  overflow: hidden;
+  /* white-space: nowrap; */
 }
 .cs-add-img {
   border-radius: 50%;
@@ -56,9 +61,10 @@
   border: 1px solid #999;
   display: block;
   font-size: 0.8em;
-  overflow: auto;
-  min-width: 300px;
-  width: 100%;
+  overflow-x: scroll;
+  margin: 0 auto;
+  /* min-width: 300px; */
+  /* width: 80%; */
 }
 #cs-palindrome {}
 #palindrome-form {}
@@ -86,5 +92,6 @@
 }
 #cs-roman {}
 #cs-caesars {}
-#cs-telephone {}
+#cs-telephone {
+}
 #cs-register {}
