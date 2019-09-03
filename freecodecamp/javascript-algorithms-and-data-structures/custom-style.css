@@ -67,10 +67,12 @@
   /* width: 80%; */
 }
 #cs-palindrome {}
-#palindrome-form {}
+#palindrome-form {
+  /* flex: 0 1 auto; */
+}
 #cs-test-palindrome {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
