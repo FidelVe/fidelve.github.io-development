@@ -31,7 +31,7 @@
             </div>
             <div class="cs-project-content">
               <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
-              </p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
+              <p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
               <p>Because we need to compare character by character, not including punctuation, case and spacing, we need to use regular expressions to match all the correct characters, and add all of this into an array for easy comparison later.</p>
               <p>After having your array with all the correct characters, the rest is just an iteration where you compare each character in their respective position at the beginning and end of the array, stoping at the middle.</p>
               <pre>
@@ -92,8 +92,33 @@ function isPalindrome(string) {
               <h5>Roman Numeral Converter</h5>
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
-            <div class="cs-project-content">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <div class="cs-project-content" id="cs-roman-content">
+              <p>For this project you are asked to create an algorithm that converts decimal numbers into the roman numeral system.</p>
+              <p>The first thing that we need to do, is understand how roman numerals are written. The numbers in this system are represented by a combination of letters from the Latin alphabet.</p>
+              <div id="cs-roman-table">
+                <div>
+                  <span class="cs-roman-thead">Symbol</span>
+                  <span>I</span>
+                  <span>V</span>
+                  <span>X</span>
+                  <span>L</span>
+                  <span>C</span>
+                  <span>D</span>
+                  <span>M</span>
+                </div>
+                <div>
+                  <span class="cs-roman-thead">Value</span>
+                  <span>1</span>
+                  <span>5</span>
+                  <span>10</span>
+                  <span>50</span>
+                  <span>100</span>
+                  <span>500</span>
+                  <span>1000</span>
+                </div>
+               </div>
+              <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to first use the higher valued symbol first, substract this value form the total and repeat, simple as that.</p>
+              <p>For example, the correct way to express <b>1500</b> in the roman system would be <b>MD</b>, instead of <b>DDD</b>.</p>
               <pre>
                 <code class="cs-code">
  // FreeCodeCamp.
@@ -162,7 +187,34 @@ function convertToRoman(input) {
                 </code>
               </pre>
               <h4>Testing the code.</h4>
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <ul>
+                <li>Decimal 2, should return "II".</li>
+                <li>Decimal 3, should return "III".</li>
+                <li>Decimal 4, should return "IV".</li>
+                <li>Decimal 5, should return "V".</li>
+                <li>Decimal 9, should return "IX".</li>
+                <li>Decimal 12, should return "XII".</li>
+                <li>Decimal 16, should return "XVI".</li>
+                <li>Decimal 29, should return "XXIX".</li>
+                <li>Decimal 44, should return "XLIV".</li>
+                <li>Decimal 45, should return "XLV".</li>
+                <li>Decimal 68, should return "LXVIII".</li>
+                <li>Decimal 83, should return "LXXXIII".</li>
+                <li>Decimal 97, should return "XCVII".</li>
+                <li>Decimal 99, should return "XCIX".</li>
+                <li>Decimal 400, should return "CD".</li>
+                <li>Decimal 500, should return "D".</li>
+                <li>Decimal 501, should return "DI".</li>
+                <li>Decimal 649, should return "DCXLIX".</li>
+                <li>Decimal 798, should return "DCCXCVIII".</li>
+                <li>Decimal 891, should return "DCCCXCI".</li>
+                <li>Decimal 1000, should return "M".</li>
+                <li>Decimal 1004, should return "MIV".</li>
+                <li>Decimal 1006, should return "MVI".</li>
+                <li>Decimal 1023, should return "MXXIII".</li>
+                <li>Decimal 2014, should return "MMXIV".</li>
+                <li>Decimal 3999) should return "MMMCMXCIX".</li>
+              </ul>
               <form id="palindrome-form">
                 <div id="cs-test-palindrome">
                   <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
