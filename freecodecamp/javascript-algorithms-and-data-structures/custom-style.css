@@ -57,6 +57,28 @@
   height: 50px;
 }
 /* -------- Begin Roman Numeral Table -------- */
+#cs-roman-content tbody {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  display: flex;
+  flex-flow: row nowrap;
+}
+#cs-roman-content tr {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#cs-roman-content tr, #cs-roman-content td {
+  border: 1px solid #000;
+}
+.cs-table-head {
+  background: #444;
+  color: #FFF;
+  border: 1px solid black;
+  font-weight: bold;
+  /* width: 20%; */
+}
+
+/* -------- Begin Roman Numeral Table -------- */
 #cs-roman-table {
   display: flex;
   flex-flow: column nowrap;
@@ -98,6 +120,7 @@
   font-weight: bold;
   width: 20%;
 }
+/* Change table layout when resolution is lower than 560 px */
 @media screen and (max-width: 560px) {
   #cs-roman-table {
     flex-flow: row nowrap;
@@ -110,7 +133,6 @@
     width: auto;
   }
 }
-/* Change table layout when resolution is lower than 560 px */
 /* -------- End Roman Numeral Table -------- */
 .cs-code {
   background-color: #eee;
@@ -129,7 +151,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  /* border: 1px solid black; */
 }
 #palindrome-input {
   height: 40px;
@@ -146,6 +167,34 @@
   background: green;
 }
 #cs-roman {}
+#roman-form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  margin-top: 15px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 6px;
+}
+.roman-form-section {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 0 auto;
+  margin: 0px 5px 5px 5px;
+  align-items: center;
+}
+.roman-label {
+  width: 25%;
+  text-align: right;
+  margin-right: 4px;
+}
+#roman-input, #roman-result {
+  flex: 1 0 auto;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 6px;
+}
 #cs-caesars {}
 #cs-telephone {
 }

@@ -117,7 +117,7 @@ function isPalindrome(string) {
                   <span>1000</span>
                 </div>
                </div>
-              <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to first use the higher valued symbol first, substract this value form the total and repeat, simple as that.</p>
+              <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to replace from the top down, find the highest valued symbol, use it and substract the value to the total and repeat until zero is reached.</p>
               <p>For example, the correct way to express <b>1500</b> in the roman system would be <b>MD</b>, instead of <b>DDD</b>.</p>
               <pre>
                 <code class="cs-code">
@@ -187,41 +187,30 @@ function convertToRoman(input) {
                 </code>
               </pre>
               <h4>Testing the code.</h4>
+              <p>Use the following values to test the algorithm.</p>
               <ul>
                 <li>Decimal 2, should return "II".</li>
-                <li>Decimal 3, should return "III".</li>
                 <li>Decimal 4, should return "IV".</li>
-                <li>Decimal 5, should return "V".</li>
-                <li>Decimal 9, should return "IX".</li>
-                <li>Decimal 12, should return "XII".</li>
-                <li>Decimal 16, should return "XVI".</li>
                 <li>Decimal 29, should return "XXIX".</li>
-                <li>Decimal 44, should return "XLIV".</li>
-                <li>Decimal 45, should return "XLV".</li>
-                <li>Decimal 68, should return "LXVIII".</li>
                 <li>Decimal 83, should return "LXXXIII".</li>
                 <li>Decimal 97, should return "XCVII".</li>
-                <li>Decimal 99, should return "XCIX".</li>
-                <li>Decimal 400, should return "CD".</li>
-                <li>Decimal 500, should return "D".</li>
-                <li>Decimal 501, should return "DI".</li>
                 <li>Decimal 649, should return "DCXLIX".</li>
                 <li>Decimal 798, should return "DCCXCVIII".</li>
                 <li>Decimal 891, should return "DCCCXCI".</li>
-                <li>Decimal 1000, should return "M".</li>
-                <li>Decimal 1004, should return "MIV".</li>
-                <li>Decimal 1006, should return "MVI".</li>
-                <li>Decimal 1023, should return "MXXIII".</li>
                 <li>Decimal 2014, should return "MMXIV".</li>
-                <li>Decimal 3999) should return "MMMCMXCIX".</li>
+                <li>Decimal 3999, should return "MMMCMXCIX".</li>
               </ul>
-              <form id="palindrome-form">
-                <div id="cs-test-palindrome">
-                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
-                  <input type="text" id="palindrome-input"
-                    name="palindrome-input" 
-                    placeholder="Roma amor">
-                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+              <form id="roman-form">
+                <div class="roman-form-section">
+                  <label for="roman-input" class="roman-label">Decimal =</label>
+                  <input type="number" id="roman-input"
+                    name="roman-input" 
+                    placeholder="Enter decimal number..">
+                </div>
+                <div class="roman-form-section">
+                  <label for="roman-result" class="roman-label">Roman =</label>
+                  <input type="text" id="roman-result"
+                    name="roman-result" disabled>
                 </div>
               </form>
             </div>
