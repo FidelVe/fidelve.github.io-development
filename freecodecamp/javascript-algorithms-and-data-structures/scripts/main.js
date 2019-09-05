@@ -88,8 +88,11 @@ function onPalindromeKeyInput(event) {
 }
 
 function onRomanKeyInput(event) {
-  let romanFromDecimal = convertToRoman(event.target.value);
-  romanResult.value = romanFromDecimal;
+  // Transform decimal integer into roman numeral, if
+  // the input is empty returns empty input (placeholder)
+  romanResult.value = event.target.value !== "" ?
+    convertToRoman(event.target.value) :
+    "";
 }
 function convertToRoman(input) {
   // Converts decimal integers to roman numeral

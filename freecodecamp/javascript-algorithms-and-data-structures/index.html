@@ -209,7 +209,8 @@ function convertToRoman(input) {
                 </div>
                 <div class="roman-form-section">
                   <label for="roman-result" class="roman-label">Roman =</label>
-                  <input type="text" id="roman-result"
+                  <input type="text" id="roman-result" 
+                    placeholder="Result in roman numbers"
                     name="roman-result" disabled>
                 </div>
               </form>
@@ -223,7 +224,9 @@ function convertToRoman(input) {
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
             <div class="cs-project-content">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <p>In cryptography, a cipher is an algorithm for performing encryption or decryption, this algorithm substitutes the characters in a string to transform them into something else for the purpose of protecting the original string from being understood by unwanted people.</p>
+              <p>Caesars cipher is one of the simplest and most widely know encryption techniques. It is a simple substitution cipher in which each letter in a string is replaced by a letter some fixed number of positions down the alphabet.</p>
+              <p>For this project you are asked to write an algorithm capable of implementing ROT13, a type of caesar cipher that replaces every character in a string with the letter 13 positions up in the alphabet from the position of that character.</p>
               <pre>
                 <code class="cs-code">
 // FreeCodeCamp.
@@ -252,7 +255,13 @@ function rot13(str) { // LBH QVQ VG!
                 </code>
               </pre>
               <h4>Testing the code.</h4>
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <p>Use the following to test the algorithm</p>
+              <ul>
+                <li>"SERR PBQR PNZC" should decode to FREE CODE CAMP.</li>
+                <li>"SERR CVMMN!" should decode to FREE PIZZA!.</li>
+                <li>"SERR YBIR?" should decode to FREE LOVE?.</li>
+                <li>"GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT." should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</li>
+              </ul>
               <form id="palindrome-form">
                 <div id="cs-test-palindrome">
                   <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
