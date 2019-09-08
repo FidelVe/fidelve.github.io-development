@@ -10,6 +10,12 @@ const _PATH5 = "./images/ic_cancel_white_48dp.png";
 const _PATH6 = "./images/ic_check_circle_white_48dp.png";
 
 // Get elements from the DOM
+// const elementsInDOM = ["#cs-header-palindrome", "#cs-header-roman", "cs-header-caesars", "#cs-header-telephone", "#cs-header-register", "#palindrome-input", "#palindrome-result", "#roman-input", "#roman-result", "#caesar-input", "#caesar-result"];
+// const [palindromeEl, romanEl, caesarsEl, telephoneEl, registerEl, palindromeInput, palindromeResult, romanInput, romanResult, caesarInput, caesarResult] = elementsInDOM.forEach(
+//   function(each) {
+//     document.querySelector(each);
+//   }
+// );
 const palindromeEl = document.querySelector("#cs-header-palindrome");
 const romanEl = document.querySelector("#cs-header-roman");
 const caesarsEl = document.querySelector("#cs-header-caesars");
@@ -19,6 +25,22 @@ const palindromeInput = document.querySelector("#palindrome-input");
 const palindromeResult = document.querySelector("#palindrome-result");
 const romanInput = document.querySelector("#roman-input");
 const romanResult = document.querySelector("#roman-result");
+const caesarInput = document.querySelector("#caesar-input");
+const caesarResult = document.querySelector("#caesar-result");
+
+// Binding events for each element
+[palindromeEl, romanEl, caesarsEl, telephoneEl, registerEl].forEach(
+  function(each) {
+    each.onclick = toggleElementView;
+    each.onmouseenter = onMouseEnter;
+    each.onmouseleave = onMouseLeave;
+  }
+);
+
+// Binding event form input
+palindromeInput.oninput = onPalindromeKeyInput;
+romanInput.oninput = onRomanKeyInput;
+caesarInput.oninput = onCaesarKeyInput;
 
 // Functions declaration
 function toggleElementView(event) {
@@ -55,6 +77,32 @@ function onMouseLeave(event) {
   }
 }
 
+function onPalindromeKeyInput(event) {
+  let result = isPalindrome(event.target.value);
+  if (result === true) {
+    palindromeResult.src = _PATH6;
+    palindromeResult.style.background = "green";
+  } else {
+    palindromeResult.src = _PATH5;
+    palindromeResult.style.background = "red";
+  }
+}
+
+function onRomanKeyInput(event) {
+  // Transform decimal integer into roman numeral, if
+  // the input is empty returns empty input (placeholder)
+  romanResult.value = event.target.value !== "" ?
+    convertToRoman(event.target.value) :
+    "";
+}
+
+function onCaesarKeyInput(event) {
+  // Deciphers message
+  caesarResult.value = event.target.value !== "" ?
+    decipherCaesar(event.target.value) :
+    "";
+}
+
 function isPalindrome(string) {
   // This functions takes a string as an argument
   // and returns true if the string is a palindrome
@@ -76,24 +124,6 @@ function isPalindrome(string) {
   return true;
 }
 
-function onPalindromeKeyInput(event) {
-  let result = isPalindrome(event.target.value);
-  if (result === true) {
-    palindromeResult.src = _PATH6;
-    palindromeResult.style.background = "green";
-  } else {
-    palindromeResult.src = _PATH5;
-    palindromeResult.style.background = "red";
-  }
-}
-
-function onRomanKeyInput(event) {
-  // Transform decimal integer into roman numeral, if
-  // the input is empty returns empty input (placeholder)
-  romanResult.value = event.target.value !== "" ?
-    convertToRoman(event.target.value) :
-    "";
-}
 function convertToRoman(input) {
   // Converts decimal integers to roman numeral
   // {
@@ -151,15 +181,28 @@ function convertToRoman(input) {
   }
   return result.reduce( (total, value) => { return total + value });
 }
-// Binding events for each element
-[palindromeEl, romanEl, caesarsEl, telephoneEl, registerEl].forEach(
-  function(each) {
-    each.onclick = toggleElementView;
-    each.onmouseenter = onMouseEnter;
-    each.onmouseleave = onMouseLeave;
-  }
-);
 
-// Binding event form input
-palindromeInput.oninput = onPalindromeKeyInput;
-romanInput.oninput = onRomanKeyInput;
+function decipherCaesar(str) {
+  let ABC = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+  let abc = "abcdefghijklmnopqrstuvwxyz";
+  let result = [];
+  let regex = /[a-zA-Z]/;
+
+  for (let each of str) {
+    let newLetter = each;
+    if (regex.test(each)) {
+      // If letter is UPPERCASE, abc.indexOf(each) will
+      // return -1, in that case to the assignment with
+      // ABC.indexOf()
+      let pos = abc.indexOf(each) !== -1 ?
+        abc.indexOf(each) :
+        ABC.indexOf(each);
+      let newpos = (pos+13 >= 26) ? pos - 13 : pos + 13;
+      newLetter = abc.charAt(newpos);
+    }
+    result.push(newLetter);
+  }
+  return result.reduce((total, value) => {
+    return total + value;
+  })
+}

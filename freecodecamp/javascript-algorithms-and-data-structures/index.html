@@ -78,138 +78,139 @@ function isPalindrome(string) {
               </ul>
               <form id="palindrome-form">
                 <div id="cs-test-palindrome">
-                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
+                  <label for="palindrome-input" class="form-label">Palindrome:</label>
                   <input type="text" id="palindrome-input"
-                    name="palindrome-input" 
+                    name="palindrome-input"
+                    class="form-input"
                     placeholder="Roma amor">
-                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
-                </div>
-              </form>
+                    <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-          <div class="cs-project" id="cs-roman">
-            <div class="cs-project-header" id="cs-header-roman">
-              <h5>Roman Numeral Converter</h5>
-              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
-            </div>
-            <div class="cs-project-content" id="cs-roman-content">
-              <p>For this project you are asked to create an algorithm that converts decimal numbers into the roman numeral system.</p>
-              <p>The first thing that we need to do, is understand how roman numerals are written. The numbers in this system are represented by a combination of letters from the Latin alphabet.</p>
-              <div id="cs-roman-table">
-                <div>
-                  <span class="cs-roman-thead">Symbol</span>
-                  <span>I</span>
-                  <span>V</span>
-                  <span>X</span>
-                  <span>L</span>
-                  <span>C</span>
-                  <span>D</span>
-                  <span>M</span>
-                </div>
-                <div>
-                  <span class="cs-roman-thead">Value</span>
-                  <span>1</span>
-                  <span>5</span>
-                  <span>10</span>
-                  <span>50</span>
-                  <span>100</span>
-                  <span>500</span>
-                  <span>1000</span>
-                </div>
-               </div>
-              <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to replace from the top down, find the highest valued symbol, use it and substract the value to the total and repeat until zero is reached.</p>
-              <p>For example, the correct way to express <b>1500</b> in the roman system would be <b>MD</b>, instead of <b>DDD</b>.</p>
-              <pre>
-                <code class="cs-code">
- // FreeCodeCamp.
-// JavaScript Algorithms and Data Structures Projects:
-// Roman Numeral Converter
+            <div class="cs-project" id="cs-roman">
+              <div class="cs-project-header" id="cs-header-roman">
+                <h5>Roman Numeral Converter</h5>
+                <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+              </div>
+              <div class="cs-project-content" id="cs-roman-content">
+                <p>For this project you are asked to create an algorithm that converts decimal numbers into the roman numeral system.</p>
+                <p>The first thing that we need to do, is understand how roman numerals are written. The numbers in this system are represented by a combination of letters from the Latin alphabet.</p>
+                <div id="cs-roman-table">
+                  <div>
+                    <span class="cs-roman-thead">Symbol</span>
+                    <span>I</span>
+                    <span>V</span>
+                    <span>X</span>
+                    <span>L</span>
+                    <span>C</span>
+                    <span>D</span>
+                    <span>M</span>
+                  </div>
+                  <div>
+                    <span class="cs-roman-thead">Value</span>
+                    <span>1</span>
+                    <span>5</span>
+                    <span>10</span>
+                    <span>50</span>
+                    <span>100</span>
+                    <span>500</span>
+                    <span>1000</span>
+                  </div>
+                 </div>
+                <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to replace from the top down, find the highest valued symbol, use it and substract the value to the total and repeat until zero is reached.</p>
+                <p>For example, the correct way to express <b>1500</b> in the roman system would be <b>MD</b>, instead of <b>DDD</b>.</p>
+                <pre>
+                  <code class="cs-code">
+   // FreeCodeCamp.
+  // JavaScript Algorithms and Data Structures Projects:
+  // Roman Numeral Converter
 
-function convertToRoman(input) {
-  // Converts decimal integers to roman numeral
-  // {
-  //   "1": "I", "5": "V", "10": "X", "50": "L",
-  //   "100": "C", "500": "D", "1000": "M"
-  // };
+  function convertToRoman(input) {
+    // Converts decimal integers to roman numeral
+    // {
+    //   "1": "I", "5": "V", "10": "X", "50": "L",
+    //   "100": "C", "500": "D", "1000": "M"
+    // };
 
-  let num = input;
-  let result = [];
+    let num = input;
+    let result = [];
 
-  while(num != 0) {
-    if (num >= 1000) {
-      result.push("M");
-      num -= 1000;
-    } else if(num >= 900) {
-      result.push("CM");
-      num -= 900;
-    } else if(num >= 500) {
-      result.push("D");
-      num -= 500;
-    } else if(num >= 400) {
-      result.push("CD");
-      num -= 400;
-    } else if(num >= 100) {
-      result.push("C");
-      num -= 100;
-    } else if(num >= 90) {
-      result.push("XC");
-      num -= 90;
-    } else if(num >= 50) {
-      result.push("L");
-      num -= 50;
-    } else if(num >= 40) {
-      result.push("XL");
-      num -= 40;
-    } else if(num >= 10) {
-      result.push("X");
-      num -= 10;
-    } else if(num >= 9) {
-      result.push("IX");
-      num -= 9;
-    } else if(num >= 5) {
-      result.push("V");
-      num -= 5;
-    } else if(num >= 4) {
-      result.push("IV");
-      num -= 4;
-    } else if(num >= 1) {
-      result.push("I");
-      num -= 1;
-    } else {
-      console.log(`error: input = ${input}. num = ${num}\nresult = ${result}`);
-      break;
+    while(num != 0) {
+      if (num >= 1000) {
+        result.push("M");
+        num -= 1000;
+      } else if(num >= 900) {
+        result.push("CM");
+        num -= 900;
+      } else if(num >= 500) {
+        result.push("D");
+        num -= 500;
+      } else if(num >= 400) {
+        result.push("CD");
+        num -= 400;
+      } else if(num >= 100) {
+        result.push("C");
+        num -= 100;
+      } else if(num >= 90) {
+        result.push("XC");
+        num -= 90;
+      } else if(num >= 50) {
+        result.push("L");
+        num -= 50;
+      } else if(num >= 40) {
+        result.push("XL");
+        num -= 40;
+      } else if(num >= 10) {
+        result.push("X");
+        num -= 10;
+      } else if(num >= 9) {
+        result.push("IX");
+        num -= 9;
+      } else if(num >= 5) {
+        result.push("V");
+        num -= 5;
+      } else if(num >= 4) {
+        result.push("IV");
+        num -= 4;
+      } else if(num >= 1) {
+        result.push("I");
+        num -= 1;
+      } else {
+        console.log(`error: input = ${input}. num = ${num}\nresult = ${result}`);
+        break;
+      }
     }
+
+    return result.reduce( (total, value) => { return total + value });
+
   }
-
-  return result.reduce( (total, value) => { return total + value });
-
-}
-                </code>
-              </pre>
-              <h4>Testing the code.</h4>
-              <p>Use the following values to test the algorithm.</p>
-              <ul>
-                <li>Decimal 2, should return "II".</li>
-                <li>Decimal 4, should return "IV".</li>
-                <li>Decimal 29, should return "XXIX".</li>
-                <li>Decimal 83, should return "LXXXIII".</li>
-                <li>Decimal 97, should return "XCVII".</li>
-                <li>Decimal 649, should return "DCXLIX".</li>
-                <li>Decimal 798, should return "DCCXCVIII".</li>
-                <li>Decimal 891, should return "DCCCXCI".</li>
-                <li>Decimal 2014, should return "MMXIV".</li>
+                  </code>
+                </pre>
+                <h4>Testing the code.</h4>
+                <p>Use the following values to test the algorithm.</p>
+                <ul>
+                  <li>Decimal 2, should return "II".</li>
+                  <li>Decimal 4, should return "IV".</li>
+                  <li>Decimal 29, should return "XXIX".</li>
+                  <li>Decimal 83, should return "LXXXIII".</li>
+                  <li>Decimal 97, should return "XCVII".</li>
+                  <li>Decimal 649, should return "DCXLIX".</li>
+                  <li>Decimal 798, should return "DCCXCVIII".</li>
+                  <li>Decimal 891, should return "DCCCXCI".</li>
+                  <li>Decimal 2014, should return "MMXIV".</li>
                 <li>Decimal 3999, should return "MMMCMXCIX".</li>
               </ul>
               <form id="roman-form">
                 <div class="roman-form-section">
-                  <label for="roman-input" class="roman-label">Decimal =</label>
+                  <label for="roman-input" class="form-label">Decimal =</label>
                   <input type="number" id="roman-input"
-                    name="roman-input" 
+                    name="roman-input" class="form-input"
                     placeholder="Enter decimal number..">
                 </div>
                 <div class="roman-form-section">
-                  <label for="roman-result" class="roman-label">Roman =</label>
-                  <input type="text" id="roman-result" 
+                  <label for="roman-result" class="form-label">Roman =</label>
+                  <input type="text" id="roman-result" class="form-result"
                     placeholder="Result in roman numbers"
                     name="roman-result" disabled>
                 </div>
@@ -240,7 +241,6 @@ function rot13(str) { // LBH QVQ VG!
   for (let each of str) {
     let newLetter = each;
     if (regex.test(each)) {
-      console.log(abc.indexOf(each), each);
       let pos = abc.indexOf(each);
       let newpos = (pos+13 >= 26) ? pos - 13 : pos + 13;
       newLetter = abc.charAt(newpos);
@@ -262,13 +262,18 @@ function rot13(str) { // LBH QVQ VG!
                 <li>"SERR YBIR?" should decode to FREE LOVE?.</li>
                 <li>"GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT." should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</li>
               </ul>
-              <form id="palindrome-form">
-                <div id="cs-test-palindrome">
-                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
-                  <input type="text" id="palindrome-input"
-                    name="palindrome-input" 
-                    placeholder="Roma amor">
-                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+              <form id="caesar-form">
+                <div class="caesar-form-section">
+                  <label for="caesar-input" id="caesar-label" class="form-label">Encrypted:</label>
+                  <input type="text" name="caesar-input"
+                    class="form-input" id="caesar-input"
+                    placeholder="Enter encrypted message">
+                </div>
+                <div class="caesar-form-section">
+                  <label for="caesar-result" class="form-label">Decrypted:</label>
+                    <input type="text" id="caesar-result"
+                    name="caesar-result" class="form-result"
+                    placeholder="Decrypted message">
                 </div>
               </form>
             </div>

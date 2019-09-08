@@ -142,6 +142,30 @@
   overflow-x: scroll;
   margin: 0 auto;
 }
+.form-label {
+  /* width: 25%; */
+  text-align: right;
+  margin-right: 4px;
+}
+.form-input {
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 6px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.form-result, .form-input {
+  flex: 1 0 auto;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 6px;
+}
+.form-result {
+  background:#bbb;
+  color: #000;
+}
 #cs-palindrome {}
 #palindrome-form {}
 #cs-test-palindrome {
@@ -153,14 +177,6 @@
   border: 1px solid #000;
   border-radius: 6px;
   padding: 6px;
-}
-#palindrome-input {
-  height: 40px;
-  width: 200px;
-  border-radius: 6px;
-  border: none;
-  font-size: 18px;
-  padding-left: 5px;
 }
 #palindrome-result {
   width: 30px;
@@ -185,23 +201,21 @@
   margin: 0px 5px 5px 5px;
   align-items: center;
 }
-.roman-label {
-  width: 25%;
-  text-align: right;
-  margin-right: 4px;
-}
-#roman-input, #roman-result {
-  flex: 1 0 auto;
-  height: 30px;
-  border: none;
-  border-radius: 4px;
-  padding-left: 6px;
-}
-#roman-result {
-  background:#bbb;
-  color: #000;
-}
 #cs-caesars {}
+#caesar-form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  margin-top: 15px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 6px;
+}
+.caesar-form-section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
 #cs-telephone {
 }
 #cs-register {}
