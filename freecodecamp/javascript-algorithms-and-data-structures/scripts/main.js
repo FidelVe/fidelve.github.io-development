@@ -44,16 +44,18 @@ caesarInput.oninput = onCaesarKeyInput;
 
 // Functions declaration
 function toggleElementView(event) {
-  if (this.parentNode.style.overflow === "visible") {
+  let uncollapsedHeight = this.parentNode.scrollHeight + 2;
+  if (this.parentNode.style.height == _HEIGHT | this.parentNode.style.height == "") {
+    // If the element is collapsed, expand it
+    this.children[1].src = _PATH2;
+    // this.parentNode.style.overflow = "visible";
+    this.parentNode.style.height = `${uncollapsedHeight}px`;
+
+  } else {
     // If the element is expanded, collapse it
     this.children[1].src = _PATH4;
     this.parentNode.style.overflow = "hidden";
     this.parentNode.style.height = _HEIGHT;
-  } else {
-    // If the element is collapsed, expand it
-    this.children[1].src = _PATH2;
-    this.parentNode.style.overflow = "visible";
-    this.parentNode.style.height = "auto"
   }
 }
 

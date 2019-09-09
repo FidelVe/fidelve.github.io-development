@@ -17,6 +17,7 @@
   margin-bottom: 15px;
   overflow: hidden;
   height: 3.5em;
+  transition: height 1s;
 }
 .cs-project-header {
   display: flex;
@@ -33,7 +34,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .cs-project-header:hover  .cs-add-img {
-  background: #333;
+  background: #000;
 }
 .cs-project-content {
   display: flex;
@@ -55,6 +56,7 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  transition: background 0.5s;
 }
 /* -------- Begin Roman Numeral Table -------- */
 #cs-roman-content tbody {
