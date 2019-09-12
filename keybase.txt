@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/fidelve
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://Fidel.engineer
+  * I am fidelve (https://keybase.io/fidelve) on keybase.
+  * I have a public key ASDSivgc6KYOpqHa6Qj7vxfSgNdH5N0b7AO9_D8izwlb-go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d28af81ce8a60ea6a1dae908fbbf17d280d747e4dd1bec03bdfc3f22cf095bfa0a",
+      "host": "keybase.io",
+      "kid": "0120d28af81ce8a60ea6a1dae908fbbf17d280d747e4dd1bec03bdfc3f22cf095bfa0a",
+      "uid": "4487b20d4de596dd92f80396cd60db19",
+      "username": "fidelve"
+    },
+    "merkle_root": {
+      "ctime": 1568256576,
+      "hash": "f78faf54f7cafeb23cad445cd955e7b75a3c0f1854cd23ac9b9fd659f5e4df103a979d71a41b93962fb635cc9c46497df23843cfad92ca9252d6d37dbfc1680f",
+      "hash_meta": "b392e50876aa78cd817325782b731c2fa582052df28ffbf2c09a36bb7eb6ee08",
+      "seqno": 6869756
+    },
+    "service": {
+      "entropy": "NNZvYpM1E862dFBI7SSghmjs",
+      "hostname": "Fidel.engineer",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.4.0"
+  },
+  "ctime": 1568256583,
+  "expire_in": 504576000,
+  "prev": "8c2f957b3731a400d15c9bab260e16ed6bf4054838836026eb126e8c152eeaa5",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg0or4HOimDqah2ukI+78X0oDXR+TdG+wDvfw/Is8JW/oKp3BheWxvYWTESpcCBsQgjC+VezcxpADRXJurJg4W7Wv0BUg4g2Am6xJujBUu6qXEII/dZLAqnhrFwMTiXY2W0jfmR+wmCfvLxYw1eM0/y3YbAgHCo3NpZ8RAy/hUF8R2KeiLysEfHDfRMKSxCd2prUOxM2GLEdu9Guvu1Qq2x8ofKlarFa03RE2ZwqrehPs7eAcsNzFo9ohTCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIB5VDeIQjz9nwR12cTad1EjZzcgBW4yYQ0e6+P1EZByAo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/fidelve
+
+==================================================================
