@@ -76,14 +76,14 @@ function isPalindrome(string) {
                 <li><b>"0_0 (: /-\ :) 0-0"</b> should return positive.</li>
                 <li><b>"five|\_/|four"</b> should return negative.</li>
               </ul>
-              <form id="palindrome-form">
-                <div id="cs-test-palindrome">
+              <form class="cs-form">
+                <div class="cs-form-section">
                   <label for="palindrome-input" class="form-label">Palindrome:</label>
                   <input type="text" id="palindrome-input"
                     name="palindrome-input"
                     class="form-input"
                     placeholder="Roma amor">
-                    <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                    <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result"  class="cs-form-result-img" id="palindrome-result">
                   </div>
                 </form>
               </div>
@@ -284,7 +284,16 @@ function rot13(str) { // LBH QVQ VG!
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
             <div class="cs-project-content">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <p>For this next project you are given a string representing a phone number and you should validate it.</p>
+              <p>The input string should be a valid US phone number, the following examples are valid formats for US numbers.</p>
+              <ul>
+                <li>555-555-5555</li>
+                <li>(555)555-5555</li>
+                <li>(555) 555-5555</li>
+                <li>555 555 5555</li>
+                <li>5555555555</li>
+                <li>1 555 555 5555</li>
+              </ul>
               <pre>
                 <code class="cs-code">
 // FreeCodeCamp.
@@ -298,14 +307,44 @@ function telephoneCheck(str) {
                 </code>
               </pre>
               <h4>Testing the code.</h4>
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-              <form id="palindrome-form">
-                <div id="cs-test-palindrome">
-                  <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
-                  <input type="text" id="palindrome-input"
-                    name="palindrome-input" 
-                    placeholder="Roma amor">
-                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+              <p>Use the following to test the algorithm</p>
+              <ul>
+                <li>"1 555-555-5555" should return true.</li>
+                <li>"1 (555) 555-5555" should return true.</li>
+                <li>"5555555555" should return true.</li>
+                <li>"555-555-5555" should return true.</li>
+                <li>"(555)555-5555" should return true.</li>
+                <li>"1(555)555-5555" should return true.</li>
+                <li>"555-5555" should return false.</li>
+                <li>"5555555" should return false.</li>
+                <li>"1 555)555-5555" should return false.</li>
+                <li>"1 555 555 5555" should return true.</li>
+                <li>"1 456 789 4444" should return true.</li>
+                <li>"123**&!!asdf#" should return false.</li>
+                <li>"55555555" should return false.</li>
+                <li>"(6054756961)" should return false</li>
+                <li>"2 (757) 622-7382" should return false.</li>
+                <li>"0 (757) 622-7382" should return false.</li>
+                <li>"-1 (757) 622-7382" should return false</li>
+                <li>"2 757 622-7382" should return false.</li>
+                <li>"10 (757) 622-7382" should return false.</li>
+                <li>"27576227382" should return false.</li>
+                <li>"(275)76227382" should return false.</li>
+                <li>"2(757)6227382" should return false.</li>
+                <li>"2(757)622-7382" should return false.</li>
+                <li>"555)-555-5555" should return false.</li>
+                <li>"(555-555-5555" should return false.</li>
+                <li>"(555)5(55?)-5555" should return false.</li>
+              </ul>
+              <form class="cs-form">
+                <div class="cs-form-section">
+                  <label for="telephone-input" class="form-label">US phone number:</label>
+                  <input type="text" id="telephone-input"
+                    name="telephone-input"
+                    class="form-input"
+                    placeholder="555-555-5555">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="telephone result"
+                  class="cs-form-result-img" id="telephone-result">
                 </div>
               </form>
             </div>
@@ -467,13 +506,14 @@ for (let test of testResults) {
               </pre>
               <h4>Testing the code.</h4>
               <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-              <form id="palindrome-form">
-                <div id="cs-test-palindrome">
+              <form class="cs-form">
+                <div class="cs-form-section">
                   <label for="palindrome-input" id="palindrome-label">Palindrome:</label>
                   <input type="text" id="palindrome-input"
                     name="palindrome-input" 
                     placeholder="Roma amor">
-                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" id="palindrome-result">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result" class="cs-form-result-img"
+                  id="palindrome-result">
                 </div>
               </form>
             </div>

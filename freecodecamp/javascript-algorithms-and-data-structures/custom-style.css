@@ -6,7 +6,6 @@
   width: 100%;
   margin: 10px 0px;
   overflow-x: hidden;
-  /* border: 1px solid black; */
 }
 .cs-project {
   width: 80%;
@@ -58,6 +57,23 @@
   height: 50px;
   transition: background 0.5s;
 }
+.cs-form {}
+.cs-form-section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 6px;
+}
+.cs-form-result-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: green;
+}
 /* -------- Begin Roman Numeral Table -------- */
 #cs-roman-content tbody {
   border-collapse: collapse;
@@ -79,8 +95,6 @@
   font-weight: bold;
   /* width: 20%; */
 }
-
-/* -------- Begin Roman Numeral Table -------- */
 #cs-roman-table {
   display: flex;
   flex-flow: column nowrap;
@@ -169,23 +183,24 @@
   color: #000;
 }
 #cs-palindrome {}
-#palindrome-form {}
-#cs-test-palindrome {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  border: 1px solid #000;
-  border-radius: 6px;
-  padding: 6px;
-}
-#palindrome-result {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: green;
-}
+/* #palindrome-form replaced by .cs-form */
+/* #cs-test-palindrome replaced by .cs-form-section */
+/* #cs-test-palindrome { */
+/*   display: flex; */
+/*   flex-flow: row wrap; */
+/*   align-items: center; */
+/*   justify-content: center; */
+/*   margin-top: 15px; */
+/*   border: 1px solid #000; */
+/*   border-radius: 6px; */
+/*   padding: 6px; */
+/* } */
+/* #palindrome-result { */
+/*   width: 30px; */
+/*   height: 30px; */
+/*   border-radius: 50%; */
+/*   background: green; */
+/* } */
 #cs-roman {}
 #roman-form {
   display: flex;
@@ -218,6 +233,6 @@
   flex-flow: row wrap;
   align-items: center;
 }
-#cs-telephone {
-}
+#telephone-input {}
+#telephone-result {}
 #cs-register {}
