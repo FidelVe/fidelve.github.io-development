@@ -27,6 +27,8 @@ const romanInput = document.querySelector("#roman-input");
 const romanResult = document.querySelector("#roman-result");
 const caesarInput = document.querySelector("#caesar-input");
 const caesarResult = document.querySelector("#caesar-result");
+const telephoneInput = document.querySelector("#telephone-input");
+const telephoneResult = document.querySelector("#telephone-result");
 
 // Binding events for each element
 [palindromeEl, romanEl, caesarsEl, telephoneEl, registerEl].forEach(
@@ -41,6 +43,7 @@ const caesarResult = document.querySelector("#caesar-result");
 palindromeInput.oninput = onPalindromeKeyInput;
 romanInput.oninput = onRomanKeyInput;
 caesarInput.oninput = onCaesarKeyInput;
+telephoneInput.oninput = onTelephoneKeyInput;
 
 // Functions declaration
 function toggleElementView(event) {
@@ -81,12 +84,21 @@ function onMouseLeave(event) {
 
 function onPalindromeKeyInput(event) {
   let result = isPalindrome(event.target.value);
-  if (result === true) {
-    palindromeResult.src = _PATH6;
-    palindromeResult.style.background = "green";
+  validateInput(result, palindromeResult);
+}
+
+function onTelephoneKeyInput(event) {
+  let result = validateTelephone(event.target.value);
+  validateInput(result, telephoneResult);
+}
+
+function validateInput(inputString, DOMElement) {
+  if (inputString === true) {
+    DOMElement.src = _PATH6;
+    DOMElement.style.background = "green";
   } else {
-    palindromeResult.src = _PATH5;
-    palindromeResult.style.background = "red";
+    DOMElement.src = _PATH5;
+    DOMElement.style.background = "red";
   }
 }
 
@@ -194,7 +206,7 @@ function decipherCaesar(str) {
     let newLetter = each;
     if (regex.test(each)) {
       // If letter is UPPERCASE, abc.indexOf(each) will
-      // return -1, in that case to the assignment with
+      // return -1, in that case do the assignment with
       // ABC.indexOf()
       let pos = abc.indexOf(each) !== -1 ?
         abc.indexOf(each) :
@@ -207,4 +219,9 @@ function decipherCaesar(str) {
   return result.reduce((total, value) => {
     return total + value;
   })
+}
+
+function validateTelephone(str) {
+  let regex = /^1{0,1}\s{0,1}(?:[0-9]{3}[\s\-]{0,1}){2}[0-9]{4}$|^1{0,1}\s{0,1}\([0-9]{3}\)[\s\-]{0,1}[[0-9]{3}[\s\-]{0,1}[0-9]{4}$/;
+  return regex.test(str);
 }
