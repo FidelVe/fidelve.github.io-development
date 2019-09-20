@@ -74,6 +74,10 @@
   border-radius: 50%;
   background: green;
 }
+.cs-section-lvl1 {
+  display: flex;
+  flex-flow: column nowrap;
+}
 /* -------- Begin Roman Numeral Table -------- */
 #cs-roman-content tbody {
   border-collapse: collapse;
