@@ -24,13 +24,13 @@
         <p>By the end of the course you will find several exercises to put into practice everything you have learn so far, and 5 final projects to obtain the <i>FreeCodeCamp Certificate</i>.</p>
         <p>I decided to create this page as a way to showcase my code answers to this project, if you are currently going through this part of the FCC curriculum I recommend that you don't see my answers and do the projects on your own, the most important part of doing the FCC is to learn of your mistakes and find the answers by yourself, the process of making mistakes and learning from them is the most important part of learning, not only how to code but learning anything in life, so if you truly want to learn, don't cheat, you will only be doing a disservice to yourself.</p>
         <h4>FreeCodeCamp JavaScript's final project</h4>
-        <section id="cs-projects">
+        <section id="cs-projects" class="cs-flexcnw">
           <div class="cs-project" id="cs-palindrome">
-            <div class="cs-project-header" id="cs-header-palindrome">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-palindrome">
               <h5>Palindrome Checker</h5>
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
-            <div class="cs-project-content">
+            <div class="cs-project-content cs-flexcnw">
               <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
               <p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
               <p>Because we need to compare character by character, not including punctuation, case and spacing, we need to use regular expressions to match all the correct characters, and add all of this into an array for easy comparison later.</p>
@@ -77,8 +77,8 @@ function isPalindrome(string) {
                 <li><b>"0_0 (: /-\ :) 0-0"</b> should return positive.</li>
                 <li><b>"five|\_/|four"</b> should return negative.</li>
               </ul>
-              <form class="cs-form">
-                <div class="cs-form-section">
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
                   <label for="palindrome-input" class="form-label">Palindrome:</label>
                   <input type="text" id="palindrome-input"
                     name="palindrome-input"
@@ -90,15 +90,15 @@ function isPalindrome(string) {
               </div>
             </div>
             <div class="cs-project" id="cs-roman">
-              <div class="cs-project-header" id="cs-header-roman">
+              <div class="cs-project-header cs-flexrnw" id="cs-header-roman">
                 <h5>Roman Numeral Converter</h5>
                 <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
               </div>
-              <div class="cs-project-content" id="cs-roman-content">
+              <div class="cs-project-content cs-flexcnw" id="cs-roman-content">
                 <p>For this project you are asked to create an algorithm that converts decimal numbers into the roman numeral system.</p>
                 <p>The first thing that we need to do, is understand how roman numerals are written. The numbers in this system are represented by a combination of letters from the Latin alphabet.</p>
-                <div id="cs-roman-table">
-                  <div>
+                <div id="cs-roman-table" class="cs-flexcnw">
+                  <div class="cs-flexrnw">   
                     <span class="cs-roman-thead">Symbol</span>
                     <span>I</span>
                     <span>V</span>
@@ -108,7 +108,7 @@ function isPalindrome(string) {
                     <span>D</span>
                     <span>M</span>
                   </div>
-                  <div>
+                  <div class="cs-flexrnw">   
                     <span class="cs-roman-thead">Value</span>
                     <span>1</span>
                     <span>5</span>
@@ -202,14 +202,14 @@ function isPalindrome(string) {
                   <li>Decimal 2014, should return "MMXIV".</li>
                 <li>Decimal 3999, should return "MMMCMXCIX".</li>
               </ul>
-              <form id="roman-form">
-                <div class="roman-form-section">
+              <form id="roman-form" class="cs-form cs-flexcnw">
+                <div class="roman-form-section cs-flexrnw">
                   <label for="roman-input" class="form-label">Decimal =</label>
                   <input type="number" min="0" id="roman-input"
                     name="roman-input" class="form-input"
                     placeholder="Enter decimal number..">
                 </div>
-                <div class="roman-form-section">
+                <div class="roman-form-section cs-flexrnw">
                   <label for="roman-result" class="form-label">Roman =</label>
                   <input type="text" id="roman-result" class="form-result"
                     placeholder="Result in roman numbers"
@@ -217,15 +217,15 @@ function isPalindrome(string) {
                 </div>
               </form>
             </div>
-            <div class="cs-project-content">
+            <div class="cs-project-content cs-flexcnw">
             </div>
           </div>
           <div class="cs-project" id="cs-caesars">
-            <div class="cs-project-header" id="cs-header-caesars">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-caesars">
               <h5>Caesars Cipher</h5>
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
-            <div class="cs-project-content">
+            <div class="cs-project-content cs-flexcnw">
               <p>In cryptography, a cipher is an algorithm for performing encryption or decryption, this algorithm substitutes the characters in a string to transform them into something else for the purpose of protecting the original string from being understood by unwanted people.</p>
               <p>Caesars cipher is one of the simplest and most widely know encryption techniques. It is a simple substitution cipher in which each letter in a string is replaced by a letter some fixed number of positions down the alphabet.</p>
               <p>For this project you are asked to write an algorithm capable of implementing ROT13, a type of caesar cipher that replaces every character in a string with the letter 13 positions up in the alphabet from the position of that character.</p>
@@ -263,14 +263,14 @@ function rot13(str) { // LBH QVQ VG!
                 <li>"SERR YBIR?" should decode to FREE LOVE?.</li>
                 <li>"GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT." should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</li>
               </ul>
-              <form id="caesar-form">
-                <div class="caesar-form-section">
+              <form id="caesar-form" class="cs-form cs-flexcnw">
+                <div class="caesar-form-section cs-flexrw">
                   <label for="caesar-input" id="caesar-label" class="form-label">Encrypted:</label>
                   <input type="text" name="caesar-input"
                     class="form-input" id="caesar-input"
                     placeholder="Enter encrypted message">
                 </div>
-                <div class="caesar-form-section">
+                <div class="caesar-form-section cs-flexrw">
                   <label for="caesar-result" class="form-label">Decrypted:</label>
                     <input type="text" id="caesar-result"
                     name="caesar-result" class="form-result"
@@ -280,11 +280,11 @@ function rot13(str) { // LBH QVQ VG!
             </div>
           </div>
           <div class="cs-project" id="cs-telephone">
-            <div class="cs-project-header" id="cs-header-telephone">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-telephone">
               <h5>Telephone Number Validator</h5>
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
-            <div class="cs-project-content">
+            <div class="cs-project-content cs-flexcnw">
               <p>For this next project you are given a string representing a phone number and you should validate it.</p>
               <p>The input string should be a valid US phone number, the following examples are valid formats for US numbers.</p>
               <ul>
@@ -337,8 +337,8 @@ function telephoneCheck(str) {
                 <li>"(555-555-5555" should return false.</li>
                 <li>"(555)5(55?)-5555" should return false.</li>
               </ul>
-              <form class="cs-form">
-                <div class="cs-form-section">
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
                   <label for="telephone-input" class="form-label">US phone number:</label>
                   <input type="text" id="telephone-input"
                     name="telephone-input"
@@ -351,11 +351,11 @@ function telephoneCheck(str) {
             </div>
           </div>
           <div class="cs-project" id="cs-register">
-            <div class="cs-project-header" id="cs-header-register">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-register">
               <h5>Cash Register</h5>
               <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
             </div>
-            <div class="cs-project-content">
+            <div class="cs-project-content cs-flexcnw">
               <p>For this last project you're tasked with creating a piece of program that will simulate a cash register.</p>
               <p>You have to write a function that takes purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.</p>
               <p>After taking those inputs, you need to calculate how much change to return taking into account the price of the product, the amount of cash the client is giving you and the amount of cash the register has.</p>
@@ -515,119 +515,122 @@ for (let test of testResults) {
               </pre>
               <h4>Testing the code.</h4>
               <p></p>
-              <form class="cs-form">
-                <div class="cs-form-section">
-                  <label for="cs-register-dropdown" class="form-label">Select test:</label>
-                  <select id="cs-register-dropdown"
-                    class="form-input"
-                    name="cs-register-dropdown">
-                    <option value="1">Case 1</option>
-                    <option value="2">Case 2</option>
-                    <option value="3">Case 3</option>
-                    <option value="4">Case 4</option>
-                    <option value="5">Case 5</option>
-                  </select>
-                  <div class="cs-form-section cs-section-lvl1">
-                    <div class="cs-form-section-header">
+              <div class="cs-container-type-1">
+                <label for="cs-register-dropdown" class="form-label">Select test:</label>
+                <select id="cs-register-dropdown"
+                  class="form-input"
+                  name="cs-register-dropdown">
+                  <option value="1">Case 1</option>
+                  <option value="2">Case 2</option>
+                  <option value="3">Case 3</option>
+                  <option value="4">Case 4</option>
+                  <option value="5">Case 5</option>
+                </select>
+                <button>Calculate</button>
+              </div>
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
+                  <div class="cs-form-section cs-flexcnw cs-section-lvl1">
+                    <div>
                       <h3>Input</h3>
                     </div>
                     <fieldset>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Cash:</label>
                         <input type="number" step="0.01" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Change:</label>
                         <input type="number" step="0.01" min="0" class=form-input>
                       </div>
                     </fieldset>
                     <fieldset>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">$100:</label>
                         <input type="number" step="100" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">$20:</label>
                         <input type="number" step="20" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">$10:</label>
                         <input type="number" step="10" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">$5:</label>
                         <input type="number" step="5" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">$1:</label>
                         <input type="number" step="1" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">&#162;25:</label>
                         <input type="number" step="0.25" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">&#162;10:</label>
                         <input type="number" step="0.10" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">&#162;5:</label>
                         <input type="number" step="0.05" min="0" class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">&#162;1:</label>
                         <input type="number" step="0.01" min="0" class=form-input>
                       </div>
                     </fieldset>
                   </div>
-                  <div class="cs-form-section cs-section-lvl1">
-                    <div class="cs-form-section-header">
+                  <div class="cs-form-section cs-section-lvl1 cs-flexcnw">
+                    <div>
                       <h3>Output</h3>
                     </div>
                     <fieldset>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Status:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Change:</label>
                         <input disabled class=form-input>
                       </div>
                     </fieldset>
                     <fieldset>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Hundred bill:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Twenty bill:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Ten bill:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Five bill:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">One bill:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Quarter coin:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Dime coin:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Nickel coin:</label>
                         <input disabled class=form-input>
                       </div>
-                      <div class="cs-from-section cs-section-lvl2">
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
                         <label class="form-label label-style-1">Penny coin:</label>
                         <input disabled class=form-input>
                       </div>

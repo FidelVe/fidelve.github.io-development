@@ -1,7 +1,25 @@
 /* Custom styles for ./index.html */
-#cs-projects {
+/* Generic flex styles */
+.cs-flexrw {
+  display: flex;
+  flex-flow: row wrap;
+}
+.cs-flexrnw {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.cs-flexcw {
+  display: flex;
+  flex-flow: column wrap;
+}
+.cs-flexcnw {
   display: flex;
   flex-flow: column nowrap;
+}
+/* *************************** */
+#cs-projects {
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
   align-items: center;
   width: 100%;
   margin: 10px 0px;
@@ -19,8 +37,8 @@
   transition: height 1s;
 }
 .cs-project-header {
-  display: flex;
-  flex-flow: row nowrap;
+  /* display: flex; */
+  /* flex-flow: row nowrap; */
   align-items: center;
   justify-content: space-between;
   height: 3.5em;
@@ -36,15 +54,15 @@
   background: #000;
 }
 .cs-project-content {
-  display: flex;
-  flex-flow: column nowrap;
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
   align-items: center;
   padding: 15px;
 }
 .cs-project-content pre {
   padding: 0px;
   margin: 15px 10px;
-  display: flex;
+  /* display: flex; */
   width: 80%;
   max-width: 80%;
   /* min-width: 300px; */
@@ -57,16 +75,15 @@
   height: 50px;
   transition: background 0.5s;
 }
-.cs-form {}
 .cs-form-section {
-  display: flex;
-  flex-flow: row wrap;
+  /* display: flex; */
+  /* flex-flow: row wrap; */
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  border: 1px solid #000;
-  border-radius: 6px;
-  padding: 6px;
+  /* margin-top: 15px; */
+  /* border: 1px solid #000; */
+  /* border-radius: 6px; */
+  /* padding: 6px; */
 }
 .cs-form-result-img {
   width: 30px;
@@ -75,21 +92,27 @@
   background: green;
 }
 .cs-section-lvl1 {
-  display: flex;
-  flex-flow: column nowrap;
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
+}
+.cs-section-lvl2 {
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
+}
+.cs-container-type-1 {
 }
 /* -------- Begin Roman Numeral Table -------- */
-#cs-roman-content tbody {
+#cs-roman-content > tbody {
   border-collapse: collapse;
   border: 1px solid #000;
   display: flex;
   flex-flow: row nowrap;
 }
-#cs-roman-content tr {
+#cs-roman-content > tr {
   display: flex;
   flex-flow: column nowrap;
 }
-#cs-roman-content tr, #cs-roman-content td {
+#cs-roman-content > tr, #cs-roman-content > td {
   border: 1px solid #000;
 }
 .cs-table-head {
@@ -100,16 +123,16 @@
   /* width: 20%; */
 }
 #cs-roman-table {
-  display: flex;
-  flex-flow: column nowrap;
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
   align-items: center;
   width: 100%;
   text-align: center;
   margin: 10px 0px;
 }
 #cs-roman-table div {
-  display: flex;
-  flex-flow: row nowrap;
+  /* display: flex; */
+  /* flex-flow: row nowrap; */
   justify-content: stretch;
   width: 100%;
   max-width: 400px;
@@ -206,35 +229,42 @@
 /*   background: green; */
 /* } */
 #cs-roman {}
-#roman-form {
-  display: flex;
-  flex-flow: column nowrap;
+.cs-form {
   width: 80%;
   margin-top: 15px;
   border: 1px solid #000;
   border-radius: 6px;
   padding: 6px;
 }
+#roman-form {
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
+  /* width: 80%; */
+  /* margin-top: 15px; */
+  /* border: 1px solid #000; */
+  /* border-radius: 6px; */
+  /* padding: 6px; */
+}
 .roman-form-section {
-  display: flex;
-  flex-flow: row nowrap;
+  /* display: flex; */
+  /* flex-flow: row nowrap; */
   flex: 1 0 auto;
   margin: 0px 5px 5px 5px;
   align-items: center;
 }
 #cs-caesars {}
 #caesar-form {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 80%;
-  margin-top: 15px;
-  border: 1px solid #000;
-  border-radius: 6px;
-  padding: 6px;
+  /* display: flex; */
+  /* flex-flow: column nowrap; */
+  /* width: 80%; */
+  /* margin-top: 15px; */
+  /* border: 1px solid #000; */
+  /* border-radius: 6px; */
+  /* padding: 6px; */
 }
 .caesar-form-section {
-  display: flex;
-  flex-flow: row wrap;
+  /* display: flex; */
+  /* flex-flow: row wrap; */
   align-items: center;
 }
 #telephone-input {}
