@@ -5,8 +5,8 @@
  */
 
 // You can delete this file if you're not using it
-const express = require("express")
+// const express = require("express")
 
-exports.onCreateDevServer = ({ app }) => {
-  app.use(express.static("public"))
-}
+// exports.onCreateDevServer = ({ app }) => {
+//   app.use(express.static("public"))
+// }
