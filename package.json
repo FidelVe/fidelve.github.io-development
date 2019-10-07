@@ -22,9 +22,7 @@
     "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   },
-  "keywords": [
-    "gatsby", "react", "fidelve"
-  ],
+  "keywords": ["gatsby", "react", "fidelve"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -33,7 +31,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master"
+    "deploy-with-prefix": "gatsby build --prefix-paths && gh-pages -d public -b master",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",
