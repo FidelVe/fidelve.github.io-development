@@ -1,0 +1,134 @@
+#layout {
+  min-height: 100%;
+  min-width: 320px;
+}
+#navbar,
+#navbar-background,
+#navbar-link-container {
+  height: 60px;
+  border-radius: 0px 0px 4px 4px;
+}
+#navbar {
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  width: 100%;
+  background-color: #eee;
+}
+#navbar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+#navbar-link-container {
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: center;
+}
+.nav-link {
+  height: 60px;
+  font-size: 20px;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 20px 4px 0px 2px;
+}
+.nav-link:nth-child(1) {
+  border-radius: 0px 0px 0px 4px;
+}
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+#main {
+  margin: 0 auto;
+  padding-top: 0;
+  margin-top: 75px;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#main * {
+  max-width: 960px;
+}
+
+#main-header,
+#content {
+  margin: 0px 5vw;
+}
+
+#main-header h1 {
+  text-align: center;
+}
+
+#content {
+  font-size: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#content p,
+#content ul,
+#content img {
+  margin: 0.5em 10px;
+}
+#content h4 {
+  text-align: center;
+}
+
+@media screen and (min-width: 580px) {
+  /* if width more than 580px */
+  #layout {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100vh;
+  }
+  #navbar,
+  #navbar-background,
+  #navbar-link-container {
+    width: 170px;
+    height: 100vh;
+    border-radius: 0px 4px 4px 0px;
+  }
+  #navbar {
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: static;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #navbar-background {
+    height: 100vh;
+  }
+  #navbar-link-container {
+    flex-flow: column nowrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* line-height: 1.5em; */
+  }
+  #main {
+    margin-top: 0px;
+    padding-top: 20px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+  }
+  .nav-link:nth-child(1) {
+    border-radius: 0px 4px 0px 0px;
+  }
+  .nav-link {
+    height: 60px;
+    /* padding: 12px 4px 8px 4px; */
+  }
+  #content {
+    align-self: stretch;
+  }
+}

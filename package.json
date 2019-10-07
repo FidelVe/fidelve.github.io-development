@@ -1,12 +1,45 @@
 {
-  "name": "github-site",
-  "version": "1.0.0",
-  "description": "personal site",
-  "main": "index.js",
-  "author": "Fidel Sanchez <me@fidel.engineer>",
-  "license": "MIT",
+  "name": "FidelVe-Homepage",
+  "private": false,
+  "description": "FidelVe personal page",
+  "version": "0.1.0",
+  "author": "Fidel Sanchez-Bueno <me@fidel.engineer>",
+  "dependencies": {
+    "gatsby": "^2.15.28",
+    "gatsby-image": "^2.2.23",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-offline": "^3.0.11",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-source-filesystem": "^2.1.28",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
   "devDependencies": {
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "gh-pages": "^2.1.1",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby", "react", "fidelve"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
   }
 }
