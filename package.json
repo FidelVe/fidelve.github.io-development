@@ -1,0 +1,12 @@
+{
+  "name": "github-site",
+  "version": "1.0.0",
+  "description": "personal site",
+  "main": "index.js",
+  "author": "Fidel Sanchez <me@fidel.engineer>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}
