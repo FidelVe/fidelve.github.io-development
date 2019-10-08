@@ -1,0 +1,27 @@
+/* CSS module for collapse-container.js */
+.collapse-container {
+  background-color: #ebecf0;
+  border-radius: 4px 4px 0px 0px;
+  border-top: solid 5px #c2b280;
+  margin-bottom: 20px;
+}
+.collapse-header {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.collapse-header h3 {
+  margin-bottom: 0px;
+  margin-left: 6px;
+}
+.collapse-header-img-wrapper {
+  padding: 0px;
+}
+.collapse-header-img {
+  margin: 0px;
+}
+.collapse-content {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}

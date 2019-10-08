@@ -1,7 +1,0 @@
-      <div id="content">
-        <img src="../../images/freecodecamp-logo.png" alt="FreeCodeCamp logo">
-        <p><b>JavaScript Algorithms and Data Structures</b> is the second of six courses offered at FreeCodeCamp of which upon completion of its final projects you may earn a <i>FreeCodeCamp Certificate</i>.</p>
-        <p>Starting with the basic sintax of javascript, this course is a great introduction to JavaScript. I do recommend to find tutorials or books online, and read them while you're going through this course, it helped me have a better grasp on the several aspects of JavaScript.</p>
-        <p>By the end of the course you will find several exercises to put into practice everything you have learn so far, and 5 final projects to obtain the <i>FreeCodeCamp Certificate</i>.</p>
-        <p>I decided to create this page as a way to showcase my code answers to this project, if you are currently going through this part of the FCC curriculum I recommend that you don't see my answers and do the projects on your own, the most important part of doing the FCC is to learn of your mistakes and find the answers by yourself, the process of making mistakes and learning from them is the most important part of learning, not only how to code but learning anything in life, so if you truly want to learn, don't cheat, you will only be doing a disservice to yourself.</p>
-        <h4>FreeCodeCamp JavaScript's final project</h4>

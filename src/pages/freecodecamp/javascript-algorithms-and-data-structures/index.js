@@ -1,18 +1,18 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../../../components/layout"
+import CollapseContainer from './collapse-container';
+import Layout from '../../../components/layout';
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const IndexPage = props => (
   <Layout
-    pageTitle={"FidelVe | FreeCodeCamp"}
-    headerText="FreeCodeCamp. JavaScript Algorithms and Data Structure."
-  >
+    pageTitle={'FidelVe | FreeCodeCamp'}
+    headerText="FreeCodeCamp. JavaScript Algorithms and Data Structure.">
     {/* <SEO title="Home" /> */}
-    <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto" }}>
+    <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
       <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
     </div>
     <p>
@@ -41,19 +41,20 @@ const IndexPage = props => (
       how to code but learning anything in life, so if you truly want to learn,
       don't cheat, you will only be doing a disservice to yourself.
     </p>
-    <h4>FreeCodeCamp JavaScript's final project</h4>
+    <h2>FreeCodeCamp JavaScript's final project</h2>
+    <CollapseContainer />
     {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}> */}
     {/*   <Image /> */}
     {/* </div> */}
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query {
-    fccLogo: file(relativePath: { eq: "freecodecamp-logo.png" }) {
+    fccLogo: file(relativePath: {eq: "freecodecamp-logo.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid_noBase64
@@ -61,4 +62,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

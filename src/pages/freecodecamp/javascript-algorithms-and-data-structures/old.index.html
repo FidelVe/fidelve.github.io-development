@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="../../styles/style.css" rel="stylesheet" type="text/css">
+    <link href="./custom-style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FidelVe - FreeCodeCamp projects</title>
+  </head>
+  <body>
+    <nav id="sidebar">
+      <a href="../../index.html"> HOME </a>
+      <a href="../../about.html"> ABOUT </a>
+      <a href="../../contact.html">CONTACT</a>
+    </nav>
+    <main id="main">
+      <header id="main-header">
+        <h1>FreeCodeCamp. JavaScript Algorithms and Data Structures.</h1>
+      </header>
+      <div id="content">
+        <img src="../../images/freecodecamp-logo.png" alt="FreeCodeCamp logo">
+        <p><b>JavaScript Algorithms and Data Structures</b> is the second of six courses offered at FreeCodeCamp of which upon completion of its final projects you may earn a <i>FreeCodeCamp Certificate</i>.</p>
+        <p>Starting with the basic sintax of javascript, this course is a great introduction to JavaScript. I do recommend to find tutorials or books online, and read them while you're going through this course, it helped me have a better grasp on the several aspects of JavaScript.</p>
+        <p>By the end of the course you will find several exercises to put into practice everything you have learn so far, and 5 final projects to obtain the <i>FreeCodeCamp Certificate</i>.</p>
+        <p>I decided to create this page as a way to showcase my code answers to this project, if you are currently going through this part of the FCC curriculum I recommend that you don't see my answers and do the projects on your own, the most important part of doing the FCC is to learn of your mistakes and find the answers by yourself, the process of making mistakes and learning from them is the most important part of learning, not only how to code but learning anything in life, so if you truly want to learn, don't cheat, you will only be doing a disservice to yourself.</p>
+        <h4>FreeCodeCamp JavaScript's final project</h4>
+        <section id="cs-projects" class="cs-flexcnw">
+          <div class="cs-project" id="cs-palindrome">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-palindrome">
+              <h5>Palindrome Checker</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content cs-flexcnw">
+              <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+              <p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
+              <p>Because we need to compare character by character, not including punctuation, case and spacing, we need to use regular expressions to match all the correct characters, and add all of this into an array for easy comparison later.</p>
+              <p>After having your array with all the correct characters, the rest is just an iteration where you compare each character in their respective position at the beginning and end of the array, stoping at the middle.</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Project:
+// Palindrome Checker.
+
+function isPalindrome(string) {
+  // This functions takes a string as an argument
+  // and returns true if the string is a palindrome
+  // false if not.
+
+  let regex = /[^\W\_]/g;
+  let charArr = string.match(regex).map( (each) => {
+    return each.toLowerCase();
+  });
+
+  for (let i=0; i < Math.floor(charArr.length/2); i++) {
+    if (charArr[i] != charArr[charArr.length-1-i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>Heres a list of words and phrases you can use to test the algorithm.</p>
+              <ul>
+                <li><b>"eye"</b> should return positive.</li>
+                <li><b>"_eye"</b> should return positive.
+                <li><b>"race car"</b> should return positive.</li>
+                <li><b>"not a palindrome"</b> should return negative.</li>
+                <li><b>"A man, a plan, a canal. Panama"</b> should return positive.</li>
+                <li><b>"never odd or even"</b> should return positive.</li>
+                <li><b>"nope"</b> should return negative.</li>
+                <li><b>"almostomla"</b> should return negative.</li>
+                <li><b>"My age is 0, 0 si ega ym."</b> should return positive.</li>
+                <li><b>"1 eye for of 1 eye."</b> should return negative.</li>
+                <li><b>"0_0 (: /-\ :) 0-0"</b> should return positive.</li>
+                <li><b>"five|\_/|four"</b> should return negative.</li>
+              </ul>
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
+                  <label for="palindrome-input" class="form-label">Palindrome:</label>
+                  <input type="text" id="palindrome-input"
+                    name="palindrome-input"
+                    class="form-input"
+                    placeholder="Roma amor">
+                    <img src="./images/ic_check_circle_white_48dp.png" alt="palindrome result"  class="cs-form-result-img" id="palindrome-result">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="cs-project" id="cs-roman">
+              <div class="cs-project-header cs-flexrnw" id="cs-header-roman">
+                <h5>Roman Numeral Converter</h5>
+                <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+              </div>
+              <div class="cs-project-content cs-flexcnw" id="cs-roman-content">
+                <p>For this project you are asked to create an algorithm that converts decimal numbers into the roman numeral system.</p>
+                <p>The first thing that we need to do, is understand how roman numerals are written. The numbers in this system are represented by a combination of letters from the Latin alphabet.</p>
+                <div id="cs-roman-table" class="cs-flexcnw">
+                  <div class="cs-flexrnw">   
+                    <span class="cs-roman-thead">Symbol</span>
+                    <span>I</span>
+                    <span>V</span>
+                    <span>X</span>
+                    <span>L</span>
+                    <span>C</span>
+                    <span>D</span>
+                    <span>M</span>
+                  </div>
+                  <div class="cs-flexrnw">   
+                    <span class="cs-roman-thead">Value</span>
+                    <span>1</span>
+                    <span>5</span>
+                    <span>10</span>
+                    <span>50</span>
+                    <span>100</span>
+                    <span>500</span>
+                    <span>1000</span>
+                  </div>
+                 </div>
+                <p>Now that we now the symbols and their value in the decimal system, how do we used them?. The correct way to express quantities in the roman numeral system is to replace from the top down, find the highest valued symbol, use it and substract the value to the total and repeat until zero is reached.</p>
+                <p>For example, the correct way to express <b>1500</b> in the roman system would be <b>MD</b>, instead of <b>DDD</b>.</p>
+                <pre>
+                  <code class="cs-code">
+   // FreeCodeCamp.
+  // JavaScript Algorithms and Data Structures Projects:
+  // Roman Numeral Converter
+
+  function convertToRoman(input) {
+    // Converts decimal integers to roman numeral
+    // {
+    //   "1": "I", "5": "V", "10": "X", "50": "L",
+    //   "100": "C", "500": "D", "1000": "M"
+    // };
+
+    let num = input;
+    let result = [];
+
+    while(num != 0) {
+      if (num >= 1000) {
+        result.push("M");
+        num -= 1000;
+      } else if(num >= 900) {
+        result.push("CM");
+        num -= 900;
+      } else if(num >= 500) {
+        result.push("D");
+        num -= 500;
+      } else if(num >= 400) {
+        result.push("CD");
+        num -= 400;
+      } else if(num >= 100) {
+        result.push("C");
+        num -= 100;
+      } else if(num >= 90) {
+        result.push("XC");
+        num -= 90;
+      } else if(num >= 50) {
+        result.push("L");
+        num -= 50;
+      } else if(num >= 40) {
+        result.push("XL");
+        num -= 40;
+      } else if(num >= 10) {
+        result.push("X");
+        num -= 10;
+      } else if(num >= 9) {
+        result.push("IX");
+        num -= 9;
+      } else if(num >= 5) {
+        result.push("V");
+        num -= 5;
+      } else if(num >= 4) {
+        result.push("IV");
+        num -= 4;
+      } else if(num >= 1) {
+        result.push("I");
+        num -= 1;
+      } else {
+        console.log(`error: input = ${input}. num = ${num}\nresult = ${result}`);
+        break;
+      }
+    }
+
+    return result.reduce( (total, value) => { return total + value });
+
+  }
+                  </code>
+                </pre>
+                <h4>Testing the code.</h4>
+                <p>Use the following values to test the algorithm.</p>
+                <ul>
+                  <li>Decimal 2, should return "II".</li>
+                  <li>Decimal 4, should return "IV".</li>
+                  <li>Decimal 29, should return "XXIX".</li>
+                  <li>Decimal 83, should return "LXXXIII".</li>
+                  <li>Decimal 97, should return "XCVII".</li>
+                  <li>Decimal 649, should return "DCXLIX".</li>
+                  <li>Decimal 798, should return "DCCXCVIII".</li>
+                  <li>Decimal 891, should return "DCCCXCI".</li>
+                  <li>Decimal 2014, should return "MMXIV".</li>
+                <li>Decimal 3999, should return "MMMCMXCIX".</li>
+              </ul>
+              <form id="roman-form" class="cs-form cs-flexcnw">
+                <div class="roman-form-section cs-flexrnw">
+                  <label for="roman-input" class="form-label">Decimal =</label>
+                  <input type="number" min="0" id="roman-input"
+                    name="roman-input" class="form-input"
+                    placeholder="Enter decimal number..">
+                </div>
+                <div class="roman-form-section cs-flexrnw">
+                  <label for="roman-result" class="form-label">Roman =</label>
+                  <input type="text" id="roman-result" class="form-result"
+                    placeholder="Result in roman numbers"
+                    name="roman-result" disabled>
+                </div>
+              </form>
+            </div>
+            <div class="cs-project-content cs-flexcnw">
+            </div>
+          </div>
+          <div class="cs-project" id="cs-caesars">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-caesars">
+              <h5>Caesars Cipher</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content cs-flexcnw">
+              <p>In cryptography, a cipher is an algorithm for performing encryption or decryption, this algorithm substitutes the characters in a string to transform them into something else for the purpose of protecting the original string from being understood by unwanted people.</p>
+              <p>Caesars cipher is one of the simplest and most widely know encryption techniques. It is a simple substitution cipher in which each letter in a string is replaced by a letter some fixed number of positions down the alphabet.</p>
+              <p>For this project you are asked to write an algorithm capable of implementing ROT13, a type of caesar cipher that replaces every character in a string with the letter 13 positions up in the alphabet from the position of that character.</p>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// javaScript Algorithms and Data Structures Projects:
+// Caesars Cipher
+function rot13(str) { // LBH QVQ VG!
+  let abc = "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+  let result = [];
+  let regex = /[a-zA-Z]/;
+
+  for (let each of str) {
+    let newLetter = each;
+    if (regex.test(each)) {
+      let pos = abc.indexOf(each);
+      let newpos = (pos+13 >= 26) ? pos - 13 : pos + 13;
+      newLetter = abc.charAt(newpos);
+    } 
+      result.push(newLetter);
+  }
+  
+  return result.reduce((total, value) => {
+    return total + value;
+  })
+}
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>Use the following to test the algorithm</p>
+              <ul>
+                <li>"SERR PBQR PNZC" should decode to FREE CODE CAMP.</li>
+                <li>"SERR CVMMN!" should decode to FREE PIZZA!.</li>
+                <li>"SERR YBIR?" should decode to FREE LOVE?.</li>
+                <li>"GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT." should decode to THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</li>
+              </ul>
+              <form id="caesar-form" class="cs-form cs-flexcnw">
+                <div class="caesar-form-section cs-flexrw">
+                  <label for="caesar-input" id="caesar-label" class="form-label">Encrypted:</label>
+                  <input type="text" name="caesar-input"
+                    class="form-input" id="caesar-input"
+                    placeholder="Enter encrypted message">
+                </div>
+                <div class="caesar-form-section cs-flexrw">
+                  <label for="caesar-result" class="form-label">Decrypted:</label>
+                    <input type="text" id="caesar-result"
+                    name="caesar-result" class="form-result"
+                    placeholder="Decrypted message">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="cs-project" id="cs-telephone">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-telephone">
+              <h5>Telephone Number Validator</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content cs-flexcnw">
+              <p>For this next project you are given a string representing a phone number and you should validate it.</p>
+              <p>The input string should be a valid US phone number, the following examples are valid formats for US numbers.</p>
+              <ul>
+                <li>555-555-5555</li>
+                <li>(555)555-5555</li>
+                <li>(555) 555-5555</li>
+                <li>555 555 5555</li>
+                <li>5555555555</li>
+                <li>1 555 555 5555</li>
+              </ul>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Projects:
+// Telephone Number Validator
+function telephoneCheck(str) {
+  let regex = /^1{0,1}\s{0,1}(?:[0-9]{3}[\s\-]{0,1}){2}[0-9]{4}$|^1{0,1}\s{0,1}\([0-9]{3}\)[\s\-]{0,1}[[0-9]{3}[\s\-]{0,1}[0-9]{4}$/;
+  return regex.test(str);
+}
+
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p>Use the following to test the algorithm</p>
+              <ul>
+                <li>"1 555-555-5555" should return true.</li>
+                <li>"1 (555) 555-5555" should return true.</li>
+                <li>"5555555555" should return true.</li>
+                <li>"555-555-5555" should return true.</li>
+                <li>"(555)555-5555" should return true.</li>
+                <li>"1(555)555-5555" should return true.</li>
+                <li>"555-5555" should return false.</li>
+                <li>"5555555" should return false.</li>
+                <li>"1 555)555-5555" should return false.</li>
+                <li>"1 555 555 5555" should return true.</li>
+                <li>"1 456 789 4444" should return true.</li>
+                <li>"123**&!!asdf#" should return false.</li>
+                <li>"55555555" should return false.</li>
+                <li>"(6054756961)" should return false</li>
+                <li>"2 (757) 622-7382" should return false.</li>
+                <li>"0 (757) 622-7382" should return false.</li>
+                <li>"-1 (757) 622-7382" should return false</li>
+                <li>"2 757 622-7382" should return false.</li>
+                <li>"10 (757) 622-7382" should return false.</li>
+                <li>"27576227382" should return false.</li>
+                <li>"(275)76227382" should return false.</li>
+                <li>"2(757)6227382" should return false.</li>
+                <li>"2(757)622-7382" should return false.</li>
+                <li>"555)-555-5555" should return false.</li>
+                <li>"(555-555-5555" should return false.</li>
+                <li>"(555)5(55?)-5555" should return false.</li>
+              </ul>
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
+                  <label for="telephone-input" class="form-label">US phone number:</label>
+                  <input type="text" id="telephone-input"
+                    name="telephone-input"
+                    class="form-input"
+                    placeholder="555-555-5555">
+                  <img src="./images/ic_check_circle_white_48dp.png" alt="telephone result"
+                  class="cs-form-result-img" id="telephone-result">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="cs-project" id="cs-register">
+            <div class="cs-project-header cs-flexrnw" id="cs-header-register">
+              <h5>Cash Register</h5>
+              <img src="./images/ic_add_black_48dp.png" class="cs-add-img" alt="plus icon">
+            </div>
+            <div class="cs-project-content cs-flexcnw">
+              <p>For this last project you're tasked with creating a piece of program that will simulate a cash register.</p>
+              <p>You have to write a function that takes purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.</p>
+              <p>After taking those inputs, you need to calculate how much change to return taking into account the price of the product, the amount of cash the client is giving you and the amount of cash the register has.</p>
+              <p>You should always return an object with a "status" and a "change" key. The posible outcomes are as follow:</p>
+              <ul>
+                <li>If cash in the drawer is less than the change due, or if you cannot return the exact change, the output should be <code>{status: "INSUFFICIENT_FUNDS", change: []}</code></li>
+                <li>If the amount of "change" to return is equal to the amount of cash in the register, the "status" key should return "CLOSED" and the change array sorted from highest to lowest with the amounts of bills and coins to return.</li>
+                <li>If the change to return is lower than the amount of cash in the register, and the exact amount can be returned, the "status" key should return with a value of "OPEN", and as in the last case, the change array sorted from highest to lowest.</li>
+              </ul>
+              <pre>
+                <code class="cs-code">
+// FreeCodeCamp.
+// JavaScript Algorithms and Data Structures Projects:
+// Cash Register
+
+let testResults = [
+  [
+    [19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {}],
+  [
+    [19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {status: "OPEN", change: [["QUARTER", 0.5]]}],
+  [
+    [3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]], {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}],
+  [
+    [19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "INSUFFICIENT_FUNDS", change: []}]],
+  [
+    [19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "INSUFFICIENT_FUNDS", change: []}]],
+  [
+    [19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]], [{status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}]]
+];
+
+function dictFrom2dArr(arr) {
+  let dict = {};
+
+  for (let each of arr) {
+    dict[each[0]] = each[1];
+  }
+  return dict;
+}
+
+
+function checkCashRegister(price, cash, cid) {
+  function makeTransaction(num, amount) {
+    change = Math.round((change-num)*100)/100;
+    cidDict[amount] = Math.round((cidDict[amount]-num)*100)/100;
+    changeDict[amount] = Math.round((changeDict[amount]+num)*100)/100;
+  }
+
+  let changeDict = {
+    "PENNY": 0, "NICKEL": 0, "DIME": 0,
+    "QUARTER": 0, "ONE": 0, "FIVE": 0,
+    "TEN": 0, "TWENTY": 0, "ONE HUNDRED": 0
+  };
+  let cidDict = dictFrom2dArr(cid);
+  let changeArr = [];
+  let registerStatus;
+  var change = cash - price;
+  let totalInRegister = 0;
+  let foo = cid.forEach( (money, index) => {
+    totalInRegister += money[1];
+  })
+  totalInRegister = Math.round(totalInRegister*100)/100;
+  
+  let exitFlag = 0;
+  if (change > totalInRegister) {
+    return {"status": "INSUFFICIENT_FUNDS",
+      "change": changeArr}
+  } else {
+    while(change > 0) {
+      change = Math.round(change*100)/100;
+      exitFlag += 1;
+      if (exitFlag > 100) {
+        break
+      };
+      if (change >= 100 && cidDict["ONE HUNDRED"] >= 100) {
+        makeTransaction(100, "ONE HUNDRED");
+      } else if (change >= 20 && cidDict["TWENTY"] >= 20) {
+        makeTransaction(20, "TWENTY");
+      } else if (change >= 10 && cidDict["TEN"] >= 10) {
+        makeTransaction(10, "TEN");
+      } else if (change >= 5 && cidDict["FIVE"] >= 5) {
+        makeTransaction(5, "FIVE");
+      } else if (change >= 1 && cidDict["ONE"] >= 1) {
+        makeTransaction(1, "ONE");
+      } else if (change >= 0.25 && cidDict["QUARTER"] >= 0.25) {
+        makeTransaction(0.25, "QUARTER");
+      } else if (change >= 0.1 && cidDict["DIME"] >= 0.1) {
+        makeTransaction(0.1, "DIME");
+      } else if (change >= 0.05 && cidDict["NICKEL"] >= 0.05) {
+        makeTransaction(0.05, "NICKEL");
+      } else if (change >= 0.01 && cidDict["PENNY"] >= 0.01) {
+        makeTransaction(0.01, "PENNY");
+      } else {
+        return {"status": "INSUFFICIENT_FUNDS",
+          "change": changeArr
+        }
+      }
+    }
+
+    // Formatting change array to be returned
+    let order = ["PENNY", "NICKEL", "DIME", "QUARTER", "ONE", "FIVE", "TEN", "TWENTY", "ONE HUNDRED"].reverse();
+    for (let value of order) {
+      if (changeDict[value] != 0) {
+        let roundedCash = Math.round(changeDict[value]*100)/100;
+        changeArr.push([value, roundedCash]);
+      }
+    }
+    for (let cashInRegister in cidDict) {
+      if (cidDict[cashInRegister] > 0) {
+        // Return with open status
+        return {
+          "status": "OPEN",
+          "change": changeArr
+        }
+      } 
+    }
+    // Return with closed status
+    // TODO: this return is hardcoded to return
+    // the change array values even if they are 0
+    // if not the last test of the exercise will not
+    // pass.
+    let tempReturnArr = [];
+    for (let value of order) {
+      if (changeDict[value] != 0) {
+        let roundedCash = Math.round(changeDict[value]*100)/100;
+        tempReturnArr.push([value, roundedCash]);
+      } else {
+        tempReturnArr.push([value, 0]);
+      }
+    }
+    return {
+      "status": "CLOSED",
+      "change": tempReturnArr.reverse()
+    }
+  }
+  // Here is your change, ma'am.
+}
+
+// Example cash-in-drawer array:
+// [["PENNY", 1.01],
+// ["NICKEL", 2.05],
+// ["DIME", 3.1],
+// ["QUARTER", 4.25],
+// ["ONE", 90],
+// ["FIVE", 55],
+// ["TEN", 20],
+// ["TWENTY", 60],
+// ["ONE HUNDRED", 100]]
+
+for (let test of testResults) {
+  let foo = checkCashRegister(test[0][0], test[0][1], test[0][2]);
+  console.log(foo);
+  console.log(test[1]);
+  console.log("*****");
+}
+
+                </code>
+              </pre>
+              <h4>Testing the code.</h4>
+              <p></p>
+              <div class="cs-container-type-1">
+                <label for="cs-register-dropdown" class="form-label">Select test:</label>
+                <select id="cs-register-dropdown"
+                  class="form-input"
+                  name="cs-register-dropdown">
+                  <option value="1">Case 1</option>
+                  <option value="2">Case 2</option>
+                  <option value="3">Case 3</option>
+                  <option value="4">Case 4</option>
+                  <option value="5">Case 5</option>
+                </select>
+                <button>Calculate</button>
+              </div>
+              <form class="cs-form cs-flexcnw">
+                <div class="cs-form-section cs-flexrw">
+                  <div class="cs-form-section cs-flexcnw cs-section-lvl1">
+                    <div>
+                      <h3>Input</h3>
+                    </div>
+                    <fieldset>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Cash:</label>
+                        <input type="number" step="0.01" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Change:</label>
+                        <input type="number" step="0.01" min="0" class=form-input>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Amount in $100 bills:</label>
+                        <input type="number" step="100" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">$20:</label>
+                        <input type="number" step="20" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">$10:</label>
+                        <input type="number" step="10" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">$5:</label>
+                        <input type="number" step="5" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">$1:</label>
+                        <input type="number" step="1" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">&#162;25:</label>
+                        <input type="number" step="0.25" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">&#162;10:</label>
+                        <input type="number" step="0.10" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">&#162;5:</label>
+                        <input type="number" step="0.05" min="0" class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">&#162;1:</label>
+                        <input type="number" step="0.01" min="0" class=form-input>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="cs-form-section cs-section-lvl1 cs-flexcnw">
+                    <div>
+                      <h3>Output</h3>
+                    </div>
+                    <fieldset>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Status:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Change:</label>
+                        <input disabled class=form-input>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Hundred bill:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Twenty bill:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Ten bill:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Five bill:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">One bill:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Quarter coin:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Dime coin:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Nickel coin:</label>
+                        <input disabled class=form-input>
+                      </div>
+                      <div class="cs-form-section cs-section-lvl2 cs-flexcnw">
+                        <label class="form-label label-style-1">Penny coin:</label>
+                        <input disabled class=form-input>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src='scripts/main.js'></script>
+  </body>
+</html>

@@ -1,15 +1,16 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
 // import { Helmet } from "react-helmet"
 // import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from '../components/layout';
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const IndexPage = props => (
-  <Layout pageTitle={"FidelVe | About page"} headerText="About me!.">
+  <Layout pageTitle={'FidelVe | About page'} headerText="About me!.">
+    {console.log(props)}
     {/* <SEO title="Home" /> */}
     <p>
       In april 2011 I obtained my BSc in Chemical Engineering in Venezuela. In
@@ -19,14 +20,13 @@ const IndexPage = props => (
       <a
         href="https://www.linkedin.com/in/fidel-sanchez-bueno/"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         here
-      </a>{" "}
+      </a>{' '}
       you can see a more detailed description of my time as a Drilling Fluids
       Engineer).
     </p>
-    <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto" }}>
+    <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
       <Img fluid={props.data.imageOne.childImageSharp.fluid} alt="hard hat" />
     </div>
     <p>
@@ -43,7 +43,7 @@ const IndexPage = props => (
       After graduating and finding a job, I put aside learning about computer
       programming and focused on my new job and personal life.
     </p>
-    <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto" }}>
+    <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
       <Img
         fluid={props.data.imageTwo.childImageSharp.fluid}
         fadeIn={true}
@@ -80,20 +80,20 @@ const IndexPage = props => (
     {/* </div> */}
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query {
-    imageOne: file(relativePath: { eq: "hardhat-600px.jpg" }) {
+    imageOne: file(relativePath: {eq: "hardhat-600px.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    imageTwo: file(relativePath: { eq: "rig-pic-2.jpg" }) {
+    imageTwo: file(relativePath: {eq: "rig-pic-2.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid_noBase64
@@ -101,4 +101,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
