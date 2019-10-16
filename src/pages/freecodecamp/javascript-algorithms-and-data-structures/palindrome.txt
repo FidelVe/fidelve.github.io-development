@@ -1,0 +1,4 @@
+<p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+<p>In this project, you are tasked with creating and algorithm that can detect if a word (or phrase) is a palindrome or not.</p>
+<p>Because we need to compare character by character, not including punctuation, case and spacing, we need to use regular expressions to match all the correct characters, and add all of this into an array for easy comparison later.</p>
+<p>After having your array with all the correct characters, the rest is just an iteration where you compare each character in their respective position at the beginning and end of the array, stoping at the middle.</p>

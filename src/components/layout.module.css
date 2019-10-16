@@ -57,9 +57,6 @@
   flex-flow: column nowrap;
   align-items: center;
 }
-#main * {
-  max-width: 960px;
-}
 
 #main-header,
 #content {
@@ -120,6 +117,9 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100px;
+  }
+  #main * {
+    max-width: 960px;
   }
   .nav-link:nth-child(1) {
     border-radius: 0px 4px 0px 0px;

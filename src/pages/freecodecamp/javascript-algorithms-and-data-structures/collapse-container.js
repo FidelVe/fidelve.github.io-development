@@ -2,7 +2,6 @@ import React from 'react';
 import {StaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import styles from './collapse-container.module.css';
-import {Helmet} from 'react-helmet';
 
 const _DATA = graphql`
   {
@@ -23,13 +22,6 @@ const _DATA = graphql`
         }
       }
     }
-    codeBlock: allMarkdownRemark(
-      filter: {frontmatter: {title: {eq: "roman numeral"}}}
-    ) {
-      nodes {
-        html
-      }
-    }
   }
 `;
 
@@ -39,33 +31,54 @@ const ICON_STYLE = {
 };
 class CollapseContainer extends React.Component {
   constructor(props) {
+    // The ref might not be necessary, I guess I can just delete it?
     // headerText="header for the collapsible container"
     super(props);
     this.componentRef = React.createRef();
     this.state = {
       isOpen: false,
     };
+    this.staticState = {
+      isInitialRender: true,
+      // Computed Height of header and content elements inside the collapsible
+      // container
+      collapseHeight: 'auto',
+      uncollapseHeight: false,
+      // headerComputedHeight: false,
+      // contentComputedHeight: false,
+    };
   }
 
   onHeaderClick = event => {
     this.setState({isOpen: !this.state.isOpen});
   };
+
+  componentDidMount() {
+    if (this.staticState.isInitialRender) {
+      let [headerEl, contentEl] = this.componentRef.current.children;
+      this.staticState.collapseHeight = headerEl.scrollHeight;
+      this.staticState.uncollapseHeight =
+        headerEl.scrollHeight + contentEl.scrollHeight;
+      this.staticState.isInitialRender = false;
+    }
+  }
+
   render() {
-    // const contentStyle = this.state.isOpen
-    //   ? styles.collapseContent
-    //   : [styles.collapseContent, styles.closed].join(' ');
+    const elementHeight = this.staticState.isInitialRender
+      ? this.staticState.collapseHeight
+      : this.state.isOpen
+      ? this.staticState.uncollapseHeight
+      : this.staticState.collapseHeight;
+
     return (
       <StaticQuery
         query={_DATA}
         render={data => {
-          console.log(data);
           return (
             <section
               ref={this.componentRef}
-              className={styles.collapseContainer}>
-              <Helmet>
-                <title>FidelVe | FreeCodeCamp</title>
-              </Helmet>
+              className={styles.collapseContainer}
+              style={{height: `${elementHeight}px`}}>
               <header
                 onClick={this.onHeaderClick}
                 className={styles.collapseHeader}>
@@ -76,11 +89,7 @@ class CollapseContainer extends React.Component {
                   fixed={data.expandIcon.childImageSharp.fixed}
                 />
               </header>
-              <article
-                // className={contentStyle}
-                dangerouslySetInnerHTML={{
-                  __html: data.codeBlock.nodes[0].html,
-                }}>
+              <article className={styles.collapseContent}>
                 {this.props.children}
               </article>
             </section>
@@ -94,15 +103,5 @@ class CollapseContainer extends React.Component {
 CollapseContainer.defaultProps = {
   headerText: 'default value for the header text',
 };
-
-// export const iconImg = graphql`
-//   fragment iconImg on File {
-//     childImageSharp {
-//       fixed(width: 48) {
-//         ...GatsbyImageSharpFixed
-//       }
-//     }
-//   }
-// `;
 
 export default CollapseContainer;
