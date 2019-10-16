@@ -23,6 +23,13 @@ const _DATA = graphql`
         }
       }
     }
+    codeBlock: allMarkdownRemark(
+      filter: {frontmatter: {title: {eq: "roman numeral"}}}
+    ) {
+      nodes {
+        html
+      }
+    }
   }
 `;
 
@@ -34,32 +41,46 @@ class CollapseContainer extends React.Component {
   constructor(props) {
     // headerText="header for the collapsible container"
     super(props);
+    this.componentRef = React.createRef();
     this.state = {
       isOpen: false,
     };
   }
 
+  onHeaderClick = event => {
+    this.setState({isOpen: !this.state.isOpen});
+  };
   render() {
+    // const contentStyle = this.state.isOpen
+    //   ? styles.collapseContent
+    //   : [styles.collapseContent, styles.closed].join(' ');
     return (
       <StaticQuery
         query={_DATA}
         render={data => {
-          // console.log(data);
+          console.log(data);
           return (
-            <section className={styles.collapseContainer}>
+            <section
+              ref={this.componentRef}
+              className={styles.collapseContainer}>
               <Helmet>
                 <title>FidelVe | FreeCodeCamp</title>
               </Helmet>
-              <header className={styles.collapseHeader}>
+              <header
+                onClick={this.onHeaderClick}
+                className={styles.collapseHeader}>
                 <h3>{this.props.headerText}</h3>
                 <Img
                   imgStyle={ICON_STYLE}
                   className={styles.collapseHeaderImgWrapper}
-                  // placeholderClassName={styles.collapseHeaderImg}
                   fixed={data.expandIcon.childImageSharp.fixed}
                 />
               </header>
-              <article className={styles.collapseContent}>
+              <article
+                // className={contentStyle}
+                dangerouslySetInnerHTML={{
+                  __html: data.codeBlock.nodes[0].html,
+                }}>
                 {this.props.children}
               </article>
             </section>

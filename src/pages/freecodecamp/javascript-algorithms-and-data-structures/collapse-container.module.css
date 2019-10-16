@@ -4,10 +4,14 @@
   border-radius: 4px 4px 0px 0px;
   border-top: solid 5px #c2b280;
   margin-bottom: 20px;
+  /* height: 48px; */
+  /* overflow-y: hidden; */
+  /* transition: height 1s; */
 }
 .collapse-header {
   /* background-color: rgba(0, 0, 0, 0.1); */
   display: flex;
+  height: 48px;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
@@ -23,5 +27,11 @@
   margin: 0px;
 }
 .collapse-content {
-  /* background-color: rgba(0, 0, 0, 0.1); */
+  height: 150px;
+  opacity: 1;
+  transition: height 1s, opacity 1s;
+}
+.collapse-content.closed {
+  height: 0px;
+  opacity: 0;
 }

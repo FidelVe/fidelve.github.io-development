@@ -1,6 +1,7 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
+import {Helmet} from 'react-helmet';
 
 import CollapseContainer from './collapse-container';
 import Layout from '../../../components/layout';
@@ -12,6 +13,9 @@ const IndexPage = props => (
     pageTitle={'FidelVe | FreeCodeCamp'}
     headerText="FreeCodeCamp. JavaScript Algorithms and Data Structure.">
     {/* <SEO title="Home" /> */}
+    <Helmet>
+      <title>FidelVe | FreeCodeCamp</title>
+    </Helmet>
     <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
       <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
     </div>
