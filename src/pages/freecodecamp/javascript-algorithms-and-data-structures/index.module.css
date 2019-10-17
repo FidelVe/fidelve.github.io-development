@@ -25,9 +25,8 @@
 }
 /* -------- Begin Roman Numeral Table -------- */
 #roman-table {
-  display: none;
-  /* display: flex; */
-  /* flex-flow: column nowrap; */
+  align-self: center;
+  margin: 0 auto;
   align-items: center;
   width: 80%;
   text-align: center;
@@ -67,9 +66,8 @@
   width: 20%;
 }
 /* Change table layout when resolution is lower than 560 px */
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 760px) {
   #roman-table {
-    display: none;
     flex-flow: row nowrap;
     max-width: 80%;
   }
