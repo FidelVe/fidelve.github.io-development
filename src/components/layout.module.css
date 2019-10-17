@@ -68,6 +68,8 @@
 }
 
 #content {
+  max-width: 100%;
+  padding: 0px 10px;
   font-size: 16px;
   display: flex;
   flex-flow: column nowrap;

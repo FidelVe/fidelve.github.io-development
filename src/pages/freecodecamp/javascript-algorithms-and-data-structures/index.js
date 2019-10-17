@@ -83,6 +83,48 @@ const IndexPage = props => {
             __html: getHTMLofFileName(PALINDROME_CODE, queryData),
           }}
         />
+        <h4>Testing the code.</h4>
+        <p>
+          Heres a list of words and phrases you can use to test the algorithm.
+        </p>
+        <ul>
+          <li>
+            <b>"eye"</b> should return positive.
+          </li>
+          <li>
+            <b>"_eye"</b> should return positive.
+          </li>
+          <li>
+            <b>"race car"</b> should return positive.
+          </li>
+          <li>
+            <b>"not a palindrome"</b> should return negative.
+          </li>
+          <li>
+            <b>"A man, a plan, a canal. Panama"</b> should return positive.
+          </li>
+          <li>
+            <b>"never odd or even"</b> should return positive.
+          </li>
+          <li>
+            <b>"nope"</b> should return negative.
+          </li>
+          <li>
+            <b>"almostomla"</b> should return negative.
+          </li>
+          <li>
+            <b>"My age is 0, 0 si ega ym."</b> should return positive.
+          </li>
+          <li>
+            <b>"1 eye for of 1 eye."</b> should return negative.
+          </li>
+          <li>
+            <b>"0_0 (: /-\ :) 0-0"</b> should return positive.
+          </li>
+          <li>
+            <b>"five|\_/|four"</b> should return negative.
+          </li>
+        </ul>
       </CollapseContainer>
       <CollapseContainer headerText="Roman Numeral Converter">
         <p>
@@ -94,9 +136,9 @@ const IndexPage = props => {
           are written. The numbers in this system are represented by a
           combination of letters from the Latin alphabet.
         </p>
-        <div id="cs-roman-table" class="cs-flexcnw">
-          <div class="cs-flexrnw">
-            <span class="cs-roman-thead">Symbol</span>
+        <div id={style.romanTable} className={style.flexcnw}>
+          <div className={style.flexrnw}>
+            <span className={style.romanThead}>Symbol</span>
             <span>I</span>
             <span>V</span>
             <span>X</span>
@@ -105,8 +147,8 @@ const IndexPage = props => {
             <span>D</span>
             <span>M</span>
           </div>
-          <div class="cs-flexrnw">
-            <span class="cs-roman-thead">Value</span>
+          <div className={style.flexrnw}>
+            <span className={style.romanThead}>Value</span>
             <span>1</span>
             <span>5</span>
             <span>10</span>
