@@ -8,7 +8,8 @@
   border-top: solid 5px #c2b280;
   margin-bottom: 20px;
   overflow-y: hidden;
-  transition: height 1s;
+  max-height: 48px;
+  transition: max-height 1s;
 }
 .collapse-header {
   /* background-color: rgba(0, 0, 0, 0.1); */
@@ -19,8 +20,9 @@
   justify-content: space-between;
 }
 .collapse-header h3 {
-  margin-bottom: 0px;
-  margin-left: 6px;
+  margin: 0 auto;
+  /* margin-bottom: 0px; */
+  /* margin-left: 6px; */
 }
 .collapse-header-img-wrapper {
   padding: 0px;
@@ -31,6 +33,7 @@
 .collapse-content {
   display: flex;
   flex-flow: column nowrap;
+  padding: 1em 2em;
 }
 .collapse-content pre {
   overflow-x: scroll;

@@ -12,7 +12,7 @@ import style from './index.module.css';
 
 // variable declaration
 const PALINDROME_CODE = 'palindrome-checker-code.md';
-const CAESARS_CODE = 'caesars-register-code.md';
+const CAESARS_CODE = 'caesars-cipher-code.md';
 const REGISTER_CODE = 'cash-register-code.md';
 const ROMAN_CODE = 'roman-numeral-converter-code.md';
 const TELEPHONE_CODE = 'telephone-number-validator-code.md';
@@ -81,6 +81,80 @@ const IndexPage = props => {
           className={style.contentCode}
           dangerouslySetInnerHTML={{
             __html: getHTMLofFileName(PALINDROME_CODE, queryData),
+          }}
+        />
+      </CollapseContainer>
+      <CollapseContainer headerText="Roman Numeral Converter">
+        <p>
+          For this project you are asked to create an algorithm that converts
+          decimal numbers into the roman numeral system.
+        </p>
+        <p>
+          The first thing that we need to do, is understand how roman numerals
+          are written. The numbers in this system are represented by a
+          combination of letters from the Latin alphabet.
+        </p>
+        <div id="cs-roman-table" class="cs-flexcnw">
+          <div class="cs-flexrnw">
+            <span class="cs-roman-thead">Symbol</span>
+            <span>I</span>
+            <span>V</span>
+            <span>X</span>
+            <span>L</span>
+            <span>C</span>
+            <span>D</span>
+            <span>M</span>
+          </div>
+          <div class="cs-flexrnw">
+            <span class="cs-roman-thead">Value</span>
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+            <span>50</span>
+            <span>100</span>
+            <span>500</span>
+            <span>1000</span>
+          </div>
+        </div>
+        <p>
+          Now that we now the symbols and their value in the decimal system, how
+          do we used them?. The correct way to express quantities in the roman
+          numeral system is to replace from the top down, find the highest
+          valued symbol, use it and substract the value to the total and repeat
+          until zero is reached.
+        </p>
+        <p>
+          For example, the correct way to express <b>1500</b> in the roman
+          system would be <b>MD</b>, instead of <b>DDD</b>.
+        </p>
+        <div
+          className={style.contentCode}
+          dangerouslySetInnerHTML={{
+            __html: getHTMLofFileName(ROMAN_CODE, queryData),
+          }}
+        />
+      </CollapseContainer>
+      <CollapseContainer headerText="Caesars Cipher">
+        <div
+          className={style.contentCode}
+          dangerouslySetInnerHTML={{
+            __html: getHTMLofFileName(CAESARS_CODE, queryData),
+          }}
+        />
+      </CollapseContainer>
+      <CollapseContainer headerText="Telephone Number Validator">
+        <div
+          className={style.contentCode}
+          dangerouslySetInnerHTML={{
+            __html: getHTMLofFileName(TELEPHONE_CODE, queryData),
+          }}
+        />
+      </CollapseContainer>
+      <CollapseContainer headerText="Cash Register">
+        <div
+          className={style.contentCode}
+          dangerouslySetInnerHTML={{
+            __html: getHTMLofFileName(REGISTER_CODE, queryData),
           }}
         />
       </CollapseContainer>

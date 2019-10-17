@@ -42,10 +42,9 @@ class CollapseContainer extends React.Component {
       isInitialRender: true,
       // Computed Height of header and content elements inside the collapsible
       // container
-      collapseHeight: 'auto',
+      headerHeight: false,
+      contentHeight: false,
       uncollapseHeight: false,
-      // headerComputedHeight: false,
-      // contentComputedHeight: false,
     };
   }
 
@@ -54,21 +53,41 @@ class CollapseContainer extends React.Component {
   };
 
   componentDidMount() {
-    if (this.staticState.isInitialRender) {
-      let [headerEl, contentEl] = this.componentRef.current.children;
-      this.staticState.collapseHeight = headerEl.scrollHeight;
+    // Get the updated scroll sizes
+    let [headerEl, contentEl] = this.componentRef.current.children;
+    console.log(`componentDidMount: ${contentEl.clientHeight}`);
+
+    if (this.staticState.contentHeight !== contentEl.scrollHeight) {
+      // console.log(this.staticState.contentHeight, contentEl.scrollHeight);
+      // update the header and content height
+      this.staticState.contentHeight = contentEl.scrollHeight;
+      this.staticState.headerHeight = headerEl.scrollHeight;
+
+      // update the  uncollapsed height. I'm adding 1000px and using
+      // max-height instead of height because if I dont the height doesn't
+      // updates on resize correctly. In the css file the transition is
+      // on max-height instead of height also.
       this.staticState.uncollapseHeight =
-        headerEl.scrollHeight + contentEl.scrollHeight;
-      this.staticState.isInitialRender = false;
+        this.staticState.contentHeight + this.staticState.headerHeight + 1000;
+
+      if (this.staticState.isInitialRender) {
+        // if this is the initial rendering
+        this.staticState.isInitialRender = false;
+      }
     }
   }
 
   render() {
-    const elementHeight = this.staticState.isInitialRender
-      ? this.staticState.collapseHeight
-      : this.state.isOpen
-      ? this.staticState.uncollapseHeight
-      : this.staticState.collapseHeight;
+    const elementInlineStyle = this.staticState.isInitialRender
+      ? // If this is the first render() am passsing an empty object
+        // The initial height is declared in collapse-container.module.css
+        // This is to ensure that the containers initial state is collapsed
+        {}
+      : // If is not the first render() we check if is collapsed or not
+      // and adjust the height accordingly
+      this.state.isOpen
+      ? {maxHeight: `${this.staticState.uncollapseHeight}px`}
+      : {maxHeight: `${this.staticState.headerHeight}px`};
 
     return (
       <StaticQuery
@@ -78,7 +97,7 @@ class CollapseContainer extends React.Component {
             <section
               ref={this.componentRef}
               className={styles.collapseContainer}
-              style={{height: `${elementHeight}px`}}>
+              style={elementInlineStyle}>
               <header
                 onClick={this.onHeaderClick}
                 className={styles.collapseHeader}>
