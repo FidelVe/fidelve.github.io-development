@@ -5,21 +5,20 @@ import React from 'react';
 import {Link} from 'gatsby';
 import {StaticQuery, graphql} from 'gatsby';
 import styles from './layout.module.css';
-import "./layout.css"
+import './layout.css';
 import Img from 'gatsby-image';
 import {Helmet} from 'react-helmet';
 
 // String literals
 const _VER = 'vertical';
 const _HOR = 'horizontal';
-// const _WIDTH = "100%"
 const _HEIGHT = '100%';
-// const _MIN_HEIGHT = "60px"
 const _INNER_WIDTH = 580;
 const _EVENT_RESIZE = 'resize';
 const _LINK_ROOT = '/';
 const _LINK_ABOUT = '/about/';
 const _LINK_CONTACT = '/contact/';
+
 // graphql data query
 const _DATA = graphql`
   {
@@ -89,7 +88,6 @@ class Layout extends React.Component {
                     fadeIn={true}
                     style={{height: _HEIGHT}}
                     fluid={imgQuery}
-                    // critical={true}
                   />
                 </div>
                 <div id={styles.navbarLinkContainer}>

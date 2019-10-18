@@ -27,7 +27,7 @@
   /* margin-left: 6px; */
 }
 .header-img-container {
-  background-image: url('../../../images/ic_add_black_48dp.png');
+  background-image: url('../images/ic_add_black_48dp.png');
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -36,14 +36,14 @@
   margin-right: 2px;
 }
 .header-img-container:hover {
-  background-image: url('../../../images/ic_add_white_48dp.png');
+  background-image: url('../images/ic_add_white_48dp.png');
   background-color: #000;
 }
 .header-img-container.open {
-  background-image: url('../../../images/ic_remove_black_48dp.png');
+  background-image: url('../images/ic_remove_black_48dp.png');
 }
 .header-img-container.open:hover {
-  background-image: url('../../../images/ic_remove_white_48dp.png');
+  background-image: url('../images/ic_remove_white_48dp.png');
 }
 .collapse-header-img-wrapper {
   padding: 0px;

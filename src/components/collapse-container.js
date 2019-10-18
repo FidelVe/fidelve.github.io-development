@@ -1,11 +1,8 @@
 import React from 'react';
-import {StaticQuery, graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import styles from './collapse-container.module.css';
 
 class CollapseContainer extends React.Component {
   constructor(props) {
-    // The ref might not be necessary, I guess I can just delete it?
     // headerText="header for the collapsible container"
     super(props);
     this.componentRef = React.createRef();
@@ -29,10 +26,8 @@ class CollapseContainer extends React.Component {
   componentDidMount() {
     // Get the updated scroll sizes
     let [headerEl, contentEl] = this.componentRef.current.children;
-    console.log(`componentDidMount: ${contentEl.clientHeight}`);
 
     if (this.staticState.contentHeight !== contentEl.scrollHeight) {
-      // console.log(this.staticState.contentHeight, contentEl.scrollHeight);
       // update the header and content height
       this.staticState.contentHeight = contentEl.scrollHeight;
       this.staticState.headerHeight = headerEl.scrollHeight;

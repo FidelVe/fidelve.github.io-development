@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import {Link} from 'gatsby';
 
-import Layout from "../components/layout"
+import Layout from '../components/layout';
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const IndexPage = () => (
-  <Layout pageTitle={"FidelVe | Homepage"} headerText="Hi! my name is Fidel.">
+  <Layout pageTitle="FidelVe | Homepage" headerText="Hi! my name is Fidel.">
     {/* <SEO title="Home" /> */}
     <p>
       I'm a Chemical Engineer with experience working in the Oil &amp; Gas
@@ -20,14 +20,13 @@ const IndexPage = () => (
     </p>
     <p>
       I'm currently teaching myself web programming by dedicating a couple hours
-      a day doing the{" "}
+      a day doing the{' '}
       <a
         href="https://learn.freecodecamp.org/"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         FreeCodeCamp
-      </a>{" "}
+      </a>{' '}
       web programming courses.
     </p>
     <p>
@@ -39,8 +38,7 @@ const IndexPage = () => (
         <a
           href="https://www.freecodecamp.org/fidelve"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           FreeCodeCamp profile
         </a>
       </li>
@@ -53,6 +51,6 @@ const IndexPage = () => (
     {/* </div> */}
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

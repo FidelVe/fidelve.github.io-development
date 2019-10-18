@@ -1,9 +1,8 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
-import {Helmet} from 'react-helmet';
 
-import CollapseContainer from './collapse-container';
+import CollapseContainer from '../../../components/collapse-container';
 import Layout from '../../../components/layout';
 import style from './index.module.css';
 
@@ -21,12 +20,9 @@ const IndexPage = props => {
   const queryData = reshapeCodeData(props.data.codeBlock.edges);
   return (
     <Layout
-      pageTitle={'FidelVe | FreeCodeCamp'}
+      pageTitle="FidelVe | FreeCodeCamp"
       headerText="FreeCodeCamp. JavaScript Algorithms and Data Structure.">
       {/* <SEO title="Home" /> */}
-      <Helmet>
-        <title>FidelVe | FreeCodeCamp</title>
-      </Helmet>
       <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
         <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
       </div>
@@ -340,7 +336,7 @@ const IndexPage = props => {
 function reshapeCodeData(arrayOfCodeData) {
   // Reshapes the data obtained by the graphql query
   let newArray = [];
-  let regex = /\/[^\/]+.md/;
+  let regex = /\/[^/]+.md/;
 
   for (let node of arrayOfCodeData) {
     // Extracts the file name from the absolute path
@@ -359,13 +355,12 @@ function getHTMLofFileName(fileName, arrayOfFileData) {
   //  {...}
   // ]
   for (let each of arrayOfFileData) {
-    if (each.fileName == fileName) {
+    if (each.fileName === fileName) {
       return each.html;
     }
   }
   // If no file is found with name fileName throws error
   throw Error(`no file named ${fileName} found`);
-  return '<p>ERROR: CHECK CONSOLE</p>';
 }
 export default IndexPage;
 
