@@ -175,30 +175,159 @@ const IndexPage = props => {
             __html: getHTMLofFileName(ROMAN_CODE, queryData),
           }}
         />
+        <h4>Testing the code.</h4>
+        <p>Use the following values to test the algorithm.</p>
+        <ul>
+          <li>Decimal 2, should return "II".</li>
+          <li>Decimal 4, should return "IV".</li>
+          <li>Decimal 29, should return "XXIX".</li>
+          <li>Decimal 83, should return "LXXXIII".</li>
+          <li>Decimal 97, should return "XCVII".</li>
+          <li>Decimal 649, should return "DCXLIX".</li>
+          <li>Decimal 798, should return "DCCXCVIII".</li>
+          <li>Decimal 891, should return "DCCCXCI".</li>
+          <li>Decimal 2014, should return "MMXIV".</li>
+          <li>Decimal 3999, should return "MMMCMXCIX".</li>
+        </ul>
       </CollapseContainer>
       <CollapseContainer headerText="Caesars Cipher">
+        <p>
+          In cryptography, a cipher is an algorithm for performing encryption or
+          decryption, this algorithm substitutes the characters in a string to
+          transform them into something else for the purpose of protecting the
+          original string from being understood by unwanted people.
+        </p>
+        <p>
+          Caesars cipher is one of the simplest and most widely know encryption
+          techniques. It is a simple substitution cipher in which each letter in
+          a string is replaced by a letter some fixed number of positions down
+          the alphabet.
+        </p>
+        <p>
+          For this project you are asked to write an algorithm capable of
+          implementing ROT13, a type of caesar cipher that replaces every
+          character in a string with the letter 13 positions up in the alphabet
+          from the position of that character.
+        </p>
         <div
           className={style.contentCode}
           dangerouslySetInnerHTML={{
             __html: getHTMLofFileName(CAESARS_CODE, queryData),
           }}
         />
+        <h4>Testing the code.</h4>
+        <p>Use the following to test the algorithm</p>
+        <ul>
+          <li>"SERR PBQR PNZC" should decode to FREE CODE CAMP.</li>
+          <li>"SERR CVMMN!" should decode to FREE PIZZA!.</li>
+          <li>"SERR YBIR?" should decode to FREE LOVE?.</li>
+          <li>
+            "GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT." should decode to THE
+            QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+          </li>
+        </ul>
       </CollapseContainer>
       <CollapseContainer headerText="Telephone Number Validator">
+        <p>
+          For this next project you are given a string representing a phone
+          number and you should validate it.
+        </p>
+        <p>
+          The input string should be a valid US phone number, the following
+          examples are valid formats for US numbers.
+        </p>
+        <ul>
+          <li>555-555-5555</li>
+          <li>(555)555-5555</li>
+          <li>(555) 555-5555</li>
+          <li>555 555 5555</li>
+          <li>5555555555</li>
+          <li>1 555 555 5555</li>
+        </ul>
         <div
           className={style.contentCode}
           dangerouslySetInnerHTML={{
             __html: getHTMLofFileName(TELEPHONE_CODE, queryData),
           }}
         />
+        <h4>Testing the code.</h4>
+        <p>Use the following to test the algorithm</p>
+        <ul>
+          <li>"1 555-555-5555" should return true.</li>
+          <li>"1 (555) 555-5555" should return true.</li>
+          <li>"5555555555" should return true.</li>
+          <li>"555-555-5555" should return true.</li>
+          <li>"(555)555-5555" should return true.</li>
+          <li>"1(555)555-5555" should return true.</li>
+          <li>"555-5555" should return false.</li>
+          <li>"5555555" should return false.</li>
+          <li>"1 555)555-5555" should return false.</li>
+          <li>"1 555 555 5555" should return true.</li>
+          <li>"1 456 789 4444" should return true.</li>
+          <li>"123**&!!asdf#" should return false.</li>
+          <li>"55555555" should return false.</li>
+          <li>"(6054756961)" should return false</li>
+          <li>"2 (757) 622-7382" should return false.</li>
+          <li>"0 (757) 622-7382" should return false.</li>
+          <li>"-1 (757) 622-7382" should return false</li>
+          <li>"2 757 622-7382" should return false.</li>
+          <li>"10 (757) 622-7382" should return false.</li>
+          <li>"27576227382" should return false.</li>
+          <li>"(275)76227382" should return false.</li>
+          <li>"2(757)6227382" should return false.</li>
+          <li>"2(757)622-7382" should return false.</li>
+          <li>"555)-555-5555" should return false.</li>
+          <li>"(555-555-5555" should return false.</li>
+          <li>"(555)5(55?)-5555" should return false.</li>
+        </ul>
       </CollapseContainer>
       <CollapseContainer headerText="Cash Register">
+        <p>
+          For this last project you're tasked with creating a piece of program
+          that will simulate a cash register.
+        </p>
+        <p>
+          You have to write a function that takes purchase price as the first
+          argument (price), payment as the second argument (cash), and
+          cash-in-drawer (cid) as the third argument.
+        </p>
+        <p>
+          After taking those inputs, you need to calculate how much change to
+          return taking into account the price of the product, the amount of
+          cash the client is giving you and the amount of cash the register has.
+        </p>
+        <p>
+          You should always return an object with a "status" and a "change" key.
+          The posible outcomes are as follow:
+        </p>
+        <ul>
+          <li>
+            If cash in the drawer is less than the change due, or if you cannot
+            return the exact change, the output should be{' '}
+            <code>
+              {'{'}status: "INSUFFICIENT_FUNDS", change: []{'}'}
+            </code>
+          </li>
+          <li>
+            If the amount of "change" to return is equal to the amount of cash
+            in the register, the "status" key should return "CLOSED" and the
+            change array sorted from highest to lowest with the amounts of bills
+            and coins to return.
+          </li>
+          <li>
+            If the change to return is lower than the amount of cash in the
+            register, and the exact amount can be returned, the "status" key
+            should return with a value of "OPEN", and as in the last case, the
+            change array sorted from highest to lowest.
+          </li>
+        </ul>
         <div
           className={style.contentCode}
           dangerouslySetInnerHTML={{
             __html: getHTMLofFileName(REGISTER_CODE, queryData),
           }}
         />
+        <h4>Testing the code.</h4>
       </CollapseContainer>
       {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}> */}
       {/*   <Image /> */}

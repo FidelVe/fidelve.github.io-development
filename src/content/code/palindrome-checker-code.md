@@ -9,12 +9,12 @@ function isPalindrome(string) {
   // false if not.
 
   let regex = /[^\W\_]/g;
-  let charArr = string.match(regex).map( (each) => {
+  let charArr = string.match(regex).map(each => {
     return each.toLowerCase();
   });
 
-  for (let i=0; i < Math.floor(charArr.length/2); i++) {
-    if (charArr[i] != charArr[charArr.length-1-i]) {
+  for (let i = 0; i < Math.floor(charArr.length / 2); i++) {
+    if (charArr[i] != charArr[charArr.length - 1 - i]) {
       return false;
     }
   }
