@@ -3,6 +3,7 @@ import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 
 import CollapseContainer from '../../../components/collapse-container';
+import InputValidator from '../../../components/input-validator';
 import Layout from '../../../components/layout';
 import style from './index.module.css';
 
@@ -121,6 +122,7 @@ const IndexPage = props => {
             <b>"five|\_/|four"</b> should return negative.
           </li>
         </ul>
+        <InputValidator validator={isPalindrome} label="Palindrome Test" />
       </CollapseContainer>
       <CollapseContainer headerText="Roman Numeral Converter">
         <p>
@@ -332,6 +334,27 @@ const IndexPage = props => {
     </Layout>
   );
 };
+
+function isPalindrome(string) {
+  // Evaluate if input string is a palindrome or not
+  // returns either true or false
+
+  let regex = /[^\W_]/g;
+
+  if (string.match(regex) !== null) {
+    // If the result of evaluating the regular expression into the string
+    // is not null
+    let charArr = string.match(regex).map(each => each.toLowerCase());
+    for (let i = 0; i < Math.floor(charArr.length / 2); i++) {
+      if (charArr[i] !== charArr[charArr.length - 1 - i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  // if the input is not a valid string return false
+  return false;
+}
 
 function reshapeCodeData(arrayOfCodeData) {
   // Reshapes the data obtained by the graphql query

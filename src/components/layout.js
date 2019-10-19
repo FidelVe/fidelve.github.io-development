@@ -107,12 +107,14 @@ class Layout extends React.Component {
                   <h1>{this.props.headerText}</h1>
                 </header>
                 <div id={styles.content}>{this.props.children}</div>
+                <footer id={styles.footer}>
+                  <div id={styles.footerContent}>
+                    {new Date().getFullYear()}, Designed by Fidel Sanchez-Bueno
+                    and built with{' '}
+                    <a href="https://www.gatsbyjs.org"> Gatsby</a>
+                  </div>
+                </footer>
               </main>
-              {/* <footer> */}
-              {/*   © {new Date().getFullYear()}, Built with */}
-              {/*   {` `} */}
-              {/*   <a href="https://www.gatsbyjs.org">Gatsby</a> */}
-              {/* </footer> */}
             </div>
           );
         }}

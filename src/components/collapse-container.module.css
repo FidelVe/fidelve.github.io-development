@@ -56,6 +56,9 @@
   flex-flow: column nowrap;
   padding: 1em 2em;
 }
+.collapse-content > h4 {
+  margin-bottom: 1em;
+}
 .collapse-content pre {
   overflow-x: scroll;
   max-width: 600px;

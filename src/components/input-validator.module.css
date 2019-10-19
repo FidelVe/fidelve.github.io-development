@@ -1,0 +1,40 @@
+/*
+ * CSS module style for input-validator.js component
+ */
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  border: solid thin black;
+  border-radius: 4px;
+  padding: 4px;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.label {
+  padding: 0.5em;
+  line-height: 1em;
+  margin-bottom: 0px;
+}
+.input {
+  height: 2em;
+  margin: 0px 6px;
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+.image {
+  background-image: url('../images/ic_check_circle_white_48dp.png');
+  background-color: green;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: 44px 44px;
+  background-position: -2px;
+}
+.image.error {
+  background-image: url('../images/ic_cancel_white_48dp.png');
+  background-color: red;
+}
