@@ -74,6 +74,7 @@
   align-content: center;
   align-items: center;
   justify-content: center;
+  text-align: center;
   margin-top: 100px;
 }
 
@@ -101,6 +102,11 @@
 }
 #content h4 {
   text-align: center;
+}
+#content > .image-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 1em auto;
 }
 
 @media screen and (min-width: 580px) {

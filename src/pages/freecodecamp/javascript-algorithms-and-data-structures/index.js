@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 
 import CollapseContainer from '../../../components/collapse-container';
 import InputValidator from '../../../components/input-validator';
+import CodeContainer from '../../../components/code-container';
 import Layout from '../../../components/layout';
 import style from './index.module.css';
 
@@ -74,11 +75,8 @@ const IndexPage = props => {
           just an iteration where you compare each character in their respective
           position at the beginning and end of the array, stoping at the middle.
         </p>
-        <div
-          className={style.contentCode}
-          dangerouslySetInnerHTML={{
-            __html: getHTMLofFileName(PALINDROME_CODE, queryData),
-          }}
+        <CodeContainer
+          innerHTML={getHTMLofFileName(PALINDROME_CODE, queryData)}
         />
         <h4>Testing the code.</h4>
         <p>
@@ -137,23 +135,15 @@ const IndexPage = props => {
         <div id={style.romanTable} className={style.flexcnw}>
           <div className={style.flexrnw}>
             <span className={style.romanThead}>Symbol</span>
-            <span>I</span>
-            <span>V</span>
-            <span>X</span>
-            <span>L</span>
-            <span>C</span>
-            <span>D</span>
-            <span>M</span>
+            {['I', 'V', 'X', 'L', 'C', 'D', 'M'].map(letter => (
+              <span>{letter}</span>
+            ))}
           </div>
           <div className={style.flexrnw}>
             <span className={style.romanThead}>Value</span>
-            <span>1</span>
-            <span>5</span>
-            <span>10</span>
-            <span>50</span>
-            <span>100</span>
-            <span>500</span>
-            <span>1000</span>
+            {['1', '5', '10', '50', '100', '500', '1000'].map(value => (
+              <span>{value}</span>
+            ))}
           </div>
         </div>
         <p>
@@ -167,12 +157,7 @@ const IndexPage = props => {
           For example, the correct way to express <b>1500</b> in the roman
           system would be <b>MD</b>, instead of <b>DDD</b>.
         </p>
-        <div
-          className={style.contentCode}
-          dangerouslySetInnerHTML={{
-            __html: getHTMLofFileName(ROMAN_CODE, queryData),
-          }}
-        />
+        <CodeContainer innerHTML={getHTMLofFileName(ROMAN_CODE, queryData)} />
         <h4>Testing the code.</h4>
         <p>Use the following values to test the algorithm.</p>
         <ul>
@@ -207,12 +192,7 @@ const IndexPage = props => {
           character in a string with the letter 13 positions up in the alphabet
           from the position of that character.
         </p>
-        <div
-          className={style.contentCode}
-          dangerouslySetInnerHTML={{
-            __html: getHTMLofFileName(CAESARS_CODE, queryData),
-          }}
-        />
+        <CodeContainer innerHTML={getHTMLofFileName(CAESARS_CODE, queryData)} />
         <h4>Testing the code.</h4>
         <p>Use the following to test the algorithm</p>
         <ul>
@@ -242,11 +222,8 @@ const IndexPage = props => {
           <li>5555555555</li>
           <li>1 555 555 5555</li>
         </ul>
-        <div
-          className={style.contentCode}
-          dangerouslySetInnerHTML={{
-            __html: getHTMLofFileName(TELEPHONE_CODE, queryData),
-          }}
+        <CodeContainer
+          innerHTML={getHTMLofFileName(TELEPHONE_CODE, queryData)}
         />
         <h4>Testing the code.</h4>
         <p>Use the following to test the algorithm</p>
@@ -319,18 +296,11 @@ const IndexPage = props => {
             change array sorted from highest to lowest.
           </li>
         </ul>
-        <div
-          className={style.contentCode}
-          dangerouslySetInnerHTML={{
-            __html: getHTMLofFileName(REGISTER_CODE, queryData),
-          }}
+        <CodeContainer
+          innerHTML={getHTMLofFileName(REGISTER_CODE, queryData)}
         />
         <h4>Testing the code.</h4>
       </CollapseContainer>
-      {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}> */}
-      {/*   <Image /> */}
-      {/* </div> */}
-      {/* <Link to="/page-2/">Go to page 2</Link> */}
     </Layout>
   );
 };

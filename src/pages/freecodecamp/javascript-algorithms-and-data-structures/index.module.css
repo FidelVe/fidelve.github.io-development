@@ -1,11 +1,11 @@
 /* Custom styles for ./index.html */
-.content-code {
-  margin: 0 auto;
-  margin-bottom: 1em;
-  width: 90%;
-  display: flex;
-  justify-content: center;
-}
+/* .content-code { */
+/*   margin: 0 auto; */
+/*   margin-bottom: 1em; */
+/*   width: 90%; */
+/*   display: flex; */
+/*   justify-content: center; */
+/* } */
 
 /* Generic flex styles */
 .flexrw {

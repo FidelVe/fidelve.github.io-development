@@ -26,7 +26,7 @@ const IndexPage = props => (
       you can see a more detailed description of my time as a Drilling Fluids
       Engineer).
     </p>
-    <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
+    <div className="image-container">
       <Img fluid={props.data.imageOne.childImageSharp.fluid} alt="hard hat" />
     </div>
     <p>

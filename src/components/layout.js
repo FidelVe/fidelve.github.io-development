@@ -109,9 +109,11 @@ class Layout extends React.Component {
                 <div id={styles.content}>{this.props.children}</div>
                 <footer id={styles.footer}>
                   <div id={styles.footerContent}>
-                    {new Date().getFullYear()}, Designed by Fidel Sanchez-Bueno
-                    and built with{' '}
-                    <a href="https://www.gatsbyjs.org"> Gatsby</a>
+                    <p>
+                      {new Date().getFullYear()}, Designed by Fidel
+                      Sanchez-Bueno and built with{' '}
+                      <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    </p>
                   </div>
                 </footer>
               </main>

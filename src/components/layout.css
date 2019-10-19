@@ -12,6 +12,9 @@ body,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.gatsby-highlight {
+  max-width: 100%;
+}
 article,
 aside,
 details,
