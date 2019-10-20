@@ -12,6 +12,7 @@ const InputValidator = props => {
   /*
    * props.validator
    * props.label
+   * props.placeholder
    */
 
   const [isValid, setIsValid] = useState(true);
@@ -39,7 +40,7 @@ const InputValidator = props => {
         value={inputValue}
         onChange={e => evalInput(e)}
         className={style.input}
-        placeholder="roma amor"
+        placeholder={props.placeholder}
         type="text"
       />
       {isValid ? (

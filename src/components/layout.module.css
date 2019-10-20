@@ -110,8 +110,8 @@
   text-align: center;
 }
 
-@media screen and (min-width: 580px) {
-  /* if width more than 580px */
+@media screen and (min-width: 680px) {
+  /* if width more than 680px */
   #layout {
     display: flex;
     flex-flow: row nowrap;

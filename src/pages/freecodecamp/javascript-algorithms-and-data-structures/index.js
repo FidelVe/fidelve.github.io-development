@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 
 import CollapseContainer from '../../../components/collapse-container';
 import InputValidator from '../../../components/input-validator';
+import InputTransform from '../../../components/input-transform';
 import CodeContainer from '../../../components/code-container';
 import Layout from '../../../components/layout';
 import style from './index.module.css';
@@ -120,7 +121,11 @@ const IndexPage = props => {
             <b>"five|\_/|four"</b> should return negative.
           </li>
         </ul>
-        <InputValidator validator={isPalindrome} label="Palindrome Test" />
+        <InputValidator
+          placeholder="roma amor"
+          validator={isPalindrome}
+          label="Palindrome Test"
+        />
       </CollapseContainer>
       <CollapseContainer headerText="Roman Numeral Converter">
         <p>
@@ -135,14 +140,14 @@ const IndexPage = props => {
         <div id={style.romanTable} className={style.flexcnw}>
           <div className={style.flexrnw}>
             <span className={style.romanThead}>Symbol</span>
-            {['I', 'V', 'X', 'L', 'C', 'D', 'M'].map(letter => (
-              <span>{letter}</span>
+            {['I', 'V', 'X', 'L', 'C', 'D', 'M'].map((letter, key) => (
+              <span key={key}>{letter}</span>
             ))}
           </div>
           <div className={style.flexrnw}>
             <span className={style.romanThead}>Value</span>
-            {['1', '5', '10', '50', '100', '500', '1000'].map(value => (
-              <span>{value}</span>
+            {['1', '5', '10', '50', '100', '500', '1000'].map((value, key) => (
+              <span key={key}>{value}</span>
             ))}
           </div>
         </div>
@@ -172,6 +177,14 @@ const IndexPage = props => {
           <li>Decimal 2014, should return "MMXIV".</li>
           <li>Decimal 3999, should return "MMMCMXCIX".</li>
         </ul>
+        <InputTransform
+          inputLabel="Decimal"
+          inputPlaceholder="Enter decimal number"
+          inputType="number"
+          outputPlaceholder="Result in roman numbers"
+          outputLabel="Roman"
+          transformFunction={convertToRoman}
+        />
       </CollapseContainer>
       <CollapseContainer headerText="Caesars Cipher">
         <p>
@@ -204,6 +217,14 @@ const IndexPage = props => {
             QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
           </li>
         </ul>
+        <InputTransform
+          inputLabel="Encrypted"
+          inputPlaceholder="Enter encrypted message"
+          inputType="text"
+          outputPlaceholder="Decrypted message"
+          outputLabel="Decrypted"
+          transformFunction={decipherCaesar}
+        />
       </CollapseContainer>
       <CollapseContainer headerText="Telephone Number Validator">
         <p>
@@ -255,6 +276,11 @@ const IndexPage = props => {
           <li>"(555-555-5555" should return false.</li>
           <li>"(555)5(55?)-5555" should return false.</li>
         </ul>
+        <InputValidator
+          placeholder="555-555-5555"
+          validator={telephoneCheck}
+          label="US Phone Validator"
+        />
       </CollapseContainer>
       <CollapseContainer headerText="Cash Register">
         <p>
@@ -324,6 +350,104 @@ function isPalindrome(string) {
   }
   // if the input is not a valid string return false
   return false;
+}
+
+function telephoneCheck(str) {
+  let regex = /^1{0,1}\s{0,1}(?:[0-9]{3}[\s-]{0,1}){2}[0-9]{4}$|^1{0,1}\s{0,1}\([0-9]{3}\)[\s-]{0,1}[[0-9]{3}[\s-]{0,1}[0-9]{4}$/;
+  return regex.test(str);
+}
+
+function convertToRoman(input) {
+  // Converts decimal integers to roman numeral
+  // {
+  //   "1": "I", "5": "V", "10": "X", "50": "L",
+  //   "100": "C", "500": "D", "1000": "M"
+  // };
+  // if (typeof input !== 'number') {
+  //   console.log(typeof input, input);
+  //   return;
+  // }
+
+  let num = input;
+  let result = [];
+
+  while (num !== 0) {
+    if (num >= 1000) {
+      result.push('M');
+      num -= 1000;
+    } else if (num >= 900) {
+      result.push('CM');
+      num -= 900;
+    } else if (num >= 500) {
+      result.push('D');
+      num -= 500;
+    } else if (num >= 400) {
+      result.push('CD');
+      num -= 400;
+    } else if (num >= 100) {
+      result.push('C');
+      num -= 100;
+    } else if (num >= 90) {
+      result.push('XC');
+      num -= 90;
+    } else if (num >= 50) {
+      result.push('L');
+      num -= 50;
+    } else if (num >= 40) {
+      result.push('XL');
+      num -= 40;
+    } else if (num >= 10) {
+      result.push('X');
+      num -= 10;
+    } else if (num >= 9) {
+      result.push('IX');
+      num -= 9;
+    } else if (num >= 5) {
+      result.push('V');
+      num -= 5;
+    } else if (num >= 4) {
+      result.push('IV');
+      num -= 4;
+    } else if (num >= 1) {
+      result.push('I');
+      num -= 1;
+    } else {
+      // Break out of the loop if input is empty string
+      // console.log(`error: input = ${input}. num = ${num}\nresult = ${result}`);
+      break;
+    }
+  }
+  if (result.length > 0) {
+    return result.reduce((total, value) => total + value);
+  } else {
+    // Return empty string if input is empty value
+    return '';
+  }
+}
+function decipherCaesar(str) {
+  let ABC = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase();
+  let abc = 'abcdefghijklmnopqrstuvwxyz';
+  let result = [];
+  let regex = /[a-zA-Z]/;
+
+  for (let each of str) {
+    let newLetter = each;
+    if (regex.test(each)) {
+      // If letter is UPPERCASE, abc.indexOf(each) will
+      // return -1, in that case do the assignment with
+      // ABC.indexOf()
+      let pos =
+        abc.indexOf(each) !== -1 ? abc.indexOf(each) : ABC.indexOf(each);
+      let newpos = pos + 13 >= 26 ? pos - 13 : pos + 13;
+      newLetter = abc.charAt(newpos);
+    }
+    result.push(newLetter);
+  }
+  if (result.length > 0) {
+    return result.reduce((total, value) => total + value);
+  } else {
+    return '';
+  }
 }
 
 function reshapeCodeData(arrayOfCodeData) {
