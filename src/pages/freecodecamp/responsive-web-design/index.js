@@ -1,23 +1,22 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import {Link, graphql} from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../../../components/layout"
+import Layout from '../../../components/layout';
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const IndexPage = props => (
   <Layout
-    pageTitle={"FidelVe | FreeCodeCamp"}
-    headerText="FreeCodeCamp. Responsive Web Design Projects."
-  >
+    pageTitle={'FidelVe | FreeCodeCamp'}
+    headerText="FreeCodeCamp. Responsive Web Design Projects.">
     {/* <SEO title="Home" /> */}
-    <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto" }}>
+    <div className="image-container">
       <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
     </div>
     <p>
       <b>Responsive Web Design</b> is the first of six courses offered at
-      FreeCodeCamp of which upon completion of its final projects you may earn a{" "}
+      FreeCodeCamp of which upon completion of its final projects you may earn a{' '}
       <i>FreeCodeCamp Certificate</i>.
     </p>
     <p>
@@ -63,13 +62,13 @@ const IndexPage = props => (
     {/* </div> */}
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query {
-    fccLogo: file(relativePath: { eq: "freecodecamp-logo.png" }) {
+    fccLogo: file(relativePath: {eq: "freecodecamp-logo.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
@@ -77,4 +76,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

@@ -43,7 +43,7 @@ const IndexPage = props => (
       After graduating and finding a job, I put aside learning about computer
       programming and focused on my new job and personal life.
     </p>
-    <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
+    <div className="image-container">
       <Img
         fluid={props.data.imageTwo.childImageSharp.fluid}
         fadeIn={true}

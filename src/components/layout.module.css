@@ -3,6 +3,8 @@
   height: 100vh;
   width: 100vw;
   position: absolute;
+  top: 0;
+  left: 0;
 }
 #navbar,
 #navbar-background,
@@ -76,6 +78,10 @@
   justify-content: center;
   text-align: center;
   margin-top: 100px;
+  padding: 0px 1em;
+}
+#footer-content > p {
+  margin-bottom: 0px;
 }
 
 #main-header,
@@ -102,11 +108,6 @@
 }
 #content h4 {
   text-align: center;
-}
-#content > .image-container {
-  max-width: 400px;
-  width: 100%;
-  margin: 1em auto;
 }
 
 @media screen and (min-width: 580px) {

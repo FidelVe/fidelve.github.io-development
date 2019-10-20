@@ -25,7 +25,7 @@ const IndexPage = props => {
       pageTitle="FidelVe | FreeCodeCamp"
       headerText="FreeCodeCamp. JavaScript Algorithms and Data Structure.">
       {/* <SEO title="Home" /> */}
-      <div style={{maxWidth: '400px', width: '100%', margin: '0 auto'}}>
+      <div className="image-container">
         <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
       </div>
       <p>

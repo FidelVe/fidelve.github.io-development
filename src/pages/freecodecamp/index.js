@@ -1,42 +1,39 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import {Link, graphql} from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../../components/layout"
+import Layout from '../../components/layout';
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
 const IndexPage = props => (
   <Layout
-    pageTitle={"FidelVe | FreeCodeCamp"}
-    headerText="My finished projects on FreeCodeCamp."
-  >
+    pageTitle={'FidelVe | FreeCodeCamp'}
+    headerText="My finished projects on FreeCodeCamp.">
     {/* <SEO title="Home" /> */}
-    <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto" }}>
+    <div className="image-container">
       <Img fluid={props.data.fccLogo.childImageSharp.fluid} alt=" FCC logo" />
     </div>
     <p>
       <a
         href="https://www.freecodecamp.org"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         FreeCodeCamp.org
-      </a>{" "}
+      </a>{' '}
       is an open source interactive learning web platform with the goal of
       making learning web development accessible to anyone.
     </p>
     <p>
       I first learned about them in 2018 while searching for online resources to
       learn about web programming. Since then I have been dedicating a couple of
-      hours a day doing their courses,{" "}
+      hours a day doing their courses,{' '}
       <a
         href="https://www.freecodecamp.org/fidelve"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         here
-      </a>{" "}
+      </a>{' '}
       you can find my profile on FreeCodeCamp.
     </p>
     <p>Here is a list of all the FreeCodeCamp projects I've completed.</p>
@@ -71,13 +68,13 @@ const IndexPage = props => (
     {/* </div> */}
     {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query {
-    fccLogo: file(relativePath: { eq: "freecodecamp-logo.png" }) {
+    fccLogo: file(relativePath: {eq: "freecodecamp-logo.png"}) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
@@ -85,4 +82,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

@@ -1,3 +1,21 @@
+/* 
+ * ************************************
+ * Custom styles 
+ * ************************************
+ */
+.gatsby-highlight {
+  max-width: 100%;
+}
+.image-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 1em auto;
+}
+/* 
+ * ************************************
+ * Generic styles 
+ * ************************************
+ */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -11,9 +29,6 @@ body,
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.gatsby-highlight {
-  max-width: 100%;
 }
 article,
 aside,
