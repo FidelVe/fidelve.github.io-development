@@ -60,7 +60,7 @@
   overflow-y: auto;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: stretch;
 }
 #footer {
   margin-top: auto;
