@@ -8,7 +8,7 @@
   border-top: solid 5px #c2b280;
   margin-bottom: 20px;
   overflow-y: hidden;
-  max-height: 52px;
+  max-height: 57px;
   transition: max-height 1s;
 }
 .collapse-header {
@@ -17,16 +17,20 @@
   height: 52px;
   flex-flow: row nowrap;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
 }
-.collapse-header h3 {
-  margin: auto;
+.collapse-header > h3 {
+  margin: 0 auto;
   height: 52px;
-  padding-top: 6px;
+  /* padding-top: 6px; */
   /* margin-bottom: 0px; */
   /* margin-left: 6px; */
 }
+.collapse-header > h5 {
+  margin: 0px;
+}
 .header-img-container {
+  display: block;
   background-image: url('../images/ic_add_black_48dp.png');
   width: 40px;
   height: 40px;

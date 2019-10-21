@@ -24,8 +24,29 @@ class CollapseContainer extends React.Component {
   };
 
   componentDidMount() {
-    // Get the updated scroll sizes
+    // Get the updated scroll sizes on each re-render.
+
+    // Get the elements from the DOM
+    let containerEl = this.componentRef.current;
     let [headerEl, contentEl] = this.componentRef.current.children;
+
+    // Get the updated styles from each element
+    let containerStyle = getComputedStyle(containerEl);
+    let headerStyle = getComputedStyle(headerEl);
+    let contentStyle = getComputedStyle(contentEl);
+
+    let containerHeight = containerStyle.getPropertyValue('height');
+    let containerBorderWidth = containerStyle.getPropertyValue(
+      'border-top-width',
+    );
+
+    // This is the minimum height for the collapse container. Is necessary to
+    // get this values and set them as inline style because the transition
+    // doesn't work on 'height: auto' values or 'max-height: auto' values.
+    // because this value actually doesnt change on re-renders we only need
+    // to get it once on the first componentDidMount()
+    let containerMinCollapseHeight = containerHeight + containerBorderWidth;
+    console.log(containerHeight, containerBorderWidth);
 
     if (this.staticState.contentHeight !== contentEl.scrollHeight) {
       // update the header and content height
@@ -58,13 +79,21 @@ class CollapseContainer extends React.Component {
       ? {maxHeight: `${this.staticState.uncollapseHeight}px`}
       : {maxHeight: `${this.staticState.headerHeight}px`};
 
+    if (!this.props.styledMargin) {
+      elementInlineStyle.borderTop = 'none';
+    }
+
     return (
       <section
         ref={this.componentRef}
         className={styles.collapseContainer}
         style={elementInlineStyle}>
         <header onClick={this.onHeaderClick} className={styles.collapseHeader}>
-          <h3>{this.props.headerText}</h3>
+          {this.props.bigHeader ? (
+            <h3>{this.props.headerText}</h3>
+          ) : (
+            <h5>{this.props.headerText}</h5>
+          )}
           {this.state.isOpen ? (
             <div
               className={`${styles.headerImgContainer} ${styles.open}`}></div>
@@ -82,6 +111,8 @@ class CollapseContainer extends React.Component {
 
 CollapseContainer.defaultProps = {
   headerText: 'default value for the header text',
+  bigHeader: true,
+  styledMargin: true,
 };
 
 export default CollapseContainer;

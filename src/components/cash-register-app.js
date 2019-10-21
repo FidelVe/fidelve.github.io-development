@@ -9,6 +9,7 @@
 import React from 'react';
 import {useState} from 'react';
 import style from './cash-register-app.module.css';
+import CollapseContainer from './collapse-container';
 
 const CashRegisterApp = props => {
   /*
@@ -20,15 +21,25 @@ const CashRegisterApp = props => {
     <div className={style.container}>
       <div className={style.innerContainer}>
         <div className={style.innerContainer1}>
-          <h5>"foo"</h5>
+          <h5>Price:</h5>
           <input type="text" />
         </div>
         <div className={style.innerContainer1}>
-          <h5>"foo"</h5>
+          <h5>Payment:</h5>
           <input type="text" />
         </div>
+        <div className={style.innerContainer1}>
+          <button>Pay</button>
+        </div>
       </div>
-      <div className={style.innerContainer}></div>
+      <div className={style.innerContainer}>
+        <CollapseContainer
+          styledMargin={false}
+          headerText="Cash in register"
+          bigHeader={false}
+        />
+      </div>
+      {/* <hr className={style.hr} /> */}
       <div className={style.innerContainer}></div>
     </div>
   );
