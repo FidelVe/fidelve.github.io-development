@@ -56,7 +56,7 @@ const IndexPage = props => {
         to learn, don't cheat, you will only be doing a disservice to yourself.
       </p>
       <h2>FreeCodeCamp JavaScript's final project</h2>
-      <CollapseContainer headerText="Palindrome Checker">
+      <CollapseContainer borderColor="#c2b280" headerText="Palindrome Checker">
         <p>
           A palindrome is a word or sentence that's spelled the same way both
           forward and backward, ignoring punctuation, case, and spacing.
@@ -127,7 +127,9 @@ const IndexPage = props => {
           label="Palindrome Test"
         />
       </CollapseContainer>
-      <CollapseContainer headerText="Roman Numeral Converter">
+      <CollapseContainer
+        borderColor="#c2b280"
+        headerText="Roman Numeral Converter">
         <p>
           For this project you are asked to create an algorithm that converts
           decimal numbers into the roman numeral system.
@@ -186,7 +188,7 @@ const IndexPage = props => {
           transformFunction={convertToRoman}
         />
       </CollapseContainer>
-      <CollapseContainer headerText="Caesars Cipher">
+      <CollapseContainer borderColor="#c2b280" headerText="Caesars Cipher">
         <p>
           In cryptography, a cipher is an algorithm for performing encryption or
           decryption, this algorithm substitutes the characters in a string to
@@ -226,7 +228,9 @@ const IndexPage = props => {
           transformFunction={decipherCaesar}
         />
       </CollapseContainer>
-      <CollapseContainer headerText="Telephone Number Validator">
+      <CollapseContainer
+        borderColor="#c2b280"
+        headerText="Telephone Number Validator">
         <p>
           For this next project you are given a string representing a phone
           number and you should validate it.
@@ -282,7 +286,7 @@ const IndexPage = props => {
           label="US Phone Validator"
         />
       </CollapseContainer>
-      <CollapseContainer headerText="Cash Register">
+      <CollapseContainer borderColor="#c2b280" headerText="Cash Register">
         <p>
           For this last project you're tasked with creating a piece of program
           that will simulate a cash register.

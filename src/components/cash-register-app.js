@@ -34,8 +34,8 @@ const CashRegisterApp = props => {
       </div>
       <div className={style.innerContainer}>
         <CollapseContainer
-          collapseHeight={'35px'}
-          styledMargin={false}
+          large={false}
+          styledBorder={false}
           headerText="Cash in register"
         />
       </div>

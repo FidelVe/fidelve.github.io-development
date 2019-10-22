@@ -1,13 +1,19 @@
 import React from 'react';
 import styles from './collapse-container.module.css';
 
+// constant declarations
+const LARGE_HEIGHT = '58px';
+const LARGE_FONT = '20px';
+const SMALL_HEIGHT = '34px';
+const SMALL_FONT = '15px';
+
 class CollapseContainer extends React.Component {
   /*
    * Props available for this component:
    *  - headerText: 'default value for the header text',
-   *  - styledMargin: true,
-   *  - marginColor: 'fff' // TODO
-   *  - collapseHeight: '', // TODO: type check this to only accept width units
+   *  - styledBorder: true,
+   *  - borderColor: '#000',
+   *  - large: true,
    */
   constructor(props) {
     super(props);
@@ -24,15 +30,13 @@ class CollapseContainer extends React.Component {
 
   createBaseParams = props => {
     let params = {
-      isInitialRender: true,
+      initialRender: true,
       maxHeightWhenCollapsed: '',
       maxHeightWhenUncollapsed: '',
     };
 
     params.maxHeightWhenCollapsed =
-      props.collapseHeight === ''
-        ? '57px'
-        : `${parseInt(props.collapseHeight)}px`;
+      props.large === true ? LARGE_HEIGHT : SMALL_HEIGHT;
 
     return params;
   };
@@ -42,15 +46,18 @@ class CollapseContainer extends React.Component {
     this.setState({isOpen: !this.state.isOpen});
   };
 
+  calculateInitialInlineStyles = () => {};
+
   getInlineStyle = () => {
     // Initializing 'inlineStyles' object
     let inlineStyles = {
       main: {
         // maxHeight
+        // borderColor
+        // borderTop
       },
       header: {
         maxHeight: this.baseParams.maxHeightWhenCollapsed,
-        // borderTop
       },
       headerText: {
         // fontSize
@@ -63,14 +70,18 @@ class CollapseContainer extends React.Component {
       content: {},
     };
 
-    inlineStyles.main.maxHeight = this.state.isOpen
-      ? this.baseParams.maxHeightWhenUncollapsed
-      : this.baseParams.maxHeightWhenCollapsed;
-
-    if (!this.props.styledMargin) {
-      inlineStyles.header.borderTop = 'none';
+    // ********************
+    // these only need to be calculated once, before the first render
+    // TODO: optimize the code, put the calculations in another function and
+    // only do them once
+    // Border Style preferences
+    if (!this.props.styledBorder) {
+      inlineStyles.main.border = 'none';
+    } else {
+      inlineStyles.main.borderTop = `solid 5px ${this.props.borderColor}`;
     }
 
+    // Header img size calculations
     let headerImgSize = parseInt(this.baseParams.maxHeightWhenCollapsed) - 4;
 
     inlineStyles.headerIcon = {
@@ -79,33 +90,32 @@ class CollapseContainer extends React.Component {
       backgroundSize: `${headerImgSize}px ${headerImgSize}px`,
     };
 
+    // Header label calculations
+    inlineStyles.headerText.fontSize =
+      this.props.large === true ? LARGE_FONT : SMALL_FONT;
+    // ********************
+
+    // Set the maxHeight depending on the state (collapsed/uncollapsed)
+    inlineStyles.main.maxHeight = this.state.isOpen
+      ? this.baseParams.maxHeightWhenUncollapsed
+      : this.baseParams.maxHeightWhenCollapsed;
+
     return inlineStyles;
   };
 
   componentDidUpdate() {}
   componentDidMount() {
-    // Get the element heights only on first call on componentDidMount().
-    // This is done to be able to work with any styles declared in the
-    // css module and let CollapseContainer be reusable.
+    // Get the elements from the DOM
+    let contentEl = this.componentRef.current.children[1];
 
-    if (this.baseParams.isInitialRender) {
-      // This will only run one time (on initial rendering)
+    // Get the computed style of element after being mounted in DOM
+    let contentStyle = getComputedStyle(contentEl);
 
-      // Get the elements from the DOM
-      let contentEl = this.componentRef.current.children[1];
-
-      // Get the computed style of element after being mounted in DOM
-      let contentStyle = getComputedStyle(contentEl);
-
-      // This is the maximum height for the collapse container, it will depend
-      // on the content of itself + and extra margin for handling browser
-      // resize.
-      this.baseParams.maxHeightWhenUncollapsed =
-        parseInt(contentStyle.getPropertyValue('height')) * 2;
-
-      // Change the isInitialRender to false so this block wont run again
-      this.baseParams.isInitialRender = false;
-    }
+    // This is the maximum height for the collapse container, it will depend
+    // on the content of itself + and extra margin for handling browser
+    // resize.
+    this.baseParams.maxHeightWhenUncollapsed =
+      parseInt(contentStyle.getPropertyValue('height')) * 2;
   }
 
   render() {
@@ -123,7 +133,9 @@ class CollapseContainer extends React.Component {
           style={inlineStyles.header}
           onClick={this.onHeaderClick}
           className={styles.collapseHeader}>
-          <p>{this.props.headerText}</p>
+          <p style={inlineStyles.headerText} className={styles.headerLabel}>
+            {this.props.headerText}
+          </p>
           <div style={inlineStyles.headerIcon} className={iconClassName}></div>
         </header>
         <article style={styles.content} className={styles.collapseContent}>
@@ -136,12 +148,9 @@ class CollapseContainer extends React.Component {
 
 CollapseContainer.defaultProps = {
   headerText: 'default value for the header text',
-  styledMargin: true,
-  marginColor: 'fff',
-  collapseHeight: '', // TODO: type check this to only accept width units
-  // headerText: 'default value for the header text',
-  // bigHeader: true,
-  // styledMargin: true,
+  styledBorder: true,
+  borderColor: '#000',
+  large: true,
 };
 
 export default CollapseContainer;

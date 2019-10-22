@@ -5,10 +5,9 @@
 .collapse-container {
   background-color: #ebecf0;
   border-radius: 4px 4px 0px 0px;
-  border-top: solid 5px #c2b280;
   margin-bottom: 20px;
   overflow-y: hidden;
-  max-height: 57px;
+  /* max-height: 57px; */
   width: 100%;
   transition: max-height 1s;
 }
@@ -21,9 +20,8 @@
   align-items: center;
   margin: 0px 4px;
 }
-.collapse-header > h3,
-.collapse-header > h5 {
-  margin: 0 auto;
+.header-label {
+  font-weight: bold;
 }
 .header-img-container {
   display: block;
