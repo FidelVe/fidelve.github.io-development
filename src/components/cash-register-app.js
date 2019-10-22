@@ -34,10 +34,9 @@ const CashRegisterApp = props => {
       </div>
       <div className={style.innerContainer}>
         <CollapseContainer
-          inlineStyleMaxHeight={'35px'}
+          collapseHeight={'35px'}
           styledMargin={false}
           headerText="Cash in register"
-          bigHeader={false}
         />
       </div>
       {/* <hr className={style.hr} /> */}

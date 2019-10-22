@@ -19,7 +19,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin: 4px;
+  margin: 0px 4px;
 }
 .collapse-header > h3,
 .collapse-header > h5 {
