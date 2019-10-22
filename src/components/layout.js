@@ -13,7 +13,9 @@ import {Helmet} from 'react-helmet';
 const _VER = 'vertical';
 const _HOR = 'horizontal';
 const _HEIGHT = '100%';
-const _INNER_WIDTH = 580;
+// This value is the same as the media query breakpoint declared in the
+// css module file 'layout.module.css'.
+const _INNER_WIDTH = 680;
 const _EVENT_RESIZE = 'resize';
 const _LINK_ROOT = '/';
 const _LINK_ABOUT = '/about/';

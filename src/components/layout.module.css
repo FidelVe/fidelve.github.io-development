@@ -111,7 +111,12 @@
 }
 
 @media screen and (min-width: 680px) {
-  /* if width more than 680px */
+  /* 
+   * If width more than 680px.
+   * 
+   * If this breakpoint is modified, then the variable _INNER_WIDTH declared
+   * in the layout file (layout.js) needs to be modified also
+   * */
   #layout {
     display: flex;
     flex-flow: row nowrap;

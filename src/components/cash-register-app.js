@@ -29,11 +29,12 @@ const CashRegisterApp = props => {
           <input type="text" />
         </div>
         <div className={style.innerContainer1}>
-          <button>Pay</button>
+          <button>Calculate</button>
         </div>
       </div>
       <div className={style.innerContainer}>
         <CollapseContainer
+          inlineStyleMaxHeight={'35px'}
           styledMargin={false}
           headerText="Cash in register"
           bigHeader={false}

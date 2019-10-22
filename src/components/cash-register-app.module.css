@@ -20,6 +20,7 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  /* justify-content: space-between; */
 }
 .inner-container-1 > h5 {
   margin: 0;
