@@ -1,0 +1,28 @@
+/*
+ * CSS module style for money-input.js component
+ */
+.container {
+  font-size: 0.8em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 140px;
+  width: 25%;
+}
+.container > p {
+  line-height: 1em;
+  padding: 0px;
+  margin: 0px;
+}
+.inner-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.inner-container > input {
+  max-width: 80%;
+  height: 22px;
+}

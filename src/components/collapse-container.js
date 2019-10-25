@@ -7,6 +7,33 @@ const LARGE_FONT = '20px';
 const SMALL_HEIGHT = '34px';
 const SMALL_FONT = '15px';
 
+const HeaderContainer = props => {
+  const {
+    headerStyle,
+    headerTextStyle,
+    headerIconStyle,
+    onHeaderClick,
+    styleClass,
+    headerText,
+    iconClassName,
+    headerAltChildren,
+  } = props;
+  return (
+    <header
+      style={headerStyle}
+      onClick={onHeaderClick}
+      className={styleClass.collapseHeader}>
+      <div>
+        <p style={headerTextStyle} className={styleClass.headerLabel}>
+          {headerText}
+        </p>
+        {headerAltChildren || null}
+      </div>
+      <div style={headerIconStyle} className={iconClassName}></div>
+    </header>
+  );
+};
+
 class CollapseContainer extends React.Component {
   /*
    * Props available for this component:
@@ -14,6 +41,8 @@ class CollapseContainer extends React.Component {
    *  - styledBorder: true,
    *  - borderColor: '#000',
    *  - large: true,
+   *  - headerStyle: {}
+   *  - contentStyle: {}
    */
   constructor(props) {
     super(props);
@@ -51,12 +80,12 @@ class CollapseContainer extends React.Component {
   getInlineStyle = () => {
     // Initializing 'inlineStyles' object
     let inlineStyles = {
-      main: {
+      mainStyle: {
         // maxHeight
         // borderColor
         // borderTop
       },
-      header: {
+      headerStyle: {
         maxHeight: this.baseParams.maxHeightWhenCollapsed,
       },
       headerText: {
@@ -67,7 +96,7 @@ class CollapseContainer extends React.Component {
         // height
         // background-size
       },
-      content: {},
+      contentStyle: {},
     };
 
     // ********************
@@ -76,9 +105,9 @@ class CollapseContainer extends React.Component {
     // only do them once
     // Border Style preferences
     if (!this.props.styledBorder) {
-      inlineStyles.main.border = 'none';
+      inlineStyles.mainStyle.border = 'none';
     } else {
-      inlineStyles.main.borderTop = `solid 5px ${this.props.borderColor}`;
+      inlineStyles.mainStyle.borderTop = `solid 5px ${this.props.borderColor}`;
     }
 
     // Header img size calculations
@@ -96,7 +125,7 @@ class CollapseContainer extends React.Component {
     // ********************
 
     // Set the maxHeight depending on the state (collapsed/uncollapsed)
-    inlineStyles.main.maxHeight = this.state.isOpen
+    inlineStyles.mainStyle.maxHeight = this.state.isOpen
       ? this.baseParams.maxHeightWhenUncollapsed
       : this.baseParams.maxHeightWhenCollapsed;
 
@@ -109,17 +138,30 @@ class CollapseContainer extends React.Component {
     let contentEl = this.componentRef.current.children[1];
 
     // Get the computed style of element after being mounted in DOM
-    let contentStyle = getComputedStyle(contentEl);
+    let computedContentStyle = getComputedStyle(contentEl);
 
     // This is the maximum height for the collapse container, it will depend
     // on the content of itself + and extra margin for handling browser
     // resize.
     this.baseParams.maxHeightWhenUncollapsed =
-      parseInt(contentStyle.getPropertyValue('height')) * 2;
+      parseInt(computedContentStyle.getPropertyValue('height')) * 2;
   }
 
   render() {
-    const inlineStyles = this.getInlineStyle();
+    // Get inline styles for the elements
+    const {headerIcon, headerText, mainStyle} = this.getInlineStyle();
+
+    // Get calculated inline styles for the header and content styles, and
+    // override with custom values passed as props (if any is passed)
+    const contentStyle = {
+      ...this.getInlineStyle().contentStyle,
+      ...this.props.contentStyle,
+    };
+    const headerStyle = {
+      ...this.getInlineStyle().headerStyle,
+      ...this.props.headerStyle,
+    };
+
     const iconClassName = this.state.isOpen
       ? `${styles.headerImgContainer} ${styles.open}`
       : styles.headerImgContainer;
@@ -128,17 +170,17 @@ class CollapseContainer extends React.Component {
       <section
         ref={this.componentRef}
         className={styles.collapseContainer}
-        style={inlineStyles.main}>
-        <header
-          style={inlineStyles.header}
-          onClick={this.onHeaderClick}
-          className={styles.collapseHeader}>
-          <p style={inlineStyles.headerText} className={styles.headerLabel}>
-            {this.props.headerText}
-          </p>
-          <div style={inlineStyles.headerIcon} className={iconClassName}></div>
-        </header>
-        <article style={styles.content} className={styles.collapseContent}>
+        style={mainStyle}>
+        <HeaderContainer
+          headerStyle={headerStyle}
+          headerTextStyle={headerText}
+          headerIconStyle={headerIcon}
+          styleClass={styles}
+          onHeaderClick={this.onHeaderClick}
+          headerText={this.props.headerText}
+          iconClassName={iconClassName}
+        />
+        <article style={contentStyle} className={styles.collapseContent}>
           {this.props.children}
         </article>
       </section>
@@ -151,6 +193,8 @@ CollapseContainer.defaultProps = {
   styledBorder: true,
   borderColor: '#000',
   large: true,
+  headerStyle: {},
+  contentStyle: {},
 };
 
 export default CollapseContainer;
