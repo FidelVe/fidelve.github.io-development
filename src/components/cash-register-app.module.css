@@ -8,24 +8,34 @@
   border: solid thin black;
   display: flex;
   flex-flow: column nowrap;
+  padding: 4px;
 }
-.inner-container {
+.container-1 {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-around;
+  /* align-content: space-around; */
   margin: 4px;
+  align-self: stretch;
 }
-.inner-container-1 {
+.container-2 {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  margin: 4px;
   /* justify-content: space-between; */
 }
-.inner-container-1 > h5 {
-  margin: 0;
+.container-2 > h5 {
+  margin: 0px 6px;
 }
-.inner-container-1 > input {
+.container-2 > input {
+  height: 25px;
+  width: 80px;
+}
+.container-3 {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 .hr {
   height: 6px;

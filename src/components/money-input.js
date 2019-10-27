@@ -1,8 +1,10 @@
 /*
  * MoneyInput component, part of Cash Register App.
+ * This is a stateless component, the input state is saved
+ * in the parent component.
  * */
 import React from 'react';
-import {useState} from 'react';
+// import {useState} from 'react';
 import style from './money-input.module.css';
 
 const MoneyInput = ({value, isCents, input, action, label}) => {
@@ -11,13 +13,23 @@ const MoneyInput = ({value, isCents, input, action, label}) => {
   const unitLabel = isCents ? '\u00A2' : '\u0024';
 
   //component state
-  const [inputValue, setInputValue] = useState(parseFloat(input));
+  // const [inputValue, setInputValue] = useState(parseFloat(input));
 
   const onInputChange = e => {
-    // Set internal state
-    setInputValue(e.target.value);
-    // Pass data to parent
-    action({label: e.target.getAttribute('label'), value: e.target.value});
+    let newInputValue = parseFloat(e.target.value);
+    let parsedStep = parseFloat(step);
+
+    if (validateInput(newInputValue, parsedStep)) {
+      // Set internal state
+      // setInputValue(newInputValue);
+      // Pass data to parent
+      action({
+        label: e.target.getAttribute('label'),
+        value: newInputValue,
+      });
+    } else {
+      console.log('not valid number');
+    }
   };
 
   return (
@@ -41,6 +53,11 @@ const MoneyInput = ({value, isCents, input, action, label}) => {
   );
 };
 
+function validateInput(input, minValue) {
+  let parsedInput = Math.round(100 * input);
+  let parsedMinValue = Math.round(100 * minValue);
+  return parsedInput % parsedMinValue === 0 ? true : false;
+}
 MoneyInput.defaultProps = {
   input: 0,
 };
