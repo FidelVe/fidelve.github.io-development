@@ -129,7 +129,7 @@ const CashRegisterApp = props => {
             headerText={`Cash in register: $${toTwoDecimalPoints(
               cashInRegister.amount,
             )}`}
-            contentStyle={COLL_CONT_STYLE}>
+            contentInlineStyle={COLL_CONT_STYLE}>
             <div className={style.collapseContent}>
               {LABELS.map((label, key) => (
                 <MoneyInput

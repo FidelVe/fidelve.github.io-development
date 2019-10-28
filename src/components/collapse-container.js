@@ -41,8 +41,9 @@ class CollapseContainer extends React.Component {
    *  - styledBorder: true,
    *  - borderColor: '#000',
    *  - large: true,
-   *  - headerStyle: {}
-   *  - contentStyle: {}
+   *  - headerInlineStyle: {}
+   *  - contentInlineStyle: {}
+   *  - mainInlineStyle: {},
    */
   constructor(props) {
     super(props);
@@ -149,17 +150,28 @@ class CollapseContainer extends React.Component {
 
   render() {
     // Get inline styles for the elements
-    const {headerIcon, headerText, mainStyle} = this.getInlineStyle();
+    const {
+      headerStyle,
+      contentStyle,
+      headerIcon,
+      headerText,
+      mainStyle,
+    } = this.getInlineStyle();
 
     // Get calculated inline styles for the header and content styles, and
     // override with custom values passed as props (if any is passed)
-    const contentStyle = {
-      ...this.getInlineStyle().contentStyle,
-      ...this.props.contentStyle,
+    const contentInlineStyle = {
+      ...contentStyle,
+      ...this.props.contentInlineStyle,
     };
-    const headerStyle = {
-      ...this.getInlineStyle().headerStyle,
-      ...this.props.headerStyle,
+    const headerInlineStyle = {
+      ...headerStyle,
+      ...this.props.headerInlineStyle,
+    };
+
+    const mainInlineStyle = {
+      ...mainStyle,
+      ...this.props.mainInlineStyle,
     };
 
     const iconClassName = this.state.isOpen
@@ -170,9 +182,9 @@ class CollapseContainer extends React.Component {
       <section
         ref={this.componentRef}
         className={styles.collapseContainer}
-        style={mainStyle}>
+        style={mainInlineStyle}>
         <HeaderContainer
-          headerStyle={headerStyle}
+          headerInlineStyle={headerInlineStyle}
           headerTextStyle={headerText}
           headerIconStyle={headerIcon}
           styleClass={styles}
@@ -180,7 +192,7 @@ class CollapseContainer extends React.Component {
           headerText={this.props.headerText}
           iconClassName={iconClassName}
         />
-        <article style={contentStyle} className={styles.collapseContent}>
+        <article style={contentInlineStyle} className={styles.collapseContent}>
           {this.props.children}
         </article>
       </section>
@@ -193,8 +205,9 @@ CollapseContainer.defaultProps = {
   styledBorder: true,
   borderColor: '#000',
   large: true,
-  headerStyle: {},
-  contentStyle: {},
+  headerInlineStyle: {},
+  contentInlineStyle: {},
+  mainInlineStyle: {},
 };
 
 export default CollapseContainer;
