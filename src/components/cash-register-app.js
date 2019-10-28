@@ -48,6 +48,12 @@ const LEGEND_STYLE = {
   borderRadius: '2px',
   padding: '0px 2px',
 };
+const BUTTON_STYLE = {
+  // border: 'solid thin black',
+  // borderRadius: '2px',
+  // backgroundColor: COLOR.splitComplementary.second.tint,
+  // color: '#000',
+};
 // Collapse inner content style
 const COLL_CONT_STYLE = {padding: '6px 0px'};
 
@@ -114,7 +120,7 @@ const CashRegisterApp = props => {
         <div className={style.container3}>
           <div
             style={{
-              backgroundColor: COLOR.triadic.first.main,
+              backgroundColor: COLOR.splitComplementary.second.main,
               margin: '4px 0px',
             }}
             className={style.container1}>
@@ -135,7 +141,12 @@ const CashRegisterApp = props => {
               />
             </div>
             <div className={style.container2}>
-              <button onClick={onCalculate}>Calculate</button>
+              <button
+                style={BUTTON_STYLE}
+                className={style.button}
+                onClick={onCalculate}>
+                Calculate
+              </button>
             </div>
           </div>
           <CollapseContainer
@@ -145,7 +156,7 @@ const CashRegisterApp = props => {
               cashInRegister.amount,
             )}`}
             mainInlineStyle={{
-              backgroundColor: COLOR.triadic.first.main,
+              backgroundColor: COLOR.splitComplementary.second.main,
               marginBottom: '4px',
             }}
             contentInlineStyle={COLL_CONT_STYLE}>
@@ -177,7 +188,7 @@ const CashRegisterApp = props => {
               styledBorder={false}
               headerText={`${array[0]} $${toTwoDecimalPoints(array[1].amount)}`}
               mainInlineStyle={{
-                backgroundColor: COLOR.triadic.first.main,
+                backgroundColor: COLOR.splitComplementary.second.main,
                 marginBottom: '4px',
               }}
               contentStyle={COLL_CONT_STYLE}>
@@ -315,7 +326,6 @@ function makeTransaction(change, registerState) {
    *   five: int,
    *   one: int,
    * };
-   * TODO: Refactor to make it work with coins
    */
   // Making a copy of the inputs that we are going to mutate, to make
   // sure this is a pure function

@@ -51,3 +51,14 @@
   justify-content: space-around;
   align-content: center;
 }
+.button {
+  border: solid thin rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #eee;
+  border-color: #eee;
+}
