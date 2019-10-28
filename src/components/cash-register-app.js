@@ -11,6 +11,7 @@ import {useState} from 'react';
 import style from './cash-register-app.module.css';
 import CollapseContainer from './collapse-container';
 import MoneyInput from './money-input';
+import COLORS from '../assets/color-scheme';
 
 // Contants declaration
 const LABELS = [
@@ -98,11 +99,18 @@ const CashRegisterApp = props => {
   };
 
   return (
-    <div className={style.container}>
+    <div
+      style={{
+        backgroundColor: COLORS.triadicTint,
+        borderColor: COLORS.triadicShade,
+      }}
+      className={style.container}>
       <fieldset style={{marginBottom: '4px'}}>
         <legend style={LEGEND_STYLE}>Input:</legend>
         <div className={style.container3}>
-          <div className={style.container1}>
+          <div
+            style={{backgroundColor: COLORS.triadicOne, margin: '4px 0px'}}
+            className={style.container1}>
             <div className={style.container2}>
               <h5>Price:</h5>
               <input
@@ -129,6 +137,9 @@ const CashRegisterApp = props => {
             headerText={`Cash in register: $${toTwoDecimalPoints(
               cashInRegister.amount,
             )}`}
+            mainInlineStyle={{
+              backgroundColor: COLORS.triadicOne,
+            }}
             contentInlineStyle={COLL_CONT_STYLE}>
             <div className={style.collapseContent}>
               {LABELS.map((label, key) => (
@@ -157,6 +168,9 @@ const CashRegisterApp = props => {
               large={false}
               styledBorder={false}
               headerText={`${array[0]} $${toTwoDecimalPoints(array[1].amount)}`}
+              mainInlineStyle={{
+                backgroundColor: COLORS.triadicOne,
+              }}
               contentStyle={COLL_CONT_STYLE}>
               <div className={style.collapseContent}>
                 {LABELS.map((label, key) => (

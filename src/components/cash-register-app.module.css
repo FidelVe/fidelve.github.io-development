@@ -2,10 +2,11 @@
  * CSS module style for cash-register-app.js component
  */
 .container > * {
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
 }
 .container {
   border: solid thin black;
+  border-radius: 4px;
   display: flex;
   flex-flow: column nowrap;
   padding: 4px;
@@ -36,6 +37,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  padding: 0px 4px;
 }
 .hr {
   height: 6px;
