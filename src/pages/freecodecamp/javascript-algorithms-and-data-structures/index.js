@@ -13,6 +13,9 @@ import style from './index.module.css';
 // Color palette
 import COLORS from '../../../assets/color-scheme';
 
+// Main Color to use is 'sand'
+const COLOR = COLORS.sand;
+
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
@@ -61,7 +64,7 @@ const IndexPage = props => {
       </p>
       <h2>FreeCodeCamp JavaScript's final project</h2>
       <CollapseContainer
-        borderColor={COLORS.main}
+        borderColor={COLOR.main}
         headerText="Palindrome Checker">
         <p>
           A palindrome is a word or sentence that's spelled the same way both
@@ -134,7 +137,7 @@ const IndexPage = props => {
         />
       </CollapseContainer>
       <CollapseContainer
-        borderColor={COLORS.main}
+        borderColor={COLOR.main}
         headerText="Roman Numeral Converter">
         <p>
           For this project you are asked to create an algorithm that converts
@@ -194,7 +197,7 @@ const IndexPage = props => {
           transformFunction={convertToRoman}
         />
       </CollapseContainer>
-      <CollapseContainer borderColor={COLORS.main} headerText="Caesars Cipher">
+      <CollapseContainer borderColor={COLOR.main} headerText="Caesars Cipher">
         <p>
           In cryptography, a cipher is an algorithm for performing encryption or
           decryption, this algorithm substitutes the characters in a string to
@@ -235,7 +238,7 @@ const IndexPage = props => {
         />
       </CollapseContainer>
       <CollapseContainer
-        borderColor={COLORS.main}
+        borderColor={COLOR.main}
         headerText="Telephone Number Validator">
         <p>
           For this next project you are given a string representing a phone
@@ -292,7 +295,7 @@ const IndexPage = props => {
           label="US Phone Validator"
         />
       </CollapseContainer>
-      <CollapseContainer borderColor={COLORS.main} headerText="Cash Register">
+      <CollapseContainer borderColor={COLOR.main} headerText="Cash Register">
         <p>
           For this last project you're tasked with creating a piece of program
           that will simulate a cash register.

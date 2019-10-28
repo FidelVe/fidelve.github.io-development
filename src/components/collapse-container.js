@@ -184,7 +184,7 @@ class CollapseContainer extends React.Component {
         className={styles.collapseContainer}
         style={mainInlineStyle}>
         <HeaderContainer
-          headerInlineStyle={headerInlineStyle}
+          headerStyle={headerInlineStyle}
           headerTextStyle={headerText}
           headerIconStyle={headerIcon}
           styleClass={styles}

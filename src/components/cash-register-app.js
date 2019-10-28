@@ -13,6 +13,9 @@ import CollapseContainer from './collapse-container';
 import MoneyInput from './money-input';
 import COLORS from '../assets/color-scheme';
 
+// Main Color to use
+const COLOR = COLORS.sand;
+
 // Contants declaration
 const LABELS = [
   'hundred',
@@ -40,9 +43,10 @@ const DEFAULT_REGISTER = [
 ];
 const LEGEND_STYLE = {
   backgroundColor: '#fff',
-  fontSize: '16px',
-  lineHeight: '18px',
+  fontSize: '12px',
+  lineHeight: '14px',
   borderRadius: '2px',
+  padding: '0px 2px',
 };
 // Collapse inner content style
 const COLL_CONT_STYLE = {padding: '6px 0px'};
@@ -101,15 +105,18 @@ const CashRegisterApp = props => {
   return (
     <div
       style={{
-        backgroundColor: COLORS.triadicTint,
-        borderColor: COLORS.triadicShade,
+        backgroundColor: COLOR.tint,
+        borderColor: COLOR.shade,
       }}
       className={style.container}>
       <fieldset style={{marginBottom: '4px'}}>
         <legend style={LEGEND_STYLE}>Input:</legend>
         <div className={style.container3}>
           <div
-            style={{backgroundColor: COLORS.triadicOne, margin: '4px 0px'}}
+            style={{
+              backgroundColor: COLOR.triadic.first.main,
+              margin: '4px 0px',
+            }}
             className={style.container1}>
             <div className={style.container2}>
               <h5>Price:</h5>
@@ -138,7 +145,8 @@ const CashRegisterApp = props => {
               cashInRegister.amount,
             )}`}
             mainInlineStyle={{
-              backgroundColor: COLORS.triadicOne,
+              backgroundColor: COLOR.triadic.first.main,
+              marginBottom: '4px',
             }}
             contentInlineStyle={COLL_CONT_STYLE}>
             <div className={style.collapseContent}>
@@ -169,7 +177,8 @@ const CashRegisterApp = props => {
               styledBorder={false}
               headerText={`${array[0]} $${toTwoDecimalPoints(array[1].amount)}`}
               mainInlineStyle={{
-                backgroundColor: COLORS.triadicOne,
+                backgroundColor: COLOR.triadic.first.main,
+                marginBottom: '4px',
               }}
               contentStyle={COLL_CONT_STYLE}>
               <div className={style.collapseContent}>
