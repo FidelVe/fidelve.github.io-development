@@ -76,14 +76,20 @@ const CashRegisterApp = props => {
     // the client change, and new state for the register
     let changeState = createCashState(true);
     let registerState = {...cashInRegister};
-    let changeAmount =
-      Math.round((parseFloat(payment) - parseFloat(price)) * 100) / 100;
+    let changeAmount = toTwoDecimalPoints(payment - price);
+    // Math.round((parseFloat(payment) - parseFloat(price)) * 100) / 100;
 
     if (changeAmount > 0 && changeAmount < registerState.amount) {
       // if the payment entered by the user is bigger than the price and
       // the amount in the register is bigger than the payment, the
       // transaction is valid
-      wrapperForMakeTransaction(changeAmount, registerState);
+      [changeState, registerState] = wrapperForMakeTransaction(
+        changeAmount,
+        registerState,
+      );
+
+      setChange(changeState);
+      setUpdatedCashInRegister(registerState);
     } else {
       alert(
         'Payment cannot be processed: Payment should be bigger than the price and less than the amount in the register',
@@ -161,6 +167,7 @@ const CashRegisterApp = props => {
                     value={array[1][label].value}
                     isCents={array[1][label].isCoin}
                     input={array[1][label].amount}
+                    disable={true}
                   />
                 ))}
               </div>
@@ -238,17 +245,37 @@ function wrapperForMakeTransaction(change, state) {
    * in the correct format for makeTransaction().
    * This is to avoid refactorin makeTransaction() and make it reusable.
    */
-  let formattedState = {totalAmount: state.amount};
+  // creating blank change and register states
+  let outputChangeState = createCashState(true);
+  let outputRegisterState = createCashState(true);
+
+  // Creating a minimized state in the appropiate format to serve
+  // as input to makeTransaction()
+  let minimizedState = {totalAmount: state.amount};
   LABELS.forEach(
-    label => (formattedState[label] = toTwoDecimalPoints(state[label].amount)),
+    label => (minimizedState[label] = toTwoDecimalPoints(state[label].amount)),
   );
 
-  console.log(makeTransaction(change, formattedState));
-}
-function fooTest() {
-  let foo = {a: 0, b: 0, c: 0};
-  console.log(foo);
-  foo.a = 1;
+  // Calculating the change and the register new state
+  let [rawChangeState, rawRegisterNewState] = makeTransaction(
+    change,
+    minimizedState,
+  );
+
+  // Updating outputChangeState and outputRegisterState
+  if (rawChangeState && rawRegisterNewState !== null) {
+    outputChangeState.amount = rawChangeState.totalAmount;
+    outputRegisterState.amount = rawRegisterNewState.totalAmount;
+
+    LABELS.forEach(label => {
+      outputChangeState[label].amount = rawChangeState[label];
+      outputRegisterState[label].amount = rawRegisterNewState[label];
+    });
+  } else {
+    [outputRegisterState, outputChangeState] = [null, null];
+  }
+
+  return [outputChangeState, outputRegisterState];
 }
 
 function makeTransaction(change, registerState) {
@@ -271,8 +298,6 @@ function makeTransaction(change, registerState) {
   // sure this is a pure function
   let copyOfRegisterState = {...registerState};
   let copyOfChange = change;
-  console.log(`Change: ${copyOfChange}`);
-  console.log(`Register State: `, copyOfRegisterState);
 
   // An ordered array of bill denomination from higher to lowest
   const bills = [
@@ -282,9 +307,6 @@ function makeTransaction(change, registerState) {
     ['ten', 10],
     ['five', 5],
     ['one', 1],
-  ];
-
-  const coins = [
     ['quarter', 0.25],
     ['dime', 0.1],
     ['nickel', 0.05],
@@ -305,6 +327,9 @@ function makeTransaction(change, registerState) {
       return copyOfRegisterState;
     }
 
+    // Temp variable to calculate the register's new totalAmount state
+    let tempTotalAmount = 0;
+
     for (let eachBill of bills) {
       // Going from highest denomination to lower
 
@@ -312,38 +337,50 @@ function makeTransaction(change, registerState) {
         // If the current bill value is smaller than the change to return
 
         let multiplier = Math.floor(copyOfChange / eachBill[1]);
+        // This multiplier handles coins (value<1) and bills (value >=1)
+        // let multiplier =
+        //   eachBill[1] >= 1
+        //     ? Math.floor(copyOfChange / eachBill[1])
+        //     : Math.floor(copyOfChange / eachBill[1]) -
+        //       Math.floor(Math.floor(copyOfChange) / eachBill[1]);
+
         let amountToAddAndSubstract =
           eachBill[1] * multiplier < copyOfRegisterState[eachBill[0]]
             ? eachBill[1] * multiplier
             : copyOfRegisterState[eachBill[0]];
 
-        // Substracting the amount from the ATM state (the copy we made)
-        copyOfRegisterState[eachBill[0]] -= amountToAddAndSubstract;
-        copyOfRegisterState.totalAmount -= amountToAddAndSubstract;
-
-        // Adding the amount to object to return
-        returnedCash[eachBill[0]] += amountToAddAndSubstract;
-        returnedCash.totalAmount += amountToAddAndSubstract;
-
-        // Updating the amount
-        copyOfChange -= amountToAddAndSubstract;
+        // Updating variables by substracting or adding the transaction
+        // substracting
+        [copyOfRegisterState[eachBill[0]], copyOfChange] = [
+          copyOfRegisterState[eachBill[0]],
+          copyOfChange,
+        ].map(each => toTwoDecimalPoints(each - amountToAddAndSubstract));
+        // Adding
+        [returnedCash[eachBill[0]], returnedCash.totalAmount] = [
+          returnedCash[eachBill[0]],
+          returnedCash.totalAmount,
+        ].map(each => toTwoDecimalPoints(each + amountToAddAndSubstract));
       }
+
+      // Adding up the updated state for each denomination
+      tempTotalAmount += copyOfRegisterState[eachBill[0]];
     }
 
-    //TODO: TEST FROM HERE
-    returnedCash = toTwoDecimalPoints(returnedCash.totalAmount);
-    console.log(change, returnedCash);
-    if (returnedCash === change) {
+    // The new register total amount is the sum of the updated state for
+    // each denomination after substracting value from them
+    copyOfRegisterState.totalAmount = tempTotalAmount;
+
+    if (returnedCash.totalAmount === change) {
       // If we have the right combination of each bill to return
       // the exact change, we return it.
-      return returnedCash;
+      return [returnedCash, copyOfRegisterState];
     }
   }
 
   // If we get to this point the amount of cash cannot be returned
   // we either dont have enough money or the combination of bills
   // we have cannot be combined to return the requested amount
-  return 'The requested amount cannot be procesed';
+  return [null, null];
 }
 
 export default CashRegisterApp;

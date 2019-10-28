@@ -7,7 +7,7 @@ import React from 'react';
 // import {useState} from 'react';
 import style from './money-input.module.css';
 
-const MoneyInput = ({value, isCents, input, action, label}) => {
+const MoneyInput = ({value, isCents, input, action, label, disable}) => {
   const step = isCents ? parseInt(value) / 100 : parseInt(value);
   const unit = isCents ? 'coins' : 'bills';
   const unitLabel = isCents ? '\u00A2' : '\u0024';
@@ -40,14 +40,26 @@ const MoneyInput = ({value, isCents, input, action, label}) => {
         }}>{`Amount in ${unitLabel}${value} ${unit}`}</p>
       <div className={style.innerContainer}>
         &#36;:
-        <input
-          label={label}
-          type="number"
-          min="0"
-          step={`${step}`}
-          value={input}
-          onChange={onInputChange}
-        />
+        {disable ? (
+          <input
+            label={label}
+            type="number"
+            min="0"
+            step={`${step}`}
+            value={input}
+            onChange={onInputChange}
+            disabled
+          />
+        ) : (
+          <input
+            label={label}
+            type="number"
+            min="0"
+            step={`${step}`}
+            value={input}
+            onChange={onInputChange}
+          />
+        )}
       </div>
     </div>
   );
@@ -60,5 +72,6 @@ function validateInput(input, minValue) {
 }
 MoneyInput.defaultProps = {
   input: 0,
+  disable: false,
 };
 export default MoneyInput;

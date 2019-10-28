@@ -6,6 +6,7 @@ import CollapseContainer from '../../../components/collapse-container';
 import InputValidator from '../../../components/input-validator';
 import InputTransform from '../../../components/input-transform';
 import CodeContainer from '../../../components/code-container';
+import CashRegisterApp from '../../../components/cash-register-app';
 import Layout from '../../../components/layout';
 import style from './index.module.css';
 
@@ -330,6 +331,12 @@ const IndexPage = props => {
           innerHTML={getHTMLofFileName(REGISTER_CODE, queryData)}
         />
         <h4>Testing the code.</h4>
+        <p>
+          Here's a small app for testing the code, you just need to enter a
+          price and payment and press the 'Calculate' button, there's already a
+          predefined register state which you can modify if you want to.
+        </p>
+        <CashRegisterApp />
       </CollapseContainer>
     </Layout>
   );
