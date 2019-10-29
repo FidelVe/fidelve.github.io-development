@@ -55,7 +55,7 @@ const BUTTON_STYLE = {
   // color: '#000',
 };
 // Collapse inner content style
-const COLL_CONT_STYLE = {padding: '6px 0px'};
+const COLL_CONT_STYLE = {}; //{padding: '6px 0px'};
 
 const CashRegisterApp = props => {
   /*
@@ -111,8 +111,10 @@ const CashRegisterApp = props => {
   return (
     <div
       style={{
-        backgroundColor: COLOR.tint,
+        backgroundColor: '#eee', //COLOR.tint,
         borderColor: COLOR.shade,
+        maxWidth: '670px',
+        margin: '6px auto',
       }}
       className={style.container}>
       <fieldset style={{marginBottom: '4px'}}>

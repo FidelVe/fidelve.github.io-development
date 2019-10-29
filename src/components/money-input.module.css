@@ -7,8 +7,10 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  min-width: 140px;
-  width: 25%;
+  /* min-width: 140px; */
+  width: 100px;
+  margin-bottom: 5px;
+  /* border: solid thin black; */
 }
 .container > p {
   line-height: 1em;

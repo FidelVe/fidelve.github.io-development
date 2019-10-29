@@ -7,6 +7,11 @@ import React from 'react';
 // import {useState} from 'react';
 import style from './money-input.module.css';
 
+// Inline Styles
+const P_STYLE = {
+  margin: '0px 4px',
+};
+
 const MoneyInput = ({value, isCents, input, action, label, disable}) => {
   const step = isCents ? parseInt(value) / 100 : parseInt(value);
   const unit = isCents ? 'coins' : 'bills';
@@ -34,10 +39,8 @@ const MoneyInput = ({value, isCents, input, action, label, disable}) => {
 
   return (
     <div className={style.container}>
-      <p
-        style={{
-          margin: '2px 4px',
-        }}>{`Amount in ${unitLabel}${value} ${unit}`}</p>
+      <p style={P_STYLE}>Amount in</p>
+      <p style={P_STYLE}>{`${unitLabel}${value} ${unit}`}</p>
       <div className={style.innerContainer}>
         &#36;:
         {disable ? (
