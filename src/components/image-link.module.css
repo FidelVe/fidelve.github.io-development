@@ -1,0 +1,10 @@
+/* CSS module for image-link component */
+.container {
+}
+.link {
+}
+.img {
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+}
