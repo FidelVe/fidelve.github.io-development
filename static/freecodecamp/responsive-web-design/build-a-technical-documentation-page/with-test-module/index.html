@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Hooks</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="./styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/prism.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header id="header">React Hooks API Reference</header>
+      <ul>
+        <li><a class="nav-link" href="#useState">useState Hook</a></li>
+        <li><a class="nav-link" href="#useEffect">useEffect Hook</a></li>
+        <li><a class="nav-link" href="#useContext">useContext Hook</a></li>
+        <li><a class="nav-link" href="#useReducer">useReducer Hook</a></li>
+        <li><a class="nav-link" href="#useCallback">useCallback Hook</a></li>
+        <li><a class="nav-link" href="#useMemo">useMemo Hook</a></li>
+        <li><a class="nav-link" href="#useRef">useRef Hook</a></li>
+        <li>
+          <a class="nav-link" href="#useImperativeHandle"
+            >useImperativeHandle Hook</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#useLayoutEffect">useLayoutEffect Hook</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#useDebugValue">useDebugValue Hook</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="useState">
+        <header><h2>useState Hook</h2></header>
+        <pre
+          class="language-javascript"
+        ><code>const [state, setState] = useState(initialState);</code>
+        </pre>
+        <p>Returns a stateful value, and a function to update it.</p>
+        <p>
+          During the initial render, the returned state (state) is the same as
+          the value passed as the first argument (initialState).
+        </p>
+        <p>
+          The setState function is used to update the state. It accepts a new
+          state value and enqueues a re-render of the component.
+        </p>
+        <pre class="language-javascript"><code>setState(newState);</code>
+        </pre>
+        <p>
+          During subsequent re-renders, the first value returned by useState
+          will always be the most recent state after applying updates.
+        </p>
+        <blockquote>
+          <h4>Note</h4>
+          <p>
+            React guarantees that setState function identity is stable and won’t
+            change on re-renders. This is why it’s safe to omit from the
+            useEffect or useCallback dependency list.
+          </p>
+        </blockquote>
+        <h3>Functional updates</h3>
+        <p>
+          If the new state is computed using the previous state, you can pass a
+          function to setState. The function will receive the previous value,
+          and return an updated value. Here’s an example of a counter component
+          that uses both forms of setState:
+        </p>
+        <pre class="language-jsx"><code>function Counter({initialCount}) {
+  const [count, setCount] = useState(initialCount);
+  return (
+    &lt;&gt;
+      Count: {count}
+      &lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
+      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
+    &lt;/&gt;
+  );
+}</code>
+        </pre>
+        <p>
+          The ”+” and ”-” buttons use the functional form, because the updated
+          value is based on the previous value. But the “Reset” button uses the
+          normal form, because it always sets the count back to the initial
+          value.
+        </p>
+        <blockquote>
+          <h4>Note</h4>
+
+          <p>
+            Unlike the setState method found in class components, useState does
+            not automatically merge update objects. You can replicate this
+            behavior by combining the function updater form with object spread
+            syntax:
+          </p>
+          <pre class="language-jsx"><code>setState(prevState =&gt; {
+  // Object.assign would also work
+  return {...prevState, ...updatedValues};
+});</code>
+        </pre>
+        </blockquote>
+        <h3>Lazy initial state</h3>
+        <p>
+          The initialState argument is the state used during the initial render.
+          In subsequent renders, it is disregarded. If the initial state is the
+          result of an expensive computation, you may provide a function
+          instead, which will be executed only on the initial render:
+        </p>
+        <pre
+          class="language-jsx"
+        ><code>const [state, setState] = useState(() =&gt; {
+  const initialState = someExpensiveComputation(props);
+  return initialState;
+});
+</code>
+        </pre>
+        <h3>Bailing out of a state update</h3>
+        <p>
+          If you update a State Hook to the same value as the current state,
+          React will bail out without rendering the children or firing effects.
+          (React uses the Object.is comparison algorithm.)
+        </p>
+        <p>
+          Note that React may still need to render that specific component again
+          before bailing out. That shouldn’t be a concern because React won’t
+          unnecessarily go “deeper” into the tree. If you’re doing expensive
+          calculations while rendering, you can optimize them with useMemo.
+        </p>
+      </section>
+      <section class="main-section" id="useEffect">
+        <header><h2>useEffect Hook</h2></header>
+        <pre class="language-jsx"><code>useEffect(didUpdate);</code>
+        </pre>
+        <p>
+          Accepts a function that contains imperative, possibly effectful code.
+        </p>
+
+        <p>
+          Mutations, subscriptions, timers, logging, and other side effects are
+          not allowed inside the main body of a function component (referred to
+          as React’s render phase). Doing so will lead to confusing bugs and
+          inconsistencies in the UI.
+        </p>
+
+        <p>
+          Instead, use useEffect. The function passed to useEffect will run
+          after the render is committed to the screen. Think of effects as an
+          escape hatch from React’s purely functional world into the imperative
+          world.
+        </p>
+
+        <p>
+          By default, effects run after every completed render, but you can
+          choose to fire them only when certain values have changed.
+        </p>
+
+        <h3>Cleaning up an effect</h3>
+        <p>
+          Often, effects create resources that need to be cleaned up before the
+          component leaves the screen, such as a subscription or timer ID. To do
+          this, the function passed to useEffect may return a clean-up function.
+          For example, to create a subscription:
+        </p>
+        <pre class="language-jsx"><code>useEffect(() =&gt; {
+  const subscription = props.source.subscribe();
+  return () =&gt; {
+    // Clean up the subscription
+    subscription.unsubscribe();
+  };
+});</code>
+        </pre>
+        <h3>Timing of effects</h3>
+        <p>
+          Unlike componentDidMount and componentDidUpdate, the function passed
+          to useEffect fires after layout and paint, during a deferred event.
+          This makes it suitable for the many common side effects, like setting
+          up subscriptions and event handlers, because most types of work
+          shouldn’t block the browser from updating the screen.
+        </p>
+
+        <p>
+          However, not all effects can be deferred. For example, a DOM mutation
+          that is visible to the user must fire synchronously before the next
+          paint so that the user does not perceive a visual inconsistency. (The
+          distinction is conceptually similar to passive versus active event
+          listeners.) For these types of effects, React provides one additional
+          Hook called useLayoutEffect. It has the same signature as useEffect,
+          and only differs in when it is fired.
+        </p>
+
+        <p>
+          Although useEffect is deferred until after the browser has painted,
+          it’s guaranteed to fire before any new renders. React will always
+          flush a previous render’s effects before starting a new update.
+        </p>
+
+        <h3>Conditionally firing an effect</h3>
+        <p>
+          The default behavior for effects is to fire the effect after every
+          completed render. That way an effect is always recreated if one of its
+          dependencies changes.
+        </p>
+
+        <p>
+          However, this may be overkill in some cases, like the subscription
+          example from the previous section. We don’t need to create a new
+          subscription on every update, only if the source props has changed.
+        </p>
+
+        <p>
+          To implement this, pass a second argument to useEffect that is the
+          array of values that the effect depends on. Our updated example now
+          looks like this:
+        </p>
+      </section>
+      <pre class="language-jsx"><code>useEffect(
+  () =&gt; {
+    const subscription = props.source.subscribe();
+    return () =&gt; {
+      subscription.unsubscribe();
+    };
+  },
+  [props.source],
+);</code>
+        </pre>
+      <p>
+        Now the subscription will only be recreated when props.source changes.
+      </p>
+      <blockquote>
+        <h4>Note</h4>
+
+        <p>
+          If you use this optimization, make sure the array includes all values
+          from the component scope (such as props and state) that change over
+          time and that are used by the effect. Otherwise, your code will
+          reference stale values from previous renders. Learn more about how to
+          deal with functions and what to do when the array values change too
+          often.
+        </p>
+
+        <p>
+          If you want to run an effect and clean it up only once (on mount and
+          unmount), you can pass an empty array ([]) as a second argument. This
+          tells React that your effect doesn’t depend on any values from props
+          or state, so it never needs to re-run. This isn’t handled as a special
+          case — it follows directly from how the dependencies array always
+          works.
+        </p>
+
+        <p>
+          If you pass an empty array ([]), the props and state inside the effect
+          will always have their initial values. While passing [] as the second
+          argument is closer to the familiar componentDidMount and
+          componentWillUnmount mental model, there are usually better solutions
+          to avoid re-running effects too often. Also, don’t forget that React
+          defers running useEffect until after the browser has painted, so doing
+          extra work is less of a problem.
+        </p>
+
+        <p>
+          We recommend using the exhaustive-deps rule as part of our
+          eslint-plugin-react-hooks package. It warns when dependencies are
+          specified incorrectly and suggests a fix.
+        </p>
+      </blockquote>
+      <p>
+        The array of dependencies is not passed as arguments to the effect
+        function. Conceptually, though, that’s what they represent: every value
+        referenced inside the effect function should also appear in the
+        dependencies array. In the future, a sufficiently advanced compiler
+        could create this array automatically.
+      </p>
+
+      <section class="main-section" id="useContext">
+        <header><h2>useContext Hook</h2></header>
+        <pre
+          class="language-jsx"
+        ><code>const value = useContext(MyContext);</code>
+        </pre>
+        <p>
+          Accepts a context object (the value returned from React.createContext)
+          and returns the current context value for that context. The current
+          context value is determined by the value prop of the nearest
+          &lt;MyContext.Provider&gt; above the calling component in the tree.
+        </p>
+        <p>
+          When the nearest &lt;MyContext.Provider&gt; above the component
+          updates, this Hook will trigger a rerender with the latest context
+          value passed to that MyContext provider.
+        </p>
+        <p>
+          Don’t forget that the argument to useContext must be the context
+          object itself:
+        </p>
+        <ul>
+          <li>Correct: useContext(MyContext)</li>
+          <li>Incorrect: useContext(MyContext.Consumer)</li>
+          <li>Incorrect: useContext(MyContext.Provider)</li>
+        </ul>
+        <p>
+          A component calling useContext will always re-render when the context
+          value changes. If re-rendering the component is expensive, you can
+          optimize it by using memoization.
+        </p>
+      </section>
+      <section class="main-section" id="useReducer">
+        <header><h2>useReducer Hook</h2></header>
+      </section>
+      <section class="main-section" id="useCallback">
+        <header><h2>useCallback Hook</h2></header>
+      </section>
+      <section class="main-section" id="useMemo">
+        <header><h2>useMemo Hook</h2></header>
+      </section>
+      <section class="main-section" id="useRef">
+        <header><h2>useRef Hook</h2></header>
+      </section>
+      <section class="main-section" id="useImperativeHandle">
+        <header><h2>useImperativeHandle Hook</h2></header>
+      </section>
+      <section class="main-section" id="useLayoutEffect">
+        <header><h2>useLayoutEffect Hook</h2></header>
+      </section>
+      <section class="main-section" id="useDebugValue">
+        <header><h2>useDebugValue Hook</h2></header>
+      </section>
+    </main>
+    <script
+      type="text/javascript"
+      src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"
+    ></script>
+    <script src="scripts/prism.js"></script>
+  </body>
+</html>
