@@ -57,6 +57,9 @@ body {
 .top-header > h1 {
   margin-left: 10px;
 }
+.header-menu {
+  display: none;
+}
 .small-image,
 .big-image {
   background-color: #3b3d44;
@@ -102,14 +105,48 @@ kbd {
 }
 
 @media only screen and (max-width: 765px) {
+  html,
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
   body {
     display: flex;
     flex-flow: column nowrap;
   }
   #navbar {
+    flex: 0 0 auto;
     width: 100vw;
     max-width: none;
     min-width: none;
-    height: 400px;
+    height: 94px;
+    overflow: hidden;
+  }
+  #navbar.expand {
+    height: 300px;
+  }
+  #header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  #main-doc {
+    flex: 1 1 auto;
+  }
+  #main-doc > .top-header {
+    padding: 0;
+    display: flex;
+    flex-flow; row wrap;
+    justify-content: center;
+  }
+  .header-menu {
+    display: block;
+    margin-left: auto;
+    background-image: url("../images/ic_menu_white_48dp.png");
+    width: 48px;
+    height: 48px;
+  }
+  .header-menu:hover {
+ background-image: url("../images/ic_menu_black_48dp.png");
   }
 }
