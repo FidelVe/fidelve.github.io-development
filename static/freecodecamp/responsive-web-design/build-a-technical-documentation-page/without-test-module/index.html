@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emmet.Vim</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="./styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="./styles/prism.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header id="header">
+        <div class="top-header">
+          <img
+            class="small-image"
+            src="./images/emmet-logo.png"
+            alt="emmet logo"
+          />
+          <h2>Emmet.Vim</h2>
+        </div>
+        <div class="header-menu">
+          <!-- <img -->
+          <!--   class="menu-img" -->
+          <!--   src="./images/ic_menu_white_48dp.png" -->
+          <!--   alt="menu button" -->
+          <!-- /> -->
+        </div>
+      </header>
+      <ul>
+        <li>
+          <a class="nav-link" href="#Expand_an_Abbreviation"
+            >Expand an Abbreviation</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Wrap_with_an_Abbreviation"
+            >Wrap with an Abbreviation</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Balance_a_Tag_Inward"
+            >Balance a Tag Inward</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Balance_a_Tag_Outward"
+            >Balance a Tag Outward</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Go_to_the_Next_Edit_Point"
+            >Go to the Next Edit Point</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Go_to_the_Previous_Edit_Point"
+            >Go to the Previous Edit Point</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Update_an_img_Size">Update an img Size</a>
+        </li>
+        <li><a class="nav-link" href="#Merge_Lines">Merge Lines</a></li>
+        <li><a class="nav-link" href="#Remove_a_Tag">Remove a Tag</a></li>
+        <li><a class="nav-link" href="#Split-Join_Tag">Split-Join Tag</a></li>
+        <li><a class="nav-link" href="#Toggle_Comment">Toggle Comment</a></li>
+        <li>
+          <a class="nav-link" href="#Make_an_anchor_from_a_URL"
+            >Make an anchor from a URL</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Make_some_quoted_text_from_a_URL"
+            >Make some quoted text from a URL</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="#Installing_emmet_vim_for_the_language_you_are_using"
+            >Installing emmet vim for the language you are using</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            href="#Enable_emmet_vim_for_the_language_you_are_using"
+            >Enable emmet vim for the language you are using</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <div class="top-header">
+        <img class="big-image" src="./images/emmet-logo.png" alt="emmet logo" />
+        <h1>Emmet.vim Tutorial</h1>
+      </div>
+      <p>
+        Emmet.vim tutorial originally published in the
+        <a href="https://github.com/mattn/emmet-vim/blob/master/TUTORIAL"
+          >official github</a
+        >
+        repo for <a href="https://github.com/mattn/emmet-vim">emmet-vim.</a>
+      </p>
+      <p></p>
+      <section id="Expand_an_Abbreviation" class="main-section">
+        <header><h2>Expand an Abbreviation</h2></header>
+
+        <p>
+          Type the abbreviation as
+          <code class="language-html">div&gt;p#foo$*3&gt;a</code> and type
+          <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>,</kbd>.
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div&gt;
+        &lt;p id="foo1"&gt;
+            &lt;a href=""&gt;&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p id="foo2"&gt;
+            &lt;a href=""&gt;&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p id="foo3"&gt;
+            &lt;a href=""&gt;&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Wrap_with_an_Abbreviation" class="main-section">
+        <header><h2>Wrap with an Abbreviation</h2></header>
+        <p>
+          Write as below.
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    test1
+    test2
+    test3
+  </code></pre>
+        </div>
+        <p>
+          Then do visual select(line wise with <kbd>shift</kbd>+<kbd>V</kbd>)
+          and type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>,</kbd>.
+        </p>
+        <p>
+          Once you get to the <code class="language-bash">Tag:</code> prompt,
+          type <code class="language-bash">ul&gt;li*</code>.
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;ul&gt;
+        &lt;li&gt;test1&lt;/li&gt;
+        &lt;li&gt;test2&lt;/li&gt;
+        &lt;li&gt;test3&lt;/li&gt;
+    &lt;/ul&gt;
+  </code></pre>
+        </div>
+        <p>
+          If you type a tag, such as
+          <code class="language-html">&lt;blockquote&gt;</code>, then you'll see
+          the following:
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;blockquote&gt;
+        test1
+        test2
+        test3
+    &lt;/blockquote&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Balance_a_Tag_Inward" class="main-section">
+        <header><h2>Balance a Tag Inward</h2></header>
+        <p>type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>d</kbd> in insert mode.</p>
+      </section>
+      <section id="Balance_a_Tag_Outward" class="main-section">
+        <header><h2>Balance a Tag Outward</h2></header>
+
+        <p>type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>D</kbd> in insert mode.</p>
+      </section>
+      <section id="Go_to_the_Next_Edit_Point" class="main-section">
+        <header><h2>Go to the Next Edit Point</h2></header>
+
+        <p>type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>n</kbd> in insert mode.</p>
+      </section>
+      <section id="Go_to_the_Previous_Edit_Point" class="main-section">
+        <header><h2>Go to the Previous Edit Point</h2></header>
+
+        <p>type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>N</kbd> in insert mode.</p>
+      </section>
+      <section id="Update_an_img_Size" class="main-section">
+        <header>
+          <h2>Update an img Size</h2>
+        </header>
+
+        <p>
+          Move cursor to the img tag.
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;img src="foo.png" /&gt;
+  </code></pre>
+        </div>
+        <p>Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>i</kbd> on img tag</p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;img src="foo.png" width="32" height="48" /&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Merge_Lines" class="main-section">
+        <header><h2>Merge Lines</h2></header>
+
+        <p>
+          select the lines, which include
+          <code class="language-html">&lt;li&gt;</code>
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;ul&gt;
+    	&lt;li class="list1"&gt;&lt;/li&gt;
+    	&lt;li class="list2"&gt;&lt;/li&gt;
+    	&lt;li class="list3"&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  </code></pre>
+        </div>
+        <p>and then type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>m</kbd></p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;ul&gt;
+    	&lt;li class="list1"&gt;&lt;/li&gt;&lt;li class="list2"&gt;&lt;/li&gt;&lt;li class="list3"&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Remove_a_Tag" class="main-section">
+        <header><h2>Remove a Tag</h2></header>
+
+        <p>
+          Move cursor in block
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div class="foo"&gt;
+    	&lt;a&gt;cursor is here&lt;/a&gt;
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+        <p>Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>k</kbd> in insert mode.</p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div class="foo"&gt;
+    
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+
+        <p>
+          And type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>k</kbd> in there again.
+        </p>
+      </section>
+      <section id="Split-Join_Tag" class="main-section">
+        <header><h2>Split-Join Tag</h2></header>
+
+        <p>
+          Move the cursor inside block
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div class="foo"&gt;
+    	cursor is here
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+        <p>Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>j</kbd> in insert mode.</p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div class="foo"/&gt;
+  </code></pre>
+        </div>
+        <p>
+          And then type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>j</kbd> in there
+          again.
+        </p>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div class="foo"&gt;
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Toggle_Comment" class="main-section">
+        <header><h2>Toggle Comment</h2></header>
+        <ul>
+          <li>
+            Move cursor inside the block
+          </li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div&gt;
+    	hello world
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+        <ul>
+          <li>
+            Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>/</kbd> in insert mode.
+          </li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;!-- &lt;div&gt;
+    	hello world
+    &lt;/div&gt; --&gt;
+  </code></pre>
+        </div>
+        <ul>
+          <li>
+            Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>/</kbd> in there again.
+          </li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;div&gt;
+    	hello world
+    &lt;/div&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Make_an_anchor_from_a_URL" class="main-section">
+        <header><h2>Make an anchor from a URL</h2></header>
+        <ul>
+          <li>
+            Move cursor to URL
+          </li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    http://www.google.com/
+  </code></pre>
+        </div>
+        <ul>
+          <li>Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>a</kbd></li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;a href="http://www.google.com/"&gt;Google&lt;/a&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section id="Make_some_quoted_text_from_a_URL" class="main-section">
+        <header><h2>Make some quoted text from a URL</h2></header>
+        <ul>
+          <li>
+            Move cursor to the URL
+          </li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    http://github.com/
+  </code></pre>
+        </div>
+        <ul>
+          <li>Type <kbd>Ctrl</kbd>+<kbd>y</kbd> <kbd>A</kbd></li>
+        </ul>
+        <div class="code-block">
+          <pre class="language-html"><code>
+    &lt;blockquote class="quote"&gt;
+    	&lt;a href="http://github.com/"&gt;Secure source code hosting and collaborative development - GitHub&lt;/a&gt;&lt;br /&gt;
+    	&lt;p&gt;How does it work? Get up and running in seconds by forking a project, pushing an existing repository...&lt;/p&gt;
+    	&lt;cite&gt;http://github.com/&lt;/cite&gt;
+    &lt;/blockquote&gt;
+  </code></pre>
+        </div>
+      </section>
+      <section
+        id="Installing_emmet_vim_for_the_language_you_are_using"
+        class="main-section"
+      >
+        <header>
+          <h2>Installing emmet vim for the language you are using</h2>
+        </header>
+        <div class="code-block">
+          <pre class="language-bash"><code>
+    # cd ~/.vim
+    # unzip emmet-vim.zip
+  </code></pre>
+        </div>
+        <p>
+          Or if you are using pathogen.vim:
+        </p>
+        <div class="code-block">
+          <pre class="language-bash"><code>
+    # cd ~/.vim/bundle # or make directory
+    # unzip /path/to/emmet-vim.zip
+  </code></pre>
+        </div>
+        <p>
+          Or if you get the sources from the repository:
+        </p>
+        <div class="code-block">
+          <pre class="language-bash"><code>
+    # cd ~/.vim/bundle # or make directory
+    # git clone http://github.com/mattn/emmet-vim.git
+  </code></pre>
+        </div>
+      </section>
+      <section
+        id="Enable_emmet_vim_for_the_language_you_are_using"
+        class="main-section"
+      >
+        <header>
+          <h2>Enable emmet vim for the language you are using</h2>
+        </header>
+        <p>
+          You can customize the behavior of the languages you are using.
+        </p>
+        <div class="code-block">
+          <pre class="language-bash"><code>
+    # cat &gt;&gt; ~/.vimrc
+    let g:user_emmet_settings = {
+    \  'php' : {
+    \    'extends' : 'html',
+    \    'filters' : 'c',
+    \  },
+    \  'xml' : {
+    \    'extends' : 'html',
+    \  },
+    \  'haml' : {
+    \    'extends' : 'html',
+    \  },
+    \}
+  </code></pre>
+        </div>
+      </section>
+    </main>
+    <script src="scripts/prism.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
