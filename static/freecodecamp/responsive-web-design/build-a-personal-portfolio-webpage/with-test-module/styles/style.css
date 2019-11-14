@@ -1,0 +1,13 @@
+/* CSS Style file for my portfolio page at fidel.engineer/portfolio */
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#background {
+  background-image: url("../images/background-original.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  /* height: 100vh; */
+}
